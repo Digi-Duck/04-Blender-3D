@@ -1,0 +1,340 @@
+<!-- 
+  用OBJALL陣列包obj 可以點擊事件
+  vendingCamera的look.at 放在obj的function裡
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0px;
+      padding: 0px;
+    }
+    .label {
+      font-size: 18px;
+      color: white;
+      border: 5px solid red;
+      background-color: #3f765c;
+    }
+    .OBJview{
+      width: 400px;
+      height: 400px;
+      background-color: #3f765c;
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      display: none;
+      border: 5px solid red;
+
+
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="OBJview"></div>
+  <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+
+  <script type="importmap">
+    {
+    "imports": {
+      "three": "https://unpkg.com/three@latest/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@latest/examples/jsm/"
+    }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="module">
+
+    // 引入three.js
+    import * as THREE from 'three';
+    // 引入three.js附加功能
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+    import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
+    import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
+    import { MTLLoader } from 'three/addons/loaders/MTLLoader.js';
+    import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+
+    const scene = new THREE.Scene();
+    const color = new THREE.Color('#9ae8c4');
+    scene.background = color;  
+    
+
+
+    const raycaster = new THREE.Raycaster();
+
+    const pointer = new THREE.Vector2();
+
+    const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 100000 );
+    const vendingCamera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+    let camIndex = 0;
+    const cameras = [
+      {
+        name: '上帝視角',
+        camera: camera,
+      },
+      {
+        name: '投幣式飲料機視角',
+        camera: vendingCamera,
+      },
+    ];
+    camera.position.set(20, 8,40);
+    vendingCamera.position.set(2,2,2);
+
+    let player = {
+    height: .5,
+    turnSpeed: .1,
+    speed: .1,
+    jumpHeight: .2,
+    gravity: .01,
+    velocity: 0,
+    
+    playerJumps: false
+    };
+
+
+
+
+// OBJ物物物物物物物物物物物物物物物物物物物物物物物物件件件件件件件
+
+    let AllObj=[];
+// 地板~~~~~~~~~~
+    const planeOBJloader = new OBJLoader();
+    const planeMTLloader = new MTLLoader();
+    planeMTLloader.load(
+        './models/8Fplane1018-.mtl',
+        (materials)=>{
+            materials.side = THREE.DoubleSide;
+            planeOBJloader.setMaterials(materials);
+        },
+    );
+    planeOBJloader.load(
+        './models/8Fplane1018-.obj',
+        function ( object ) {
+          object.scale.set(10,10,10);
+          scene.add( object );
+        },
+    );
+// 投幣式飲料機~~~~~~~~~
+  const geometry = new THREE.SphereGeometry( 1, 32, 16 );
+    const material = new THREE.MeshStandardMaterial( { color: 'white' } );
+    const vendingposition = new THREE.Mesh( geometry, material );
+    scene.add( vendingposition );
+    const vendingOBJloader = new OBJLoader();
+    const vendingMTLloader = new MTLLoader();
+    vendingMTLloader.load(
+        './models/vending-machine.mtl',
+        (materials)=>{
+            materials.side = THREE.DoubleSide;
+            vendingOBJloader.setMaterials(materials);
+        },
+    );
+    vendingOBJloader.load(
+        './models/vending-machine.obj',
+        function abc ( object ) {
+          // object.position.set(4,1,-4);
+          object.scale.set(10,10,10);
+          vendingposition.add( object );
+          object.add(vendingLabel);
+          object.add(vendingCamera);
+          vendingCamera.lookAt(object.position);
+          spotLight.target = object;
+          AllObj.push(object);
+          
+          
+      },
+    );
+  
+    
+    // OBJview場景   第二場景
+    const OBJview = document.querySelector('.OBJview');
+    const OBJscene = new THREE.Scene();
+    OBJscene.background = color;
+    const OBJlight = new THREE.AmbientLight( 0x404040,30 ); // soft white light
+    OBJscene.add( OBJlight );
+    const OBJcamera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 10000 );
+    OBJcamera.position.set(4,0,4);
+    const OBJrenderer = new THREE.WebGLRenderer();
+    OBJrenderer.setSize( 300, 300 );
+    OBJview.appendChild( OBJrenderer.domElement );
+    const OBJcontrols = new OrbitControls( OBJcamera, OBJrenderer.domElement );
+    const vending2OBJloader = new OBJLoader();
+    const vending2MTLloader = new MTLLoader();
+    vending2MTLloader.load(
+        './models/vending-machine.mtl',
+        (materials)=>{
+            materials.side = THREE.DoubleSide;
+            vending2OBJloader.setMaterials(materials);
+        },
+    );
+    vending2OBJloader.load(
+        './models/vending-machine.obj',
+        function abc ( object ) {
+          // object.position.set(4,1,-4);
+          object.scale.set(10,10,10);
+          OBJscene.add( object );
+          OBJcamera.lookAt(object.position);
+      },
+    );
+    function animate2() {
+      requestAnimationFrame( animate2 );
+      OBJrenderer.render( OBJscene,OBJcamera );
+    }
+    animate2();
+
+    // 燈光
+    const light = new THREE.AmbientLight( 0x404040,50 );
+    scene.add( light );
+    const spotLight = new THREE.SpotLight( 0xffffff );
+    spotLight.power = 100000;
+    spotLight.angle = 0.25;
+    const spotLightHelper = new THREE.SpotLightHelper( spotLight );
+    spotLight.position.set(0, 3, 0);
+
+
+    // 輔助
+    const axesHelper = new THREE.AxesHelper( 5 );
+    scene.add( axesHelper );
+    const gridHelper = new THREE.GridHelper(200, 20);
+    scene.add(gridHelper);
+
+    // 標籤
+  const vendingDiv = document.createElement('div');
+    vendingDiv.className = 'label';
+    vendingDiv.textContent = '觀看物件圖';
+    // vendingDiv.style.marginTop = "1.5em";
+    const vendingLabel = new CSS2DObject(vendingDiv);
+    vendingLabel.position.set(0,1,0);
+
+
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    document.body.appendChild( renderer.domElement );
+
+    let labelRenderer = new CSS2DRenderer();
+    labelRenderer.setSize(window.innerWidth, window.innerHeight);
+    labelRenderer.domElement.style.position = "absolute";
+    labelRenderer.domElement.style.pointerEvents = "none";
+    labelRenderer.domElement.style.top = "0px";
+    document.body.appendChild(labelRenderer.domElement);
+
+    vendingDiv.style.pointerEvents = 'auto';
+
+    vendingDiv.addEventListener( 'click', function ( e ) {
+    console.log('唷唷唷'+OBJview.style);
+    OBJview.style='display:block';
+    } );
+
+
+
+
+    // 按鈕BTN控制相機
+    // const btns = document.querySelectorAll('.btn');
+    // btns.forEach((btn) => {
+    //   btn.addEventListener('click', () => {
+    //     camIndex = parseInt(btn.dataset.index);
+    //     console.log(`現在的攝影機為${cameras[camIndex].name}`);
+    //   });
+    // });
+    
+    // function rotatePosition(distance = 2, angle = 0) {
+    //   let x = distance * Math.sin(angle);
+    //   let z = distance * Math.cos(angle);
+    //   return { x, z };
+    // }
+
+
+
+    window.addEventListener('resize', resetSetting);
+    window.addEventListener('mousemove', mouseMove);
+    window.addEventListener('click', mouseClick);
+
+      function pointerSetting(event) {
+      pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+	    pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+    }
+
+    function mouseClick(event) {
+      if (event.target.tagName === 'BUTTON') return;
+      pointerSetting(event);
+      
+      raycaster.setFromCamera( pointer, cameras[camIndex].camera );
+      const intersects = raycaster.intersectObjects( AllObj,true );
+      if (intersects.length > 0) {
+        camIndex = 1;
+
+      } else {
+        camIndex = 0;
+      }
+    //   camIndex = (intersects.length > 0) ? 1 : 0;
+    }
+
+
+
+    function mouseMove(event) {
+      pointerSetting(event);
+      raycaster.setFromCamera( pointer, cameras[camIndex].camera );
+      const intersects = raycaster.intersectObjects( AllObj, false );
+      if (intersects.length > 0 ) {
+        scene.add( spotLight );
+        scene.add( spotLightHelper );
+      } else {
+        scene.remove( spotLight );
+        scene.remove( spotLightHelper );
+      }
+    }
+
+    function resetSetting() {
+      renderer.setSize( window.innerWidth, window.innerHeight );
+      labelRenderer.setSize(window.innerWidth, window.innerHeight);
+
+      cameras.forEach((item) => {
+        item.camera.aspect = window.innerWidth / window.innerHeight;
+        item.camera.updateProjectionMatrix();
+      });
+    }
+    const controls = new OrbitControls( camera, renderer.domElement );
+    const controlsx = new OrbitControls( vendingCamera, renderer.domElement );
+    
+    // let angle = 0;
+    // let moonAngle = 0;
+    // let sunAngle = 0;
+    function animate() {
+      requestAnimationFrame( animate );
+      // 用滑鼠控制場景方向
+      
+
+      
+
+      // spotLight.position.set(earth.position.x, earth.position.y + 10, earth.position.z);
+      // spotLight.target = earth;
+      
+
+      renderer.render( scene, cameras[camIndex].camera );
+      labelRenderer.render(scene, cameras[camIndex].camera );
+    }
+    
+    animate();
+    function loop() {
+    update();
+    }
+    loop();
+
+
+
+
+  </script>
+
+
+</body>
+</html>
