@@ -90,6 +90,8 @@ nav {
 			opacity: 0.9;
 			cursor: pointer;
 			background-color: #fff;
+			letter-spacing: 5px;
+			font-weight: bolder;
 		}
 		.btn:hover,
 		.btn:focus {
@@ -98,14 +100,8 @@ nav {
 			transition: 1s;
 			transform: translateY(-5px);
 			font-size: 30px;
-			font-weight: 900;
+			
 		}
-	}
-	a {
-		font-size: 32px;
-		cursor: pointer;
-		font-weight: 900;
-		letter-spacing: 5px;
 	}
 }
 
