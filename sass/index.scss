@@ -30,11 +30,13 @@ a:visited {
 	padding: 10px;
 	margin-bottom: 50px;
 	align-items: center;
+	justify-content: space-evenly;
 }
 
 .banner-video {
 	width: 60%;
-	margin: 30px;
+	margin: 60px 0px;
+	margin-left: -20px;
 	video {
 		box-shadow: 5px 5px 10px #000;
 	}
@@ -46,8 +48,7 @@ a:visited {
 	font-family: "Poppins", sans-serif;
 	align-self: center;
 	padding: 10px;
-	margin-left: 50px;
-	font-size: 55px;
+	font-size: 60px;
 	position: relative;
 	text-shadow: 1px 1px 2px #000;
 	letter-spacing: 5px;
@@ -55,13 +56,13 @@ a:visited {
 .banner-title::before {
 	content: url(../img/花花\(NEW\).png);
 	position: absolute;
-	right: -30px;
-	bottom: -15px;
+	right: -20px;
+	bottom: -20px;
 }
 
 nav {
-	margin: 0px 20px;
-	height: 150px;
+	margin: 0px 10px;
+	height: 100px;
 	display: flex;
 	border-radius: 10px;
 	background-color: #608cb1;
@@ -72,26 +73,26 @@ nav {
 		animation: logo 0.8s infinite;
 		margin: 20px;
 		img {
-			width: 120px;
+			width: 80px;
 			overflow: hidden;
 			object-fit: cover;
 		}
 	}
 	.btn-group {
 		display: flex;
-		margin: 20px;
+		margin: 15px;
 		.btn {
 			border-radius: 30px;
-			font-size: 28px;
+			font-size: 22px;
 			text-align: center;
-			padding: 25px 10px;
+			padding: 10px;
 			margin: 10px;
 			box-shadow: 1px 1px 5px #000;
 			opacity: 0.9;
 			cursor: pointer;
 			background-color: #fff;
 			letter-spacing: 5px;
-			font-weight: bolder;
+			font-weight: 900;
 		}
 		.btn:hover,
 		.btn:focus {
@@ -99,8 +100,7 @@ nav {
 			box-shadow: 5px 5px 10px #000;
 			transition: 1s;
 			transform: translateY(-5px);
-			font-size: 30px;
-			
+			font-size: 26px;
 		}
 	}
 }
@@ -127,6 +127,7 @@ nav {
 	}
 }
 
+// animation.css
 .animate__animated.animate__backInRight {
 	--animate-duration: 2s;
 }
