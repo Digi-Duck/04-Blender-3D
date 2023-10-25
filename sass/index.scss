@@ -5,6 +5,19 @@
 	box-sizing: border-box;
 }
 
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+a:visited {
+	color: inherit;
+}
+
 .container {
 	width: 100%;
 	height: 100vh;
@@ -15,7 +28,6 @@
 	width: 100%;
 	display: flex;
 	padding: 10px;
-	justify-content: space-evenly;
 	margin-bottom: 50px;
 	align-items: center;
 }
@@ -31,29 +43,20 @@
 .banner-title {
 	font-family: "Noto Sans TC", sans-serif;
 	font-family: "Playpen Sans", cursive;
+	font-family: "Poppins", sans-serif;
 	align-self: center;
 	padding: 10px;
-	font-size: 60px;
+	margin-left: 50px;
+	font-size: 55px;
 	position: relative;
-	text-shadow: 2px 2px 5px #000;
+	text-shadow: 1px 1px 2px #000;
+	letter-spacing: 5px;
 }
 .banner-title::before {
 	content: url(../img/花花\(NEW\).png);
 	position: absolute;
-	left: -25px;
-	top: -5px;
-}
-li {
-	list-style: none;
-}
-
-a {
-	text-decoration: none;
-	color: #000;
-}
-
-a:visited {
-	color: inherit;
+	right: -30px;
+	bottom: -15px;
 }
 
 nav {
@@ -66,20 +69,22 @@ nav {
 	box-shadow: 2px 0px 10px #000;
 	align-items: center;
 	.logo {
+		animation: logo 0.8s infinite;
 		margin: 20px;
 		img {
-			width: 150px;
+			width: 120px;
 			overflow: hidden;
 			object-fit: cover;
 		}
 	}
-	ul {
+	.btn-group {
 		display: flex;
 		margin: 20px;
 		.btn {
 			border-radius: 30px;
+			font-size: 28px;
 			text-align: center;
-			padding: 30px 10px;
+			padding: 25px 10px;
 			margin: 10px;
 			box-shadow: 1px 1px 5px #000;
 			opacity: 0.9;
@@ -92,6 +97,8 @@ nav {
 			box-shadow: 5px 5px 10px #000;
 			transition: 1s;
 			transform: translateY(-5px);
+			font-size: 30px;
+			font-weight: 900;
 		}
 	}
 	a {
@@ -100,4 +107,30 @@ nav {
 		font-weight: 900;
 		letter-spacing: 5px;
 	}
+}
+
+//動畫
+@keyframes logo {
+	0% {
+		transform: translateY(10px);
+	}
+	20% {
+		transform: translateY(5px);
+	}
+	40% {
+		transform: translateY(0px);
+	}
+	60% {
+		transform: translateY(-5px);
+	}
+	80% {
+		transform: translateY(-10px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
+}
+
+.animate__animated.animate__backInRight {
+	--animate-duration: 2s;
 }

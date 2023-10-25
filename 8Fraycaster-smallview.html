@@ -1,55 +1,30 @@
-<!-- 
-  用OBJALL陣列包obj 可以點擊事件
-  vendingCamera的look.at 放在obj的function裡
-
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0px;
-      padding: 0px;
-    }
-    .label {
-      font-size: 12px;
-      color: white;
-      border: 2px solid red;
-      /* background-color: #3f765c; */
-      cursor: pointer;
-
-    }
-    .OBJview{
-      /* width: 400px;
-      height: 400px; */
-      background-color: #3f765c;
-      z-index: 9;
-      position: absolute;
-      top: 50px;
-      left: 50px;
-      display: none;
-      border: 2px solid red;
-    }
-    .closebutton{
-      width: 40px;
-      height: 25px;
-      background-color:black;
-      border: 1px solid white;
-      color: white;
-      cursor: pointer;
-    }
-
-
-  </style>
+  <link rel="stylesheet" href="./css/8Fraycaster.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
+  <nav>
+    <div class="logo"><img src="./img/LOGO(白透).png" alt=""></div>
+    <ul class="btn-group">
+      <a href="index.html">
+        <li class="btn">
+          <i class="fa-solid fa-arrow-left left"></i>
+          回到首頁
+        </li>
+      </a>
+      <a href="#">
+        <li class="btn">
+          漫步八樓
+          <i class="fa-solid fa-arrow-right right"></i>
+        </li>
+      </a>
+    </ul>
+  </nav>
   <div class="OBJview"><div class="closebutton">關閉</div></div>
   <div class="BakingRoom label">烘焙教室</div>
 
