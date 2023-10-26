@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Overview of the 8th floor</title>
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/swiper.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
 </head>
 <body>
@@ -27,10 +28,43 @@
         <div class="main-paragraph">
             <h2 class="main-title">綜合教學大樓8F</h2>
             <p class="main-article">
-            這棟建築與創新產業做結合<br>於特定樓層有課程上的連結，而在八樓擁有多元功能的教室<br>如：舞蹈教室、音樂教室、手作教室、烘焙教室以及物聯網基地與負責推廣這些課程的推廣教育組等等
+            <span>這棟建築與創新產業做結合</span><br><span>於特定樓層有課程上的連結，而在八樓擁有多元功能的教室</span><br><span>如：舞蹈教室、音樂教室、手作教室、烘焙教室以及物聯網基地與負責推廣這些課程的推廣教育組等等</span>
             </p>
         </div>
     </section>
-    </section>
+   <section>
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="https://picsum.photos/id/237/600/300" alt=""></div>
+          <div class="swiper-slide"><img src="https://picsum.photos/id/237/600/300" alt=""></div>
+          <div class="swiper-slide"><img src="https://picsum.photos/id/237/600/300" alt=""></div>
+          <div class="swiper-slide"><img src="https://picsum.photos/id/237/600/300" alt=""></div>
+          <div class="swiper-slide"><img src="https://picsum.photos/id/237/600/300" alt=""></div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <!-- <div class="swiper-pagination"></div> -->
+      </div>
+   </section>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+</script>
+    
 </body> 
 </html>
