@@ -163,13 +163,6 @@ a:visited {
   border-radius: 10px;
 }
 
-.footer-nav {
-  text-align: center;
-  width: 100%;
-  padding: 50px;
-  background-color: #F9DC5C;
-}
-
 @keyframes logo {
   0% {
     transform: translateY(10px);
