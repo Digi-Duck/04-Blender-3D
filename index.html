@@ -1,39 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Overview of the 8th floor</title>
-    <link rel="stylesheet" href="./css/index.css">
-    <link rel="stylesheet" href="./css/swiper.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overview of the 8th floor</title>
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/swiper.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 </head>
+
 <body>
-    <section class="container">
-        <section class="banner">
-            <video width="100%" muted loop class="banner-video">
-                <source src="./video/3D1背景影片0001-0600.mp4" type="video/mp4">
-            </video>
-            <h1 class="logo"> <img src="./img/LOGO(橫白透).png" alt=""></h1>
-            <h3 class="banner-title">Overview of The 8th Floor</h3>
-            <ul class="btn-group">
-                <a href="8Fraycaster-smallview.html"><li class="btn">看見捌樓</li></a>
-                <a href="#"><li class="btn">漫步八樓</li></a>
-            </ul>
-        </section>
-    <section class="main">
-        <div class="main-paragraph">
-            <h2 class="main-title">綜合教學大樓8F</h2>
-            <p class="main-article">
-            <span>這棟建築與創新產業做結合</span><br><span>於特定樓層有課程上的連結，而在八樓擁有多元功能的教室</span><br><span>如：舞蹈教室、音樂教室、手作教室、烘焙教室以及物聯網基地與負責推廣這些課程的推廣教育組等等</span>
-            </p>
-        </div>
+  <section class="container">
+    <section class="banner">
+      <video width="100%" muted loop class="banner-video">
+        <source src="./video/3D1背景影片0001-0600.mp4" type="video/mp4">
+      </video>
+      <h1 class="logo"> <img src="./img/LOGO(橫白透).png" alt=""></h1>
+      <h3 class="banner-title" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">Overview
+        of the 8th floor</h3>
+      <ul class="btn-group">
+        <a href="8Fraycaster-smallview.html">
+          <li class="btn">看見捌樓</li>
+        </a>
+        <a href="#">
+          <li class="btn">漫步八樓</li>
+        </a>
+      </ul>
     </section>
-   <section>
-    <div class="swiper mySwiper">
+    <section class="main">
+      <div class="main-paragraph">
+        <h2 class="main-title" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">綜合教學大樓8F</h2>
+        <p class="main-article" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+          <span>這棟建築與創新產業做結合</span><br><span>於特定樓層有課程上的連結，而在八樓擁有多元功能的教室</span><br><span>如：舞蹈教室、音樂教室、手作教室、烘焙教室以及物聯網基地與負責推廣這些課程的推廣教育組等等</span>
+        </p>
+      </div>
+    </section>
+    <section>
+      <div class="swiper mySwiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide"><img src="https://picsum.photos/id/237/600/300" alt=""></div>
           <div class="swiper-slide"><img src="https://picsum.photos/id/237/600/300" alt=""></div>
@@ -45,16 +53,51 @@
         <div class="swiper-button-prev"></div>
         <!-- <div class="swiper-pagination"></div> -->
       </div>
-   </section>
-</section>
+    </section>
+    <section class="main-four-card">
+      <div class="four-card" data-aos="fade-up" data-aos-anchor-placement="bottom-center">
+        <div class="card">
+          <div class="card-img"></div>
+          <div class="card-content">關於我</div>
+        </div>
+        <div class="card">
+          <div class="card-img"></div>
+          <div class="card-content">關於我</div>
+        </div>
+        <div class="card">
+          <div class="card-img"></div>
+          <div class="card-content">關於我</div>
+        </div>
+        <div class="card">
+          <div class="card-img"></div>
+          <div class="card-content">關於我</div>
+        </div>
+      </div>
+
+      </div>
+    </section>
+    <footer>
+      <div class="footer-nav">我是頁尾</div>
+    </footer>
+   
+  </section>
+  
+  
 
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
     var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 1,
-      spaceBetween: 30,
-      loop: true,
+      // slidesPerView: 1,
+      // spaceBetween: 30,
+      // loop: true,
+
+      // 自動播放
+      autoplay: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -64,7 +107,21 @@
         prevEl: ".swiper-button-prev",
       },
     });
-</script>
-    
-</body> 
+
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+</body>
+
 </html>
