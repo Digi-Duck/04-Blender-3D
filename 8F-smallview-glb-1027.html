@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0px;
+      padding: 0px;
+    }
+    .label {
+      font-size: 12px;
+      color: red;
+      cursor: pointer;
+
+    }
+    /* .objView{
+      width: 100%;
+      height: 100%;
+      background-color: #92c5ad;
+      z-index: 9;
+      position: absolute;
+      display: none;
+      display: block;
+      display: flex;
+      justify-content: center;
+    } */
+    .objView{
+      width: 100%;
+      height: 100%;
+      background-color: #92c5ad;
+      justify-content: center;
+      border: 2px solid red;
+      z-index: 9;
+      position: absolute;
+      /* display: none; */
+    }
+    canvas{
+      width: 50%;
+      height: 50%;
+      margin: auto;
+    }
+    .closebutton{
+      width: 40px;
+      height: 25px;
+      background-color:black;
+      border: 1px solid white;
+      color: white;
+      cursor: pointer;
+      position: absolute;
+      right:15px;
+    }
+    .objName{
+      color:black;
+      font-size: 48px;
+      display: flex;
+      justify-content: center;
+    }
+    .objInfo{
+      color:black;
+      font-size: 24;
+      position: absolute;
+      bottom:50px;
+    }
+    .nav{
+      width: 100%;
+      height: 15%;
+      background-color: rgb(178, 99, 99);
+      position:absolute;
+      bottom: 0px;
+
+    }
+
+  </style>
+</head>
+<body>
+    <div class="objView">    
+    <div class="closebutton">關閉</div> 
+    <div class="objName">烘焙教室</div>
+    <div class="objInfo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur libero quia eaque ullam tempore quod recusandae eos autem nesciunt, quidem, dicta id velit voluptatibus accusantium soluta! Unde porro iusto dignissimos.
+    Distinctio, accusantium aut! Rerum, vero ex! Porro tenetur assumenda soluta, nobis consectetur eum incidunt illum deleniti animi labore eos nostrum exercitationem provident eveniet aut consequuntur tempora corrupti velit accusamus modi.</div>
+    </div>
+    <div class="nav">
+      <button class="DIYRoom">手作教室</button>
+    </div>
+  <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+  <script type="importmap">
+    {
+    "imports": {
+      "three": "https://unpkg.com/three@latest/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@latest/examples/jsm/"
+    }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+    import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+    import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
+    import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+     // 主畫面渲染
+     const renderer=new THREE.WebGLRenderer({
+      antialias: true,    //是否開啟反鋸齒
+      precision:" highp", //highp/mediump/lowp 著色的精準度選擇，分別為高/中/低
+      alpha: true,        //是否設置背景色透明
+      premultipliedAlpha: false,  //是否設置Alpha著色透明度
+      stencil: false, //是否開啟繪圖緩衝組成
+      preserveDrawingBuffer: true, //是否保存繪圖緩衝
+      maxLights:1         //maxLights:最大燈光數
+    });
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    document.body.appendChild( renderer.domElement,);
+    // 標籤渲染
+    const labelRenderer = new CSS2DRenderer();
+    labelRenderer.setSize(window.innerWidth, window.innerHeight);
+    labelRenderer.domElement.style.position = "absolute";
+    labelRenderer.domElement.style.pointerEvents = "none";
+    labelRenderer.domElement.style.top = "0px";
+    document.body.appendChild(labelRenderer.domElement);
+    // 場景及顏色
+    const scene = new THREE.Scene();
+    const color = new THREE.Color(0x76c7fb);
+    // const color = new THREE.Color('black');
+    scene.background = color;   
+        // 燈光
+    // 環境光
+    // const light = new THREE.AmbientLight( 0x404040,10 );
+    // scene.add( light );
+    // 半球光
+    const hemispherelight = new THREE.HemisphereLight( 0x404040, 0x404040, 5 );
+    const hemispherehelper = new THREE.HemisphereLightHelper( hemispherelight, 5 );
+    hemispherelight.position.set(0, 30, 0);
+    scene.add( hemispherelight );
+    scene.add( hemispherehelper );
+    // 輔助
+    const axesHelper = new THREE.AxesHelper( 50 );
+    scene.add( axesHelper );
+    const gridHelper = new THREE.GridHelper(20, 100);
+    scene.add(gridHelper);
+    // 射線
+    const raycaster = new THREE.Raycaster();
+    const pointer = new THREE.Vector2();
+    // 相機
+    const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 100000 );
+    const BakingCamera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+    let camIndex = 0;
+    const cameras = [
+      {
+        name: '上帝視角',
+        camera: camera,
+      },
+      {
+        name: '烘焙教室',
+        camera: BakingCamera,
+      },
+    ];
+
+    camera.position.set(1,1,1);
+
+// 物件
+let AllObj=[];
+// 8F樓板
+const planeLoader = new GLTFLoader();
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath( '/examples/jsm/libs/draco/' );
+planeLoader.setDRACOLoader( dracoLoader );
+planeLoader.load(
+	'./models1023/PlaneAllCube.glb',
+	function ( gltf ) {
+		scene.add(gltf.scene);
+    console.log(gltf.scene.children);
+    // gltf.scene.children[16].material.color={r:9,b:2,g:2}
+		gltf.animations; // Array<THREE.AnimationClip>
+		gltf.scene; // THREE.Group
+		gltf.scenes; // Array<THREE.Group>
+		gltf.cameras; // Array<THREE.Camera>
+		gltf.asset; // Object
+
+    // 舞蹈教室標籤
+    const DancingRoomDIV = document.createElement('div');
+    DancingRoomDIV.className = 'label';
+    DancingRoomDIV.textContent = '815舞蹈教室';
+    const DancingRoomLabel = new CSS2DObject(DancingRoomDIV);
+    DancingRoomLabel.position.set(0,0.5,0);
+    gltf.scene.children[0].add(DancingRoomLabel);
+    // 烘焙教室標籤
+    const BakingRoomDIV = document.createElement('div');
+    BakingRoomDIV.className = 'label';
+    BakingRoomDIV.textContent = '813烘焙教室';
+    const BakingRoomLabel = new CSS2DObject(BakingRoomDIV);
+    BakingRoomLabel.position.set(0,0.5,0);
+    gltf.scene.children[1].add(BakingRoomLabel);
+    // 大手作教室標籤
+    const BigDIYRoomDIV = document.createElement('div');
+    BigDIYRoomDIV.className = 'label';
+    BigDIYRoomDIV.textContent = '811手作教室';
+    const BigDIYRoomLabel = new CSS2DObject(BigDIYRoomDIV);
+    BigDIYRoomLabel.position.set(0,0.5,0);
+    gltf.scene.children[2].add(BigDIYRoomLabel);
+     // 小手作教室標籤
+    const SmallDIYRoomDIV = document.createElement('div');
+    SmallDIYRoomDIV.className = 'label';
+    SmallDIYRoomDIV.textContent = '小手作教室';
+    const SmallDIYRoomLabel = new CSS2DObject(SmallDIYRoomDIV);
+    SmallDIYRoomLabel.position.set(0,0.5,0);
+    gltf.scene.children[3].add(SmallDIYRoomLabel);
+
+    // objView   第二場景
+    const objView = document.querySelector('.objView');
+    const closebutton = document.querySelector('.closebutton');
+    const OBJscene = new THREE.Scene();
+    OBJscene.background = color;
+    // 第二場景半球光
+    const hemispherelight2 = new THREE.HemisphereLight( 0x404040, 0x404040, 5 );
+    const hemispherehelper2 = new THREE.HemisphereLightHelper( hemispherelight2, 0.1 );
+    hemispherelight.position.set(0, 30, 0);
+    // 第二場景輔助
+    const axesHelper2 = new THREE.AxesHelper( 50 );
+    OBJscene.add( axesHelper2 );
+    const gridHelper2 = new THREE.GridHelper(20, 100);
+    OBJscene.add(gridHelper2);
+    // 第二場景相機
+    const OBJcamera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 10000 );
+    OBJcamera.position.set(1,0.5,-6);
+    // 第二場景畫面渲染
+    const OBJrenderer =new THREE.WebGLRenderer({
+      antialias: true,    //是否開啟反鋸齒
+      precision:" highp", //highp/mediump/lowp 著色的精準度選擇，分別為高/中/低
+      alpha: true,        //是否設置背景色透明
+      premultipliedAlpha: false,  //是否設置Alpha著色透明度
+      stencil: false, //是否開啟繪圖緩衝組成
+      preserveDrawingBuffer: true, //是否保存繪圖緩衝
+      maxLights:1         //maxLights:最大燈光數
+    });
+    OBJrenderer.setSize(window.innerWidth/2 , window.innerHeight/2 );
+    objView.appendChild( OBJrenderer.domElement );
+    const OBJcontrols = new OrbitControls( OBJcamera, OBJrenderer.domElement );
+    // 第二場景物件
+    // 為了點擊事件，load物件都包成function
+
+    function InfoView(InfoViewValue) {
+    OBJscene.add( hemispherelight2 );
+    OBJscene.add( hemispherehelper2 );
+    const OBJLoader = new GLTFLoader();
+    const OBJDracoLoader = new DRACOLoader();
+    OBJDracoLoader.setDecoderPath( '/examples/jsm/libs/draco/' );
+    OBJLoader.setDRACOLoader( OBJDracoLoader );
+    OBJLoader.load(
+      './models1023/PlaneAll2.glb',
+      function ( gltf ) {
+        // gltf.scene.children[0]
+        OBJscene.add(gltf.scene.children[InfoViewValue]);
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Group
+        gltf.scenes; // Array<THREE.Group>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
+      }
+    );
+    }
+    InfoView(0);
+    function animate2() {
+      requestAnimationFrame( animate2 );
+      // OBJscene.rotation.y += 0.002;
+      OBJrenderer.render( OBJscene,OBJcamera );
+    }
+    animate2();
+    // 使DIV能夠按到
+    BakingRoomDIV.style.pointerEvents = 'auto';
+    DancingRoomDIV.style.pointerEvents = 'auto';
+    BigDIYRoomDIV.style.pointerEvents = 'auto';
+    SmallDIYRoomDIV.style.pointerEvents = 'auto';
+    // DIV監聽事件 監聽DIV開啟小畫面及個別物件function
+    BakingRoomDIV.addEventListener( 'click', function ( e ) {
+      InfoView(0);
+    objView.style='display:block';
+    } );
+    DancingRoomDIV.addEventListener( 'click', function ( e ) {
+      InfoView(1);
+    objView.style='display:block';
+    } );
+    BigDIYRoomDIV.addEventListener( 'click', function ( e ) {
+    objView.style='display:block';
+    } );
+    SmallDIYRoomDIV.addEventListener( 'click', function ( e ) {
+    objView.style='display:block';
+    } );
+    // // DIV監聽事件 監聽小畫面開關按鈕關閉 環境OBJscene清空
+    closebutton.addEventListener( 'click', function ( e ) {
+    objView.style='display:none';
+    OBJscene.clear();
+    } );
+    
+
+    // resize用於RWD
+    window.addEventListener('mousemove', mouseMove);
+    window.addEventListener('resize', resetSetting);
+    window.addEventListener('click', mouseClick);
+    function pointerSetting(event) {
+      pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+      pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+    }
+    const one=[gltf.scene.children[0]];
+    const two=[gltf.scene.children[1]];
+    function mouseClick(event) {
+      pointerSetting(event);
+      raycaster.setFromCamera( pointer, cameras[camIndex].camera );
+      const intersects = raycaster.intersectObjects( one, true );
+      const intersects2 = raycaster.intersectObjects( two, true );
+      if (intersects.length > 0 ) {
+        InfoView(0);
+        objView.style='display:block';
+      } else if (intersects2.length > 0 ) {
+        InfoView(1);
+        objView.style='display:block';
+      } 
+      
+    }
+    function mouseMove(event) {
+      pointerSetting(event);
+      raycaster.setFromCamera( pointer, cameras[camIndex].camera );
+      const intersects = raycaster.intersectObjects( one, true );
+      const intersects2 = raycaster.intersectObjects( two, true );
+      if (intersects.length > 0 ) {
+        gltf.scene.children[0].material.color={r:255,b:255,g:255}
+      } else {
+        gltf.scene.children[0].material.color={r:1,b:1,g:1}
+      }
+      if (intersects2.length > 0 ) {
+        gltf.scene.children[1].material.color={r:255,b:255,g:255}
+      } else {
+        gltf.scene.children[1].material.color={r:1,b:1,g:1}
+      }
+    }
+    // resetSetting用於RWD
+    function resetSetting() {
+      renderer.setSize( window.innerWidth, window.innerHeight );
+      OBJrenderer.setSize(window.innerWidth/2 , window.innerHeight/2 );
+      labelRenderer.setSize(window.innerWidth, window.innerHeight);
+      cameras.forEach((item) => {
+        item.camera.aspect = window.innerWidth / window.innerHeight;
+        item.camera.updateProjectionMatrix();
+      });
+    }  
+	},
+);
+
+    // 滑鼠控制器
+    const controls = new OrbitControls( camera, renderer.domElement );
+    // const controlsx = new OrbitControls( BakingCamera, renderer.domElement );
+    function animate() {
+      requestAnimationFrame( animate );
+      // console.log('相機'+camIndex);
+      // if(camIndex===0){scene.rotation.y += 0.002;}else{
+      //   scene.rotation.y=0;
+      // }
+      renderer.render( scene, cameras[camIndex].camera );
+      labelRenderer.render(scene, cameras[camIndex].camera );
+    }
+    
+    animate();
+
+  </script>
+
+
+</body>
+</html>
