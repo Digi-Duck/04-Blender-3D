@@ -100,7 +100,7 @@ a:visited {
   color: #ffffff;
   width: 100%;
   margin: auto;
-  background-color: #BCA8A8;
+  background-color: #bca8a8;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -127,7 +127,7 @@ a:visited {
 .main-four-card {
   width: 100%;
   height: 60%;
-  background-color: #BCA8A8;
+  background-color: #bca8a8;
   display: flex;
 }
 .main-four-card .four-card {
@@ -150,14 +150,13 @@ a:visited {
 }
 .main-four-card .card .card-img {
   width: 80%;
-  height: 65%;
   background-color: #ffffff;
   border-radius: 50%;
 }
 .main-four-card .card .card-content {
   width: 50%;
   height: 50px;
-  background-color: #F9DC5C;
+  background-color: #f9dc5c;
   font-size: 24px;
   line-height: 50px;
   border-radius: 10px;
