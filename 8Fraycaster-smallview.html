@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-  <nav>
+  <footer>
     <div class="logo"><img src="./img/LOGO(白透).png" alt=""></div>
     <ul class="btn-group">
       <a href="index.html">
@@ -24,12 +24,11 @@
         </li>
       </a>
     </ul>
-  </nav>
+  </footer>
   <div class="OBJview"><div class="closebutton">關閉</div></div>
   <div class="BakingRoom label">烘焙教室</div>
 
   <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
-
   <script type="importmap">
     {
     "imports": {
@@ -40,61 +39,43 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script type="module">
-
-    // 引入three.js
     import * as THREE from 'three';
-    // 引入three.js附加功能
     import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-    import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
-    import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
-    import { MTLLoader } from 'three/addons/loaders/MTLLoader.js';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+    import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
     import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
-
+    // 場景及顏色
     const scene = new THREE.Scene();
-    const color = new THREE.Color('gray');
-    scene.background = color;  
+    const color = new THREE.Color(0x76c7fb);
+    scene.background = color;   
         // 燈光
     // 環境光
-    // const light = new THREE.AmbientLight( 0x404040,50 );
+    // const light = new THREE.AmbientLight( 0x404040,10 );
     // scene.add( light );
     // 半球光
-    const hemispherelight = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 );
+    const hemispherelight = new THREE.HemisphereLight( 0x404040, 0x404040, 5 );
     const hemispherehelper = new THREE.HemisphereLightHelper( hemispherelight, 5 );
     hemispherelight.position.set(0, 30, 0);
     scene.add( hemispherelight );
     scene.add( hemispherehelper );
-    // 平行光
-    // const directionalLight = new THREE.DirectionalLight( 0xffffff,1 );
-    // directionalLight.position.set(0, 30, 0);
-    // const directionahelper = new THREE.DirectionalLightHelper( directionalLight);
-    // scene.add( directionalLight );
-    // scene.add( directionahelper );
-
-    // const spotLight = new THREE.SpotLight( 0xffffff );
-    // spotLight.power = 100000;
-    // spotLight.angle = 0.25;
-    // const spotLightHelper = new THREE.SpotLightHelper( spotLight );
-    // spotLight.position.set(0, 3, 0);
-
-
-
+    // 聚光燈
+    const spotLight = new THREE.SpotLight( 0xffffff );
+    spotLight.power = 2000;
+    spotLight.angle = 0.75;
+    const spotLightHelper = new THREE.SpotLightHelper( spotLight );
+    spotLight.position.set(-10,15,-50);
+    // scene.add( spotLight );
     // 輔助
-    const axesHelper = new THREE.AxesHelper( 5 );
+    const axesHelper = new THREE.AxesHelper( 50 );
     scene.add( axesHelper );
-    const gridHelper = new THREE.GridHelper(200, 20);
+    const gridHelper = new THREE.GridHelper(20, 100);
     scene.add(gridHelper);
-    
+    // 射線
     const raycaster = new THREE.Raycaster();
     const pointer = new THREE.Vector2();
-
+    // 相機
     const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 100000 );
-    const vendingCamera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-    const BakingRoomCamera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-
-    camera.position.set(100, 100,100);
-    vendingCamera.position.set(2,2,2);
-    BakingRoomCamera.position.set(2,2,2);
-
+    const BakingCamera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
     let camIndex = 0;
     const cameras = [
       {
@@ -102,164 +83,116 @@
         camera: camera,
       },
       {
-        name: '投幣式飲料機視角',
-        camera: vendingCamera,
-      },
-      {
-        name: '烘焙教室視角',
-        camera: BakingRoomCamera,
+        name: '烘焙教室',
+        camera: BakingCamera,
       },
     ];
 
+    camera.position.set(1,1,1);
+
+// 物件
+let AllObj=[];
+      // 8F樓板
+// Instantiate a loader
+const loader = new GLTFLoader();
+
+// Optional: Provide a DRACOLoader instance to decode compressed mesh data
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath( '/examples/jsm/libs/draco/' );
+loader.setDRACOLoader( dracoLoader );
+
+// Load a glTF resource
+loader.load(
+	// resource URL
+	'./models1023/PlaneAllCube.glb',
+	// called when the resource is loaded
 
 
-    let player = {
-    height: .5,
-    turnSpeed: .1,
-    speed: .1,
-    jumpHeight: .2,
-    gravity: .01,
-    velocity: 0,
-    
-    playerJumps: false
-    };
-
-
-
-
-// OBJ物物物物物物物物物物物物物物物物物物物物物物物物件件件件件件件
-const AllObj=[];
-// 樓板~~~~~~~~~~OBJ
-    // const planeOBJloader = new OBJLoader();
-    // const planeMTLloader = new MTLLoader();
-    // planeMTLloader.load(
-    //     './models1023/plane.mtl',
-    //     (materials)=>{
-    //         materials.side = THREE.DoubleSide;
-    //         planeOBJloader.setMaterials(materials);
-    //     },
-    // );
-    // planeOBJloader.load(
-    //     './models1023/plane.obj',
-    //     function ( object ) {
-    //       object.scale.set(10,10,10);
-    //       scene.add( object );
-    //     },
-    // );
-      // 樓板
-    const planefbxloader = new FBXLoader();
-    planefbxloader.load(
-        './models1023/Plane.fbx',
-        function ( object ) {
-            scene.add( object );
-        }
-    );
-        // 飛機
-    const fighterfbxloader = new FBXLoader();
-    fighterfbxloader.load(
-        './models1023/fighter.fbx',
-        function ( object ) {
-            scene.add( object );
-        }
-    );
-    // 烘焙教室
-    const BakingRoomfbxloader = new FBXLoader();
-    BakingRoomfbxloader.load(
-        './models1023/BakingRoom.fbx',
-        function ( object ) {
-            scene.add( object );
-            object.add(BakingRoomLabel);
-        }
-    );
-
-
-
-
-// 投幣式飲料機~~~~~~~~~
-  const geometry = new THREE.SphereGeometry( 1, 32, 16 );
-    const material = new THREE.MeshStandardMaterial( { color: 'white' } );
-    const vendingposition = new THREE.Mesh( geometry, material );
-    scene.add( vendingposition );
-    const vendingOBJloader = new OBJLoader();
-    const vendingMTLloader = new MTLLoader();
-    vendingMTLloader.load(
-        './models/vending-machine.mtl',
-        (materials)=>{
-            materials.side = THREE.DoubleSide;
-            vendingOBJloader.setMaterials(materials);
-        },
-    );
-    vendingOBJloader.load(
-        './models/vending-machine.obj',
-        function abc ( object ) {
-          // object.position.set(4,1,-4);
-          object.scale.set(10,10,10);
-          vendingposition.add( object );
-          object.add(vendingLabel);
-          object.add(vendingCamera);
-          vendingCamera.lookAt(object.position);
-          spotLight.target = object;
-          AllObj.push(object);
-          
-          
-      },
-    );
   
-    
-    // OBJview場景   第二場景
-    const OBJview = document.querySelector('.OBJview');
-    const closebutton = document.querySelector('.closebutton');
-    
-    const OBJscene = new THREE.Scene();
-    OBJscene.background = color;
-    const OBJlight = new THREE.AmbientLight( 0x404040,30 ); // soft white light
-    OBJscene.add( OBJlight );
-    const OBJcamera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 10000 );
-    OBJcamera.position.set(4,0,4);
-    const OBJrenderer = new THREE.WebGLRenderer();
-    OBJrenderer.setSize( 300, 300 );
-    OBJview.appendChild( OBJrenderer.domElement );
-    const OBJcontrols = new OrbitControls( OBJcamera, OBJrenderer.domElement );
-    const vending2OBJloader = new OBJLoader();
-    const vending2MTLloader = new MTLLoader();
-    vending2MTLloader.load(
-        './models/vending-machine.mtl',
-        (materials)=>{
-            materials.side = THREE.DoubleSide;
-            vending2OBJloader.setMaterials(materials);
-        },
-    );
-    vending2OBJloader.load(
-        './models/vending-machine.obj',
-        function abc ( object ) {
-          // object.position.set(4,1,-4);
-          object.scale.set(10,10,10);
-          OBJscene.add( object );
-          OBJcamera.lookAt(object.position);
-      },
-    );
-    function animate2() {
-      requestAnimationFrame( animate2 );
-      OBJrenderer.render( OBJscene,OBJcamera );
+	function ( gltf ) {
+        console.log(gltf.scene  );
+		scene.add(gltf.scene);
+        // gltf.scene.children[16].material.color={r:9,b:2,g:2}
+        // gltf.scene.children[8].color.b=10
+        // gltf.scene.children[8].power=20
+		gltf.animations; // Array<THREE.AnimationClip>
+		gltf.scene; // THREE.Group
+		gltf.scenes; // Array<THREE.Group>
+		gltf.cameras; // Array<THREE.Camera>
+		gltf.asset; // Object
+
+    // resize用於RWD
+    window.addEventListener('resize', resetSetting);
+    window.addEventListener('mousemove', mouseMove);
+    // window.addEventListener('click', mouseClick);
+
+      function pointerSetting(event) {
+      pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+	    pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
     }
-    animate2();
 
-    const BakingRoom = document.querySelector('.BakingRoom');
-    const BakingRoomLabel = new CSS2DObject(BakingRoom);
-    BakingRoomLabel.position.set(5,10,-50);
+    // function mouseClick(event) {
+    //   pointerSetting(event);
+    //   raycaster.setFromCamera( pointer, cameras[camIndex].camera );
+    //   const intersects = raycaster.intersectObjects( gltf.scene.children,true );
+    //   if (intersects.length > 0) {
+    //     gltf.scene.children[0].material.color={r:2,b:2,g:2}
+    //   } else {
+    //     gltf.scene.children[0].material.color={r:2,b:2,g:2}
+    //   }
+    // }
 
-    // 飲料機DIV標籤
-  const vendingDiv = document.createElement('div');
-    vendingDiv.className = 'label';
-    vendingDiv.textContent = '觀看飲料機';
-    // vendingDiv.style.marginTop = "1.5em";
-    const vendingLabel = new CSS2DObject(vendingDiv);
-    vendingLabel.position.set(0,1,0);
+    const one=[gltf.scene.children[0]];
+    const two=[gltf.scene.children[1]];
+    console.log(one);
+    function mouseMove(event) {
+      pointerSetting(event);
+      raycaster.setFromCamera( pointer, cameras[camIndex].camera );
+      const intersects = raycaster.intersectObjects( one, true );
+      const intersects2 = raycaster.intersectObjects( two, true );
+      if (intersects.length > 1 ) {
+        gltf.scene.children[0].material.color={r:15,b:2,g:2}
+      } else {
+        gltf.scene.children[0].material.color={r:1,b:1,g:1}
+      }
+      if (intersects2.length > 1 ) {
+        gltf.scene.children[1].material.color={r:15,b:2,g:2}
+      } else {
+        gltf.scene.children[1].material.color={r:1,b:1,g:1}
+      }
+    }
+    function resetSetting() {
+      renderer.setSize( window.innerWidth, window.innerHeight );
+      labelRenderer.setSize(window.innerWidth, window.innerHeight);
+      cameras.forEach((item) => {
+        item.camera.aspect = window.innerWidth / window.innerHeight;
+        item.camera.updateProjectionMatrix();
+      });
+    }
 
+    
+	},
+	// called while loading is progressing
+	function ( xhr ) {
+		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+	},
+	// called when loading has errors
+	function ( error ) {
+		console.log( 'An error happened' );
+	}
+);
     // 主畫面渲染
-    const renderer = new THREE.WebGLRenderer();
+    const renderer=new THREE.WebGLRenderer({
+      antialias: true,    //是否開啟反鋸齒
+      precision:" highp", //highp/mediump/lowp 著色的精準度選擇，分別為高/中/低
+      alpha: true,        //是否設置背景色透明
+      premultipliedAlpha: false,  //是否設置Alpha著色透明度
+      stencil: false, //是否開啟繪圖緩衝組成
+      preserveDrawingBuffer: true, //是否保存繪圖緩衝
+      maxLights:1         //maxLights:最大燈光數
+    });
     renderer.setSize( window.innerWidth, window.innerHeight );
-    document.body.appendChild( renderer.domElement );
+    document.body.appendChild( renderer.domElement,);
     // 標籤渲染
     const labelRenderer = new CSS2DRenderer();
     labelRenderer.setSize(window.innerWidth, window.innerHeight);
@@ -267,107 +200,22 @@ const AllObj=[];
     labelRenderer.domElement.style.pointerEvents = "none";
     labelRenderer.domElement.style.top = "0px";
     document.body.appendChild(labelRenderer.domElement);
-    // 使DIV能夠按到
-    vendingDiv.style.pointerEvents = 'auto';
-    // DIV監聽事件 監聽DIV開啟小畫面
-    vendingDiv.addEventListener( 'click', function ( e ) {
-    // console.log('唷唷唷'+OBJview.style);
-    OBJview.style='display:block';
-    } );
-    // DIV監聽事件 監聽小畫面開關按鈕關閉
-    closebutton.addEventListener( 'click', function ( e ) {
-    console.log('唷唷唷'+OBJview.style);
-    OBJview.style='display:none';
-    } );
-
-
-
-    // 按鈕BTN控制相機
-    // const btns = document.querySelectorAll('.btn');
-    // btns.forEach((btn) => {
-    //   btn.addEventListener('click', () => {
-    //     camIndex = parseInt(btn.dataset.index);
-    //     console.log(`現在的攝影機為${cameras[camIndex].name}`);
-    //   });
-    // });
     
-    // function rotatePosition(distance = 2, angle = 0) {
-    //   let x = distance * Math.sin(angle);
-    //   let z = distance * Math.cos(angle);
-    //   return { x, z };
-    // }
 
-
-    // resize用於RWD
-    window.addEventListener('resize', resetSetting);
-    // window.addEventListener('mousemove', mouseMove);
-    window.addEventListener('click', mouseClick);
-
-    function resetSetting() {
-      renderer.setSize( window.innerWidth, window.innerHeight );
-      labelRenderer.setSize(window.innerWidth, window.innerHeight);
-
-      cameras.forEach((item) => {
-        item.camera.aspect = window.innerWidth / window.innerHeight;
-        item.camera.updateProjectionMatrix();
-      });
-    }
-
-      function pointerSetting(event) {
-      pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-	    pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-    }
-
-    function mouseClick(event) {
-      if (event.target.tagName === 'BUTTON') return;
-      pointerSetting(event);
-      raycaster.setFromCamera( pointer, cameras[camIndex].camera );
-      const intersects = raycaster.intersectObjects( AllObj,true );
-      if (intersects.length > 0) {
-        camIndex = 1;
-      } else {
-        camIndex = 0;
-      }
-    //   camIndex = (intersects.length > 0) ? 1 : 0;
-    }
-
-    // function mouseMove(event) {
-    //   pointerSetting(event);
-    //   raycaster.setFromCamera( pointer, cameras[camIndex].camera );
-    //   const intersects = raycaster.intersectObjects( AllObj, false );
-    //   if (intersects.length > 0 ) {
-    //     scene.add( spotLight );
-    //     scene.add( spotLightHelper );
-    //   } else {
-    //     scene.remove( spotLight );
-    //     scene.remove( spotLightHelper );
-    //   }
-    // }
-
-
+    // 滑鼠控制器
     const controls = new OrbitControls( camera, renderer.domElement );
-    const controlsx = new OrbitControls( vendingCamera, renderer.domElement );
-    
+    // const controlsx = new OrbitControls( BakingCamera, renderer.domElement );
     function animate() {
       requestAnimationFrame( animate );
-      // 用滑鼠控制場景方向
-      
-      // spotLight.position.set(earth.position.x, earth.position.y + 10, earth.position.z);
-      // spotLight.target = earth;
-      
-
+      // console.log('相機'+camIndex);
+      // if(camIndex===0){scene.rotation.y += 0.002;}else{
+      //   scene.rotation.y=0;
+      // }
       renderer.render( scene, cameras[camIndex].camera );
       labelRenderer.render(scene, cameras[camIndex].camera );
     }
     
     animate();
-    function loop() {
-    update();
-    }
-    loop();
-
-
-
 
   </script>
 

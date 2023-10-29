@@ -17,16 +17,26 @@
 
 	.swiper-button-next,
 	.swiper-button-prev {
-		color: black;
+		width: 50px;
+		height: 60px;
+		background-color: lightgray;
+		box-shadow: 2px 2px 5px #000;
+		border-radius: 60%;
+	}
+	.swiper-button-next:after,
+	.swiper-button-prev:after {
+		font-size: 36px;
+		overflow: hidden;
+		color: gray;
 	}
 
 	.swiper-button-next {
 		right: 20%;
-		transform: translateX(80px);
+		transform: translateX(25%);
 	}
 
 	.swiper-button-prev {
 		left: 20%;
-		transform: translateX(-80px);
+		transform: translateX(-20%);
 	}
 }
