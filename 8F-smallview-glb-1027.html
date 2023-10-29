@@ -62,19 +62,10 @@
       justify-content: space-between;
       flex-direction: column;
       padding: 3%;
-      /* position: fixed; */
-      /* display: none; */
+
     }
 
-    canvas {
-      width: 50%;
-      height: 50%;
-      margin: auto;
-      background-color: #376750;
-      position: relative;
-      top: -100px;
-      /* border: 10px solid #608CB1; */
-    }
+
 
     /* canvas .webgl-canvas {
       width: 100%;
@@ -85,7 +76,7 @@
     .closebutton {
       width: 40px;
       height: 25px;
-      background-color: rgb(44, 79, 115);
+      background-color: rgb(65, 98, 133);
       border: 1px solid white;
       color: white;
       cursor: pointer;
@@ -94,12 +85,11 @@
       right: 0;
       top: 0;
     }
-
+    
     .objName {
       color: black;
       font-size: 48px;
-      /* display: flex;
-      justify-content: center; */
+
     }
 
     .objInfo {
@@ -113,7 +103,7 @@
       display: flex;
       align-items: stretch;
       border-radius: 20px;
-      box-shadow:3px 3px 5px #575757;
+      box-shadow: 3px 3px 5px #575757;
     }
 
     .nav {
@@ -177,7 +167,7 @@
     .Classroom-introduce {
       width: 70%;
       font-size: 20px;
-      margin-top: 20px; 
+      margin-top: 20px;
       margin-bottom: 20px;
       /* padding: 30px 30px; */
       border-radius: 10px;
@@ -201,13 +191,19 @@
 
     .curriculum-btn {
       margin: auto;
-      font-size: 24px;
+      font-size: 20px;
       padding: 20px;
       background-color: #F9DC5C;
       border-radius: 10px;
       border-style: none;
+      cursor: pointer;
 
     }
+
+    .curriculum-btn:hover {
+      box-shadow: 0 0 10px #fff;
+    }
+
     .box-1 {
       width: 100%;
       height: 30%;
@@ -217,14 +213,16 @@
       padding: 5px;
 
     }
+
     .box-2 {
       width: 100%;
       height: 70%;
       background-color: #ffffff;
       line-height: 100px;
       border-radius: 10px;
-      
+
     }
+
     .box-3 {
       width: 100%;
       height: 30%;
@@ -233,8 +231,9 @@
       border-radius: 10px;
       padding: 5px;
       text-align: center;
-      
+
     }
+
     .box-4 {
       width: 100%;
       height: 70%;
@@ -242,29 +241,57 @@
       padding: 10px;
       background-color: #ffffff;
       border-radius: 10px;
-      
+
+    }
+
+    canvas {
+      width: 50%;
+      height: 50%;
+      margin: auto;
+      background-color: #376750;
+      position: relative;
+      top: -100px;
+
+    }
+
+    .curriculum-information {
+      width: 60%;
+      height: 60%;
+      background-color: #ffffff;
+      background-image: url(./img/舞蹈教室課表.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      margin: auto;
+      position: absolute;
+      top: 80px;
+      z-index: 9;
+			
     }
   </style>
 </head>
 
 <body>
   <div class="objView">
-    <div class="closebutton"><i class="fa-regular fa-circle-xmark"></i></div>
+    <div class="closebutton">
+      <i class="fa-regular fa-circle-xmark"></i>
+    </div>
     <div class="objName"></div>
     <div class="objInfo">
       <div class="Classroom-name">
         <div class="box-1">教室名稱</div>
-        <div class="box-2">烘焙教室</div>
+        <div class="box-2">815 烘焙教室</div>
       </div>
       <div class="Classroom-introduce">
         <div class="box-3">教室資訊</div>
-          <div class="box-4">該教室與推廣教育組配合，給予校外人士學習之機會，提供相關課程使用：如瑜珈、有氧、拳擊等課程。
-            <br>開課中：瑜珈提斯、空中瑜伽、綜合核心肌力有氧、伸展核心瑜伽、曲線雕塑瑜伽、ZUMBA、拉丁有氧、壺鈴肌力
-            <br>報名中：TRX懸吊訓練、拳擊有氧、有氧鬆筋雕塑、拉丁雕塑瑜伽、全方位肌力、飆汗燃脂拳擊</div>
+        <div class="box-4">該教室與推廣教育組配合，給予校外人士學習之機會，提供相關課程使用：如瑜珈、有氧、拳擊等課程。
+          <br>開課中：瑜珈提斯、空中瑜伽、綜合核心肌力有氧、伸展核心瑜伽、曲線雕塑瑜伽、ZUMBA、拉丁有氧、壺鈴肌力
+          <br>報名中：TRX懸吊訓練、拳擊有氧、有氧鬆筋雕塑、拉丁雕塑瑜伽、全方位肌力、飆汗燃脂拳擊
+        </div>
       </div>
       <div class="curriculum"> <button class="curriculum-btn">詳細課表</button></div>
     </div>
-
+    <div class="curriculum-information"></div>
   </div>
   <div class="nav">
     <ul class="btn-group">
