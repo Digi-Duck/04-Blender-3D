@@ -261,7 +261,7 @@
       margin: auto;
       background-color: #376750;
       position: relative;
-      top: -100px;
+      /* top: -100px; */
 
     }
 
@@ -369,7 +369,7 @@
     const hemispherehelper = new THREE.HemisphereLightHelper(hemispherelight, 5);
     hemispherelight.position.set(0, 30, 0);
     scene.add(hemispherelight);
-    scene.add(hemispherehelper);
+    scene.add(hemispherehelper); 
     // 輔助
     const axesHelper = new THREE.AxesHelper(50);
     scene.add(axesHelper);
