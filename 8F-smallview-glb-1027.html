@@ -66,9 +66,6 @@
       padding: 3%;
 
     }
-
-
-
     /* canvas .webgl-canvas {
       width: 100%;
       height: 500px;
@@ -277,13 +274,14 @@
       position: absolute;
       top: 80px;
       z-index: 9;
-			
+      display: none;
     }
   </style>
 </head>
 
 <body>
   <div class="objView">
+    <div class="objCanvas"></div>
     <div class="closebutton">
       <!-- <i class="bi bi-x-circle"></i> -->
     </div>
@@ -347,7 +345,7 @@
       maxLights: 1         //maxLights:最大燈光數
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement,);
+    document.body.appendChild(renderer.domElement);
     // 標籤渲染
     const labelRenderer = new CSS2DRenderer();
     labelRenderer.setSize(window.innerWidth, window.innerHeight);
@@ -369,7 +367,7 @@
     const hemispherehelper = new THREE.HemisphereLightHelper(hemispherelight, 5);
     hemispherelight.position.set(0, 30, 0);
     scene.add(hemispherelight);
-    scene.add(hemispherehelper); 
+    scene.add(hemispherehelper);
     // 輔助
     const axesHelper = new THREE.AxesHelper(50);
     scene.add(axesHelper);
@@ -446,6 +444,7 @@
         // objView   第二場景
         const objView = document.querySelector('.objView');
         const closebutton = document.querySelector('.closebutton');
+        const objCanvas = document.querySelector('.objCanvas');
         const OBJscene = new THREE.Scene();
         OBJscene.background = color;
         // 第二場景半球光
@@ -471,7 +470,7 @@
           maxLights: 1         //maxLights:最大燈光數
         });
         OBJrenderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
-        objView.appendChild(OBJrenderer.domElement);
+        objCanvas.appendChild(OBJrenderer.domElement);
         const OBJcontrols = new OrbitControls(OBJcamera, OBJrenderer.domElement);
         // 第二場景物件
         // 為了點擊事件，load物件都包成function
