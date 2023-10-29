@@ -72,7 +72,7 @@
 
     } */
 
-    .closebutton {
+    .closeBtnObjView {
       width: 40px;
       height: 40px;
       /* margin: auto; */
@@ -88,7 +88,7 @@
       right: 0;
       top: 0;
     }
-    .closebutton:hover {
+    .closeBtnObjView:hover {
       background-image: url(./img/cross.png);
     }
 
@@ -196,7 +196,7 @@
 
     }
 
-    .curriculum-btn {
+    .curriculumBtn {
       width: 100px;
       margin: auto;
       font-size: 20px;
@@ -208,7 +208,7 @@
 
     }
 
-    .curriculum-btn:hover {
+    .curriculumBtn:hover {
       box-shadow: 0 0 10px #fff;
     }
 
@@ -262,7 +262,7 @@
 
     }
 
-    .curriculum-information {
+    .curriculumInformation {
       width: 60%;
       height: 60%;
       background-color: #ffffff;
@@ -274,7 +274,26 @@
       position: absolute;
       top: 80px;
       z-index: 9;
-      display: none;
+      /* display: none; */
+    }
+    .closeBtnCurriculumInformation {
+      width: 40px;
+      height: 40px;
+      /* margin: auto; */
+      background-image: url(./img/close.png);
+      border: 1px solid white;
+      color: white;
+      cursor: pointer;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      margin: 20px;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .closeBtnCurriculumInformation:hover {
+      background-image: url(./img/cross.png);
     }
   </style>
 </head>
@@ -282,7 +301,7 @@
 <body>
   <div class="objView">
     <div class="objCanvas"></div>
-    <div class="closebutton">
+    <div class="closeBtnObjView">
       <!-- <i class="bi bi-x-circle"></i> -->
     </div>
     <div class="objName"></div>
@@ -297,9 +316,11 @@
           <i class="fa-regular fa-circle-xmark" style="color: #5c90b7;"></i>
         </div>
       </div>
-      <div class="curriculum"> <button class="curriculum-btn">課表</button></div>
+      <div class="curriculum"> <button class="curriculumBtn">課表</button></div>
     </div>
-    <div class="curriculum-information"></div>
+    <div class="curriculumInformation">
+      <div class="closeBtnCurriculumInformation"></div>
+    </div>
   </div>
   <div class="nav">
     <ul class="btn-group">
@@ -443,8 +464,11 @@
 
         // objView   第二場景
         const objView = document.querySelector('.objView');
-        const closebutton = document.querySelector('.closebutton');
+        const closeBtnObjView = document.querySelector('.closeBtnObjView');
         const objCanvas = document.querySelector('.objCanvas');
+        const curriculumInformation = document.querySelector('.curriculumInformation');
+        const closeBtnCurriculumInformation = document.querySelector('.closeBtnCurriculumInformation');
+        const curriculumBtn = document.querySelector('.curriculumBtn');
         const OBJscene = new THREE.Scene();
         OBJscene.background = color;
         // 第二場景半球光
@@ -522,10 +546,18 @@
         SmallDIYRoomDIV.addEventListener('click', function (e) {
           objView.style = 'display:block';
         });
+        // 監聽課表按鈕打開課表DIV
+        curriculumBtn.addEventListener('click', function (e) {
+          curriculumInformation.style = 'display:block';
+        });
         // // DIV監聽事件 監聽小畫面開關按鈕關閉 環境OBJscene清空
-        closebutton.addEventListener('click', function (e) {
+        closeBtnObjView.addEventListener('click', function (e) {
           objView.style = 'display:none';
           OBJscene.clear();
+        });
+        // 監聽課表DIV裡關閉按鈕關閉
+        closeBtnCurriculumInformation.addEventListener('click', function (e) {
+          curriculumInformation.style = 'display:none';
         });
 
 
