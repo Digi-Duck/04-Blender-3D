@@ -83,8 +83,9 @@
       background-position: center;
       background-size: contain;
       position: absolute;
-      right: 25%;
-      top: 7%;
+      right: 0%;
+      top: 0%;
+      margin: 30px;
     }
 
     .closeBtnObjView:hover {
@@ -363,7 +364,7 @@
     <h1 class="logo"> <img src="./img/LOGO(橫白透).png" alt=""></h1>
   </div>
   <div class="objView">
-    <div class="closebutton"></div>
+    <!-- <div class="closeBtnObjView"></div> -->
     <div class="objCanvas">
       <div class="objcurriculum">
         <div class="closeBtnCurriculumInformation"></div>
@@ -627,6 +628,7 @@
           // 監聽課表按鈕打開課表DIV
           curriculumBtn.addEventListener('click', function (e) {
             objcurriculum.style = 'display:block';
+            closeBtnObjView.style = 'display:none';
           });
           // // DIV監聽事件 監聽小畫面開關按鈕關閉 環境OBJscene清空
           closeBtnObjView.addEventListener('click', function (e) {
@@ -636,6 +638,7 @@
           // 監聽課表DIV裡關閉按鈕關閉
           closeBtnCurriculumInformation.addEventListener('click', function (e) {
             objcurriculum.style = 'display:none';
+            closeBtnObjView.style = 'display:block';
           });
 
 
