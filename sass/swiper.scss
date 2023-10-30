@@ -14,20 +14,73 @@
 			border-radius: 120px;
 		}
 	}
-
+	@media (max-width:1024px) {
+		.swiper-slide {
+			img {
+				border-radius: 80px;
+			}
+		}
+	}
+	@media (max-width:768px) {
+		.swiper-slide {
+			img {
+				border-radius: 40px;
+			}
+		}
+	}
+	
 	.swiper-button-next,
 	.swiper-button-prev {
-		width: 50px;
+		width: 60px;
 		height: 60px;
 		background-color: lightgray;
 		box-shadow: 2px 2px 5px #000;
 		border-radius: 60%;
+	}
+	@media (max-width:1024px) {
+		.swiper-button-next,
+		.swiper-button-prev {
+			width: 40px;
+			height: 40px;
+		}
+	}
+	@media (max-width:800px) {
+		.swiper-button-next,
+		.swiper-button-prev {
+			width: 35px;
+			height: 35px;
+		}
+	}
+	@media (max-width:760px) {
+		.swiper-button-next,
+		.swiper-button-prev {
+			width: 20px;
+			height: 20px;
+		}
 	}
 	.swiper-button-next:after,
 	.swiper-button-prev:after {
 		font-size: 36px;
 		overflow: hidden;
 		color: gray;
+	}
+	@media (max-width:1024px) {
+		.swiper-button-next:after,
+		.swiper-button-prev:after {
+			font-size: 26px;
+		}
+	}
+	@media (max-width:800px) {
+		.swiper-button-next:after,
+		.swiper-button-prev:after {
+			font-size: 24px;
+		}
+	}
+	@media (max-width:760px) {
+		.swiper-button-next:after,
+		.swiper-button-prev:after {
+			font-size: 12px;
+		}
 	}
 
 	.swiper-button-next {
@@ -37,6 +90,20 @@
 
 	.swiper-button-prev {
 		left: 20%;
-		transform: translateX(-20%);
+		transform: translateX(-25%);
 	}
+	@media (max-width:760px) {
+		.swiper-button-next {
+			top: 55%;
+			transform: translateX(20%);
+		}
+	
+		.swiper-button-prev {
+			top: 55%;
+			transform: translateX(-20%);
+		}
+	}
+
 }
+
+
