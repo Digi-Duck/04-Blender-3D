@@ -240,17 +240,21 @@ a:visited {
 		background-color: #bca8a8;
 		padding: 20px;
 		.four-card-title {
+			position: relative;
 			color: #fff;
 			opacity: 0.8;
 			font-size: 32px;
 			margin-bottom: 20px;
-			letter-spacing: 20px;
+			padding: 10px;
+			letter-spacing: 10px;
 		}
 		.four-card-title:after {
 			content: "";
-			display: block;
-			width: 80px;
-			height: 5px;
+			position: absolute;
+			top: 80%;
+			left: 7%;
+			width: 30%;
+			height: 2px;
 			background-color: #f9dc5c;
 			opacity: 0.8;
 		}
@@ -320,6 +324,18 @@ a:visited {
 			}
 		}
 	}
+
+	@media (max-width: 1440px) {
+		.main-four-card {
+			.four-card {
+				.card {
+					.card-img {
+						width: 60%;
+					}
+				}
+			}
+		}
+	}
 	@media (max-width: 1200px) {
 		.main-four-card {
 			height: 90%;
@@ -329,10 +345,11 @@ a:visited {
 				align-content: space-evenly;
 				padding: 10px;
 				.card {
-					width: calc(33.3% - 40px);
+					width: calc(30% - 40px);
 					height: 50%;
 					.card-img {
-						height: 45%;
+						width: 50%;
+						height: 40%;
 						border-radius: 50%;
 					}
 					h4 {
@@ -350,30 +367,37 @@ a:visited {
 			}
 		}
 	}
-	@media (max-width: 768px) {
+	@media (max-width: 980px) {
+		.main-four-card {
+			.four-card {
+				.card {
+					.card-img {
+						width: 70%;
+						height: 30%;
+					}
+				}
+			}
+		}
+	}
+	@media (max-width: 767px) {
 		.main-four-card {
 			height: 80%;
 			justify-content: center;
 			align-items: center;
 			.four-card-title {
 				font-size: 20px;
-				letter-spacing: 8px;
-			}
-			.four-card-title:after {
-				content: "";
-				display: block;
-				width: 45px;
-				height: 5px;
-				background-color: #f9dc5c;
-				opacity: 0.8;
+				margin-bottom: 0px;
+				text-align: center;
+				letter-spacing: 2px;
 			}
 			.four-card {
+				padding: 0;
 				height: 90%;
 				justify-content: space-evenly;
 				align-items: center;
 				.card {
 					margin: 5px;
-					width: calc(80% - 20px);
+					width: calc(60% - 20px);
 					height: calc(20% - 20px);
 					justify-content: space-evenly;
 					.card-img {
