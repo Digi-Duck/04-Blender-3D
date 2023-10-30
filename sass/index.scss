@@ -45,11 +45,14 @@ a:visited {
 	}
 	@media  (max-width: 768px) {
 		.logo{
+			top: 15px;
+			left: 15px;
 			img{
 				width: 100px;
 			}
 		}
 	}
+
 	
 	.banner-video {
 		height: 100%;
@@ -138,15 +141,20 @@ a:visited {
 			top: 15%;
 		}
 	}
-	@media  (max-width: 768px) {
-		.banner-title{
-			font-size: 18px;
-		}
-		.btn-group{
-			.btn{
-				font-size: 13px;
+	@media  (max-width: 760px) {
+		.banner-group{
+			top: 10%;
+			.banner-title{
+				font-size: 12px;
+			}
+			.btn-group{
+				.btn{
+					padding: 5px;
+					font-size: 6px;
+				}
 			}
 		}
+	
 	}
 }
 
