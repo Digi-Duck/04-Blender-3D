@@ -220,7 +220,9 @@
     height: 70%;
     background-color: #ffffff;
     line-height: 100px;
+    padding: 10px;
     border-radius: 10px;
+    font-size: 16px;
 
   }
 
@@ -242,7 +244,23 @@
     padding: 10px;
     background-color: #ffffff;
     border-radius: 10px;
+    
 
+  }
+  @media (max-width: 1280px) {
+    .col-1 ,.col-3 {
+      font-size: 16px;
+    }
+    .col-2, .col-4 {
+    font-size: 14px;
+
+  }
+     
+  }
+	
+  .objCanvas {
+    width: 100%;
+    background-color: #F9DC5C;
   }
 
   canvas {
@@ -258,7 +276,7 @@
     height: 50%;
     background-color: #ffffff;
     position: absolute;
-    padding: 20px;
+    padding: 30px;
     left: 0;
     display: flex;
     z-index: 9;
@@ -368,7 +386,7 @@
         <div class="Classroom-introduce">
           <div class="col-3">教室資訊</div>
           <div class="col-4">
-            該教室與推廣教育組配合，給予校外人士學習之機會，提供相關課程使用：如瑜珈、有氧、拳擊等課程。開課中：瑜珈提斯、空中瑜伽、綜合核心肌力有氧、伸展核心瑜伽、曲線雕塑瑜伽、ZUMBA、拉丁有氧、壺鈴肌力。報名中：TRX懸吊訓練、拳擊有氧、有氧鬆筋雕塑、拉丁雕塑瑜伽、全方位肌力、飆汗燃脂拳擊
+            該教室與推廣教育組配合，給予校外人士學習之機會，提供相關課程使用：如瑜珈、有氧、拳擊等課程。<br>開課中：瑜珈提斯、空中瑜伽、綜合核心肌力有氧、伸展核心瑜伽、曲線雕塑瑜伽、ZUMBA、拉丁有氧、壺鈴肌力。 <br> 報名中：TRX懸吊訓練、拳擊有氧、有氧鬆筋雕塑、拉丁雕塑瑜伽、全方位肌力、飆汗燃脂拳擊
           </div>
         </div>
         <div class="curriculum"> <button class="curriculumBtn">課表</button></div>
@@ -549,7 +567,7 @@
           preserveDrawingBuffer: true, //是否保存繪圖緩衝
           maxLights: 1         //maxLights:最大燈光數
         });
-        OBJrenderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
+        OBJrenderer.setSize(window.innerWidth / 2, window.innerHeight / 2.5);
         objCanvas.appendChild(OBJrenderer.domElement);
         const OBJcontrols = new OrbitControls(OBJcamera, OBJrenderer.domElement);
         // 第二場景物件
@@ -662,7 +680,7 @@
         // resetSetting用於RWD
         function resetSetting() {
           renderer.setSize(window.innerWidth, window.innerHeight);
-          OBJrenderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
+          OBJrenderer.setSize(window.innerWidth / 2, window.innerHeight / 2.5);
           labelRenderer.setSize(window.innerWidth, window.innerHeight);
           cameras.forEach((item) => {
             item.camera.aspect = window.innerWidth / window.innerHeight;

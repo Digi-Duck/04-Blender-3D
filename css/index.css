@@ -36,7 +36,8 @@ a:visited {
 .container .banner .logo img {
   width: 200px;
   overflow: hidden;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 @media (max-width: 1440px) {
   .container .banner .logo img {
