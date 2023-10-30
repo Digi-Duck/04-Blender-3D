@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
@@ -36,7 +37,8 @@ a:visited {
 .container .banner .logo img {
   width: 200px;
   overflow: hidden;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 @media (max-width: 1440px) {
   .container .banner .logo img {
@@ -61,7 +63,7 @@ a:visited {
   width: 630px;
   padding: 10px;
   position: absolute;
-  top: 45%;
+  top: 50%;
   left: calc(50% - 325px);
 }
 .container .banner .banner-group .banner-title {
@@ -119,7 +121,7 @@ a:visited {
 }
 @media (max-width: 1200px) {
   .container .banner .banner-group {
-    top: 25%;
+    top: 20%;
   }
   .container .banner .banner-group .banner-title {
     font-size: 24px;
@@ -130,23 +132,23 @@ a:visited {
 }
 @media (max-width: 1020px) {
   .container .banner .banner-group {
-    top: 20%;
+    top: 15%;
   }
 }
 @media (max-width: 760px) {
   .container .banner .banner-group {
     width: 300px;
-    top: 15%;
-    left: 30%;
+    top: 10%;
+    left: 10%;
   }
   .container .banner .banner-group .banner-title {
     padding: 5px;
-    font-size: 12px;
+    font-size: 10px;
     margin-bottom: 5px;
   }
   .container .banner .banner-group .btn-group .btn {
     padding: 5px;
-    font-size: 8px;
+    font-size: 6px;
     margin: 5px;
   }
 }
@@ -263,12 +265,33 @@ a:visited {
   margin: 5px;
 }
 .container .main-four-card .card .card-img {
-  width: 60%;
+  width: 50%;
   height: 25%;
   border-radius: 50%;
   overflow: hidden;
   border: 1px solid gray;
-  box-shadow: 1px 1px 5px #000;
+  box-shadow: 1px 1px 5px #4a4a4a;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.container .main-four-card .card .card-img-1 {
+  background-image: url(../img/團隊個人照/陳威廷.jpg);
+}
+.container .main-four-card .card .card-img-2 {
+  background-image: url(../img/團隊個人照/劉迪翰.jpg);
+}
+.container .main-four-card .card .card-img-3 {
+  background-image: url(../img/團隊個人照/張藝襦.jpg);
+}
+.container .main-four-card .card .card-img-4 {
+  background-image: url(../img/團隊個人照/黃珮瑄.jpg);
+}
+.container .main-four-card .card .card-img-5 {
+  background-image: url(../img/團隊個人照/);
 }
 .container .main-four-card .card h4 {
   font-size: 24px;
@@ -282,6 +305,10 @@ a:visited {
   line-height: 45px;
   border-radius: 10px;
   padding: 5px;
+  cursor: pointer;
+}
+.container .main-four-card .card .card-intro a {
+  color: #000;
 }
 @media (max-width: 1200px) {
   .container .main-four-card {
