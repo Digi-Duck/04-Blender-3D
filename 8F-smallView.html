@@ -5,358 +5,357 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <title>Document</title>
+  <title>Overview of the 8th floor</title>
   <style>
     * {
-      box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  body,
+  html {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  a:visited {
+    color: inherit;
+  }
+
+  .label {
+    font-size: 12px;
+    color: red;
+    cursor: pointer;
+
+  }
+
+  /* .objView{
+    width: 100%;
+    height: 100%;
+    background-color: #92c5ad;
+    z-index: 9;
+    position: absolute;
+    display: none;
+    display: block;
+    display: flex;
+    justify-content: center;
+  } */
+  .objView {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: #ffffff;
+    z-index: 9;
+    position: absolute;
+    top: 0;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 3%;
+
+  }
+
+  /* canvas .webgl-canvas {
+    width: 100%;
+    height: 500px;
+
+  } */
+
+  .closeBtnObjView {
+    width: 40px;
+    height: 40px;
+    background-image: url(./img/close.png);
+    color: white;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    margin: 30px;
+  }
+
+  .closeBtnObjView:hover {
+    background-image: url(./img/cross.png);
+  }
+
+  /* .objName {
+    color: black;
+    font-size: 48px;
+
+  } */
+  .objInfo-BIG {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    background-color: #608cb100;
+    justify-content: center;
+
+
+  }
+
+  .objInfo {
+    width: 80%;
+    height: 200px;
+    background-color: #ADD8E6;
+    color: black;
+    font-size: 24;
+    bottom: 55px;
+    display: flex;
+    align-items: stretch;
+    border-radius: 20px;
+    box-shadow: 3px 3px 5px #575757;
+    margin: auto;
+  }
+
+  .nav {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    background-color: #add8e65b;
+    position: absolute;
+    z-index: 6;
+    bottom: 0;
+    position: fixed;
+
+  }
+
+  .btn-group {
+    display: flex;
+    justify-content: center;
+    /* position: absolute;
+    bottom: 50px; */
+    margin: auto;
+
+
+  }
+
+  .btn {
+    border-radius: 30px;
+    text-align: center;
+    font-size: 20px;
+    padding: 15px 20px 15px 20px;
+    margin-right: 30px;
+    box-shadow: 1px 1px 5px #575757;
+    opacity: 0.9;
+    cursor: pointer;
+    background-color: #fff;
+  }
+
+
+  .btn:hover,
+  .btn:focus {
+    background-color: #f9dc5c;
+    box-shadow: 5px 5px 10px #b4b4b4;
+    transition: 1s;
+    transform: translateY(-1px);
+    font-size: 20px;
+  }
+
+  .Classroom-name {
+    width: 15%;
+    font-size: 20px;
+    margin: 20px;
+    /* padding: 30px 30px; */
+    border-radius: 20px;
+    background-color: #608cb100;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .Classroom-introduce {
+    width: 70%;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* padding: 30px 30px; */
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+  .curriculum {
+    width: 15%;
+    margin: 20px;
+    padding: 30px 30px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 24px;
+    background-color: #608CB1;
+    display: flex;
+
+  }
+
+  .curriculumBtn {
+    width: 100px;
+    margin: auto;
+    font-size: 20px;
+    padding: 20px;
+    background-color: #F9DC5C;
+    border-radius: 10px;
+    border-style: none;
+    cursor: pointer;
+
+  }
+
+  .curriculumBtn:hover {
+    box-shadow: 0 0 10px #fff;
+  }
+
+  .col-1 {
+    width: 100%;
+    height: 30%;
+    margin-bottom: 20px;
+    background-color: #608CB1;
+    border-radius: 10px;
+    padding: 5px;
+
+  }
+
+  .col-2 {
+    width: 100%;
+    height: 70%;
+    background-color: #ffffff;
+    line-height: 100px;
+    border-radius: 10px;
+
+  }
+
+  .col-3 {
+    width: 100%;
+    height: 30%;
+    margin-bottom: 20px;
+    background-color: #608CB1;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+
+  }
+
+  .col-4 {
+    width: 100%;
+    height: 70%;
+    font-size: 16px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+
+  }
+
+  canvas {
+    margin: auto;
+    background-color: #37675000;
+    position: relative;
+
+
+  }
+
+  .objcurriculum {
+    width: 100%;
+    height: 50%;
+    background-color: #ffffff;
+    position: absolute;
+    padding: 20px;
+    left: 0;
+    display: flex;
+    z-index: 9;
+
+  }
+
+  .curriculumInformation {
+    width: 80%;
+    height: 100%;
+    background-color: #ffffff00;
+    background-image: url(./img/舞蹈教室課表.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin: auto;
+    z-index: 10;
+
+  }
+
+  .closeBtnCurriculumInformation {
+    width: 40px;
+    height: 40px;
+    /* margin: auto; */
+    background-image: url(./img/close.png);
+    color: white;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    right: 25%;
+    top: 0;
+  }
+
+  .closeBtnCurriculumInformation:hover {
+    background-image: url(./img/cross.png);
+  }
+
+  .logo {
+    position: absolute;
+    animation: logo 0.8s infinite;
+    top: 20px;
+    left: 30px;
+    z-index: 5;
+
+  }
+
+  img {
+    width: 200px;
+    overflow: hidden;
+    object-fit: cover;
+  }
+
+
+  @keyframes logo {
+    0% {
+      transform: translateY(10px);
     }
 
-    body,
-    html {
-      font-family: Arial, Helvetica, sans-serif;
-      width: 100%;
-      height: 100vh;
-      margin: 0;
-      padding: 0;
+    20% {
+      transform: translateY(5px);
     }
 
-    li {
-      list-style: none;
+    40% {
+      transform: translateY(0px);
     }
 
-
-    a {
-      text-decoration: none;
-      color: #000;
+    60% {
+      transform: translateY(-5px);
     }
 
-    a:visited {
-      color: inherit;
+    80% {
+      transform: translateY(-10px);
     }
 
-    .label {
-      font-size: 12px;
-      color: red;
-      cursor: pointer;
-
+    100% {
+      transform: translateY(0px);
     }
-
-    /* .objView{
-      width: 100%;
-      height: 100%;
-      background-color: #92c5ad;
-      z-index: 9;
-      position: absolute;
-      display: none;
-      display: block;
-      display: flex;
-      justify-content: center;
-    } */
-    .objView {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      background-color: #ffffff;
-      z-index: 9;
-      position: absolute;
-      top: 0;
-      align-items: center;
-      justify-content: space-between;
-      flex-direction: column;
-      padding: 3%;
-
-    }
-
-    /* canvas .webgl-canvas {
-      width: 100%;
-      height: 500px;
-
-    } */
-
-    .closeBtnObjView {
-      width: 40px;
-      height: 40px;
-      background-image: url(./img/close.png);
-      color: white;
-      cursor: pointer;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
-      position: absolute;
-      right: 0%;
-      top: 0%;
-      margin: 30px;
-    }
-
-    .closeBtnObjView:hover {
-      background-image: url(./img/cross.png);
-    }
-
-    /* .objName {
-      color: black;
-      font-size: 48px;
-
-    } */
-    .objInfo-BIG {
-      width: 100%;
-      height: 50%;
-      display: flex;
-      background-color: #608cb100;
-      justify-content: center;
-
-
-    }
-
-    .objInfo {
-      width: 80%;
-      height: 200px;
-      background-color: #ADD8E6;
-      color: black;
-      font-size: 24;
-      bottom: 55px;
-      display: flex;
-      align-items: stretch;
-      border-radius: 20px;
-      box-shadow: 3px 3px 5px #575757;
-      margin: auto;
-    }
-
-    .nav {
-      width: 100%;
-      height: 100px;
-      display: flex;
-      justify-content: center;
-      background-color: #add8e65b;
-      position: absolute;
-      z-index: 6;
-      bottom: 0;
-      position: fixed;
-
-    }
-
-    .btn-group {
-      display: flex;
-      justify-content: center;
-      /* position: absolute;
-      bottom: 50px; */
-      margin: auto;
-
-
-    }
-
-    .btn {
-      border-radius: 30px;
-      text-align: center;
-      font-size: 20px;
-      padding: 15px 20px 15px 20px;
-      margin-right: 30px;
-      box-shadow: 1px 1px 5px #575757;
-      opacity: 0.9;
-      cursor: pointer;
-      background-color: #fff;
-    }
-
-
-    .btn:hover,
-    .btn:focus {
-      background-color: #f9dc5c;
-      box-shadow: 5px 5px 10px #b4b4b4;
-      transition: 1s;
-      transform: translateY(-1px);
-      font-size: 20px;
-    }
-
-    .Classroom-name {
-      width: 15%;
-      font-size: 20px;
-      margin: 20px;
-      /* padding: 30px 30px; */
-      border-radius: 20px;
-      background-color: #608cb100;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-    }
-
-    .Classroom-introduce {
-      width: 70%;
-      font-size: 20px;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      /* padding: 30px 30px; */
-      border-radius: 10px;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      background-color: rgba(255, 255, 255, 0);
-    }
-
-    .curriculum {
-      width: 15%;
-      margin: 20px;
-      padding: 30px 30px;
-      border-radius: 10px;
-      text-align: center;
-      font-size: 24px;
-      background-color: #608CB1;
-      display: flex;
-
-    }
-
-    .curriculumBtn {
-      width: 100px;
-      margin: auto;
-      font-size: 20px;
-      padding: 20px;
-      background-color: #F9DC5C;
-      border-radius: 10px;
-      border-style: none;
-      cursor: pointer;
-
-    }
-
-    .curriculumBtn:hover {
-      box-shadow: 0 0 10px #fff;
-    }
-
-    .col-1 {
-      width: 100%;
-      height: 30%;
-      margin-bottom: 20px;
-      background-color: #608CB1;
-      border-radius: 10px;
-      padding: 5px;
-
-    }
-
-    .col-2 {
-      width: 100%;
-      height: 70%;
-      background-color: #ffffff;
-      line-height: 100px;
-      border-radius: 10px;
-
-    }
-
-    .col-3 {
-      width: 100%;
-      height: 30%;
-      margin-bottom: 20px;
-      background-color: #608CB1;
-      border-radius: 10px;
-      padding: 5px;
-      text-align: center;
-
-    }
-
-    .col-4 {
-      width: 100%;
-      height: 70%;
-      font-size: 16px;
-      padding: 10px;
-      background-color: #ffffff;
-      border-radius: 10px;
-
-    }
-
-    canvas {
-      /* width: 50%; */
-      /* height: 50%; */
-      margin: auto;
-      background-color: #376750;
-      position: relative;
-      /* top: -100px; */
-
-    }
-
-    .objcurriculum {
-      width: 100%;
-      height: 50%;
-      background-color: #ffffff;
-      position: absolute;
-      padding: 20px;
-      left: 0;
-      display: flex;
-      z-index: 9;
-      /* display: none; */
-
-    }
-
-    .curriculumInformation {
-      width: 80%;
-      height: 100%;
-      background-color: #ffffff00;
-      background-image: url(./img/舞蹈教室課表.png);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
-      margin: auto;
-      z-index: 10;
-
-    }
-
-    .closeBtnCurriculumInformation {
-      width: 40px;
-      height: 40px;
-      /* margin: auto; */
-      background-image: url(./img/close.png);
-      color: white;
-      cursor: pointer;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
-      position: absolute;
-      right: 25%;
-      top: 0;
-    }
-
-    .closeBtnCurriculumInformation:hover {
-      background-image: url(./img/cross.png);
-    }
-
-    .logo {
-      position: absolute;
-      animation: logo 0.8s infinite;
-      top: 20px;
-      left: 30px;
-      z-index: 5;
-
-    }
-
-    img {
-      width: 200px;
-      overflow: hidden;
-      object-fit: cover;
-    }
-
-
-    @keyframes logo {
-      0% {
-        transform: translateY(10px);
-      }
-
-      20% {
-        transform: translateY(5px);
-      }
-
-      40% {
-        transform: translateY(0px);
-      }
-
-      60% {
-        transform: translateY(-5px);
-      }
-
-      80% {
-        transform: translateY(-10px);
-      }
-
-      100% {
-        transform: translateY(0px);
-      }
-    }
+  }
   </style>
+  <title>Document</title>
+  
 </head>
 
 <body>
@@ -372,18 +371,9 @@
       </div>
     </div>
     <div class="closeBtnObjView">
-      <!-- <i class="bi bi-x-circle"></i> -->
+
     </div>
-    <!-- <div class="objName"></div>
-    <div class="objInfo">
-      <div class="Classroom-name">
-        <div class="col-1">教室名稱</div>
-        <div class="col-2">815 烘焙教室</div>
-      </div>
-      <div class="Classroom-introduce">
-        <div class="col-3">教室資訊</div>
-        <div class="col-4">該教室與推廣教育組配合，給予校外人士學習之機會，提供相關課程使用：如瑜珈、有氧、拳擊等課程。開課中：瑜珈提斯、空中瑜伽、綜合核心肌力有氧、伸展核心瑜伽、曲線雕塑瑜伽、ZUMBA、拉丁有氧、壺鈴肌力。報名中：TRX懸吊訓練、拳擊有氧、有氧鬆筋雕塑、拉丁雕塑瑜伽、全方位肌力、飆汗燃脂拳擊
-          <i class="fa-regular fa-circle-xmark" style="color: #5c90b7;"></i> -->
+
     <div class="objInfo-BIG">
       <div class="objInfo">
         <div class="Classroom-name">
@@ -401,24 +391,26 @@
 
     </div>
   </div>
-    <div class="nav">
-      <ul class="btn-group">
-        <a href="index.html">
-          <li class="btn">
-            <i class="fa-solid fa-arrow-left left"></i>
-            回到首頁
-          </li>
-        </a>
-        <a href="#">
-          <li class="btn">
-            漫步八樓
-            <i class="fa-solid fa-arrow-right right"></i>
-          </li>
-        </a>
-      </ul>
-    </div>
-    <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
-    <script type="importmap">
+  <div class="nav">
+    <ul class="btn-group">
+      <a href="index.html">
+        <li class="btn">
+          <i class="fa-solid fa-arrow-left left"></i>
+          回到首頁
+        </li>
+      </a>
+      <a href="#">
+        <li class="btn">
+          漫步八樓
+          <i class="fa-solid fa-arrow-right right"></i>
+        </li>
+      </a>
+    </ul>
+  </div>
+  <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+  
+
+  <script type="importmap">
     {
     "imports": {
       "three": "https://unpkg.com/three@latest/build/three.module.js",
@@ -426,291 +418,291 @@
     }
     }
   </script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script type="module">
-      import * as THREE from 'three';
-      import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-      import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-      import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
-      import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
-      import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
-      // 主畫面渲染
-      const renderer = new THREE.WebGLRenderer({
-        antialias: true,    //是否開啟反鋸齒
-        precision: " highp", //highp/mediump/lowp 著色的精準度選擇，分別為高/中/低
-        alpha: true,        //是否設置背景色透明
-        premultipliedAlpha: false,  //是否設置Alpha著色透明度
-        stencil: false, //是否開啟繪圖緩衝組成
-        preserveDrawingBuffer: true, //是否保存繪圖緩衝
-        maxLights: 1         //maxLights:最大燈光數
-      });
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      document.body.appendChild(renderer.domElement);
-      // 標籤渲染
-      const labelRenderer = new CSS2DRenderer();
-      labelRenderer.setSize(window.innerWidth, window.innerHeight);
-      labelRenderer.domElement.style.position = "absolute";
-      labelRenderer.domElement.style.pointerEvents = "none";
-      labelRenderer.domElement.style.top = "0px";
-      document.body.appendChild(labelRenderer.domElement);
-      // 場景及顏色
-      const scene = new THREE.Scene();
-      const color = new THREE.Color(0x76c8fb);
-      // const color = new THREE.Color('black');
-      scene.background = color;
-      // 燈光
-      // 環境光
-      // const light = new THREE.AmbientLight( 0x404040,10 );
-      // scene.add( light );
-      // 半球光
-      const hemispherelight = new THREE.HemisphereLight(0x404040, 0x404040, 5);
-      const hemispherehelper = new THREE.HemisphereLightHelper(hemispherelight, 5);
-      hemispherelight.position.set(0, 30, 0);
-      scene.add(hemispherelight);
-      scene.add(hemispherehelper);
-      // 輔助
-      const axesHelper = new THREE.AxesHelper(50);
-      scene.add(axesHelper);
-      const gridHelper = new THREE.GridHelper(20, 100);
-      scene.add(gridHelper);
-      // 射線
-      const raycaster = new THREE.Raycaster();
-      const pointer = new THREE.Vector2();
-      // 相機
-      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100000);
-      const BakingCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-      let camIndex = 0;
-      const cameras = [
-        {
-          name: '上帝視角',
-          camera: camera,
-        },
-        {
-          name: '烘焙教室',
-          camera: BakingCamera,
-        },
-      ];
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+    import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+    import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
+    import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+    // 主畫面渲染
+    const renderer = new THREE.WebGLRenderer({
+      antialias: true,    //是否開啟反鋸齒
+      precision: " highp", //highp/mediump/lowp 著色的精準度選擇，分別為高/中/低
+      alpha: true,        //是否設置背景色透明
+      premultipliedAlpha: false,  //是否設置Alpha著色透明度
+      stencil: false, //是否開啟繪圖緩衝組成
+      preserveDrawingBuffer: true, //是否保存繪圖緩衝
+      maxLights: 1         //maxLights:最大燈光數
+    });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+    // 標籤渲染
+    const labelRenderer = new CSS2DRenderer();
+    labelRenderer.setSize(window.innerWidth, window.innerHeight);
+    labelRenderer.domElement.style.position = "absolute";
+    labelRenderer.domElement.style.pointerEvents = "none";
+    labelRenderer.domElement.style.top = "0px";
+    document.body.appendChild(labelRenderer.domElement);
+    // 場景及顏色
+    const scene = new THREE.Scene();
+    const color = new THREE.Color(0x76c8fb);
+    // const color = new THREE.Color('black');
+    scene.background = color;
+    // 燈光
+    // 環境光
+    // const light = new THREE.AmbientLight( 0x404040,10 );
+    // scene.add( light );
+    // 半球光
+    const hemispherelight = new THREE.HemisphereLight(0x404040, 0x404040, 5);
+    const hemispherehelper = new THREE.HemisphereLightHelper(hemispherelight, 5);
+    hemispherelight.position.set(0, 30, 0);
+    scene.add(hemispherelight);
+    scene.add(hemispherehelper);
+    // 輔助
+    const axesHelper = new THREE.AxesHelper(50);
+    scene.add(axesHelper);
+    const gridHelper = new THREE.GridHelper(20, 100);
+    scene.add(gridHelper);
+    // 射線
+    const raycaster = new THREE.Raycaster();
+    const pointer = new THREE.Vector2();
+    // 相機
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100000);
+    const BakingCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    let camIndex = 0;
+    const cameras = [
+      {
+        name: '上帝視角',
+        camera: camera,
+      },
+      {
+        name: '烘焙教室',
+        camera: BakingCamera,
+      },
+    ];
 
-      camera.position.set(1, 1, 1);
+    camera.position.set(1, 1, 1);
 
-      // 物件
-      let AllObj = [];
-      // 8F樓板
-      const planeLoader = new GLTFLoader();
-      const dracoLoader = new DRACOLoader();
-      dracoLoader.setDecoderPath('/examples/jsm/libs/draco/');
-      planeLoader.setDRACOLoader(dracoLoader);
-      planeLoader.load(
-        './models1023/PlaneAllCube.glb',
-        function (gltf) {
-          scene.add(gltf.scene);
-          console.log(gltf.scene.children);
-          // gltf.scene.children[16].material.color={r:9,b:2,g:2}
-          gltf.animations; // Array<THREE.AnimationClip>
-          gltf.scene; // THREE.Group
-          gltf.scenes; // Array<THREE.Group>
-          gltf.cameras; // Array<THREE.Camera>
-          gltf.asset; // Object
+    // 物件
+    let AllObj = [];
+    // 8F樓板
+    const planeLoader = new GLTFLoader();
+    const dracoLoader = new DRACOLoader();
+    dracoLoader.setDecoderPath('/examples/jsm/libs/draco/');
+    planeLoader.setDRACOLoader(dracoLoader);
+    planeLoader.load(
+      './models1023/PlaneAllCube.glb',
+      function (gltf) {
+        scene.add(gltf.scene);
+        console.log(gltf.scene.children);
+        // gltf.scene.children[16].material.color={r:9,b:2,g:2}
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Group
+        gltf.scenes; // Array<THREE.Group>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
 
-          // 舞蹈教室標籤
-          const DancingRoomDIV = document.createElement('div');
-          DancingRoomDIV.className = 'label';
-          DancingRoomDIV.textContent = '815舞蹈教室';
-          const DancingRoomLabel = new CSS2DObject(DancingRoomDIV);
-          DancingRoomLabel.position.set(0, 0.5, 0);
-          gltf.scene.children[0].add(DancingRoomLabel);
-          // 烘焙教室標籤
-          const BakingRoomDIV = document.createElement('div');
-          BakingRoomDIV.className = 'label';
-          BakingRoomDIV.textContent = '813烘焙教室';
-          const BakingRoomLabel = new CSS2DObject(BakingRoomDIV);
-          BakingRoomLabel.position.set(0, 0.5, 0);
-          gltf.scene.children[1].add(BakingRoomLabel);
-          // 大手作教室標籤
-          const BigDIYRoomDIV = document.createElement('div');
-          BigDIYRoomDIV.className = 'label';
-          BigDIYRoomDIV.textContent = '811手作教室';
-          const BigDIYRoomLabel = new CSS2DObject(BigDIYRoomDIV);
-          BigDIYRoomLabel.position.set(0, 0.5, 0);
-          gltf.scene.children[2].add(BigDIYRoomLabel);
-          // 小手作教室標籤
-          const SmallDIYRoomDIV = document.createElement('div');
-          SmallDIYRoomDIV.className = 'label';
-          SmallDIYRoomDIV.textContent = '小手作教室';
-          const SmallDIYRoomLabel = new CSS2DObject(SmallDIYRoomDIV);
-          SmallDIYRoomLabel.position.set(0, 0.5, 0);
-          gltf.scene.children[3].add(SmallDIYRoomLabel);
+        // 舞蹈教室標籤
+        const DancingRoomDIV = document.createElement('div');
+        DancingRoomDIV.className = 'label';
+        DancingRoomDIV.textContent = '815舞蹈教室';
+        const DancingRoomLabel = new CSS2DObject(DancingRoomDIV);
+        DancingRoomLabel.position.set(0, 0.5, 0);
+        gltf.scene.children[0].add(DancingRoomLabel);
+        // 烘焙教室標籤
+        const BakingRoomDIV = document.createElement('div');
+        BakingRoomDIV.className = 'label';
+        BakingRoomDIV.textContent = '813烘焙教室';
+        const BakingRoomLabel = new CSS2DObject(BakingRoomDIV);
+        BakingRoomLabel.position.set(0, 0.5, 0);
+        gltf.scene.children[1].add(BakingRoomLabel);
+        // 大手作教室標籤
+        const BigDIYRoomDIV = document.createElement('div');
+        BigDIYRoomDIV.className = 'label';
+        BigDIYRoomDIV.textContent = '811手作教室';
+        const BigDIYRoomLabel = new CSS2DObject(BigDIYRoomDIV);
+        BigDIYRoomLabel.position.set(0, 0.5, 0);
+        gltf.scene.children[2].add(BigDIYRoomLabel);
+        // 小手作教室標籤
+        const SmallDIYRoomDIV = document.createElement('div');
+        SmallDIYRoomDIV.className = 'label';
+        SmallDIYRoomDIV.textContent = '小手作教室';
+        const SmallDIYRoomLabel = new CSS2DObject(SmallDIYRoomDIV);
+        SmallDIYRoomLabel.position.set(0, 0.5, 0);
+        gltf.scene.children[3].add(SmallDIYRoomLabel);
 
-          // objView   第二場景
-          const objView = document.querySelector('.objView');
-          const closeBtnObjView = document.querySelector('.closeBtnObjView');
-          const objCanvas = document.querySelector('.objCanvas');
-          const objcurriculum = document.querySelector('.objcurriculum');
-          const closeBtnCurriculumInformation = document.querySelector('.closeBtnCurriculumInformation');
-          const curriculumBtn = document.querySelector('.curriculumBtn');
-          const OBJscene = new THREE.Scene();
-          OBJscene.background = color;
-          // 第二場景半球光
-          const hemispherelight2 = new THREE.HemisphereLight(0x404040, 0x404040, 5);
-          const hemispherehelper2 = new THREE.HemisphereLightHelper(hemispherelight2, 0.1);
-          hemispherelight.position.set(0, 30, 0);
-          // 第二場景輔助
-          const axesHelper2 = new THREE.AxesHelper(50);
-          OBJscene.add(axesHelper2);
-          const gridHelper2 = new THREE.GridHelper(20, 100);
-          OBJscene.add(gridHelper2);
-          // 第二場景相機
-          const OBJcamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
-          OBJcamera.position.set(1, 0.5, -6);
-          // 第二場景畫面渲染
-          const OBJrenderer = new THREE.WebGLRenderer({
-            antialias: true,    //是否開啟反鋸齒
-            precision: " highp", //highp/mediump/lowp 著色的精準度選擇，分別為高/中/低
-            alpha: true,        //是否設置背景色透明
-            premultipliedAlpha: false,  //是否設置Alpha著色透明度
-            stencil: false, //是否開啟繪圖緩衝組成
-            preserveDrawingBuffer: true, //是否保存繪圖緩衝
-            maxLights: 1         //maxLights:最大燈光數
-          });
-          OBJrenderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
-          objCanvas.appendChild(OBJrenderer.domElement);
-          const OBJcontrols = new OrbitControls(OBJcamera, OBJrenderer.domElement);
-          // 第二場景物件
-          // 為了點擊事件，load物件都包成function
+        // objView   第二場景
+        const objView = document.querySelector('.objView');
+        const closeBtnObjView = document.querySelector('.closeBtnObjView');
+        const objCanvas = document.querySelector('.objCanvas');
+        const objcurriculum = document.querySelector('.objcurriculum');
+        const closeBtnCurriculumInformation = document.querySelector('.closeBtnCurriculumInformation');
+        const curriculumBtn = document.querySelector('.curriculumBtn');
+        const OBJscene = new THREE.Scene();
+        OBJscene.background = color;
+        // 第二場景半球光
+        const hemispherelight2 = new THREE.HemisphereLight(0x404040, 0x404040, 5);
+        const hemispherehelper2 = new THREE.HemisphereLightHelper(hemispherelight2, 0.1);
+        hemispherelight.position.set(0, 30, 0);
+        // 第二場景輔助
+        const axesHelper2 = new THREE.AxesHelper(50);
+        OBJscene.add(axesHelper2);
+        const gridHelper2 = new THREE.GridHelper(20, 100);
+        OBJscene.add(gridHelper2);
+        // 第二場景相機
+        const OBJcamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
+        OBJcamera.position.set(1, 0.5, -6);
+        // 第二場景畫面渲染
+        const OBJrenderer = new THREE.WebGLRenderer({
+          antialias: true,    //是否開啟反鋸齒
+          precision: " highp", //highp/mediump/lowp 著色的精準度選擇，分別為高/中/低
+          alpha: true,        //是否設置背景色透明
+          premultipliedAlpha: false,  //是否設置Alpha著色透明度
+          stencil: false, //是否開啟繪圖緩衝組成
+          preserveDrawingBuffer: true, //是否保存繪圖緩衝
+          maxLights: 1         //maxLights:最大燈光數
+        });
+        OBJrenderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
+        objCanvas.appendChild(OBJrenderer.domElement);
+        const OBJcontrols = new OrbitControls(OBJcamera, OBJrenderer.domElement);
+        // 第二場景物件
+        // 為了點擊事件，load物件都包成function
 
-          function InfoView(InfoViewValue) {
-            OBJscene.add(hemispherelight2);
-            OBJscene.add(hemispherehelper2);
-            const OBJLoader = new GLTFLoader();
-            const OBJDracoLoader = new DRACOLoader();
-            OBJDracoLoader.setDecoderPath('/examples/jsm/libs/draco/');
-            OBJLoader.setDRACOLoader(OBJDracoLoader);
-            OBJLoader.load(
-              './models1023/PlaneAll2.glb',
-              function (gltf) {
-                // gltf.scene.children[0]
-                OBJscene.add(gltf.scene.children[InfoViewValue]);
-                gltf.animations; // Array<THREE.AnimationClip>
-                gltf.scene; // THREE.Group
-                gltf.scenes; // Array<THREE.Group>
-                gltf.cameras; // Array<THREE.Camera>
-                gltf.asset; // Object
-              }
-            );
-          }
+        function InfoView(InfoViewValue) {
+          OBJscene.add(hemispherelight2);
+          OBJscene.add(hemispherehelper2);
+          const OBJLoader = new GLTFLoader();
+          const OBJDracoLoader = new DRACOLoader();
+          OBJDracoLoader.setDecoderPath('/examples/jsm/libs/draco/');
+          OBJLoader.setDRACOLoader(OBJDracoLoader);
+          OBJLoader.load(
+            './models1023/PlaneAll2.glb',
+            function (gltf) {
+              // gltf.scene.children[0]
+              OBJscene.add(gltf.scene.children[InfoViewValue]);
+              gltf.animations; // Array<THREE.AnimationClip>
+              gltf.scene; // THREE.Group
+              gltf.scenes; // Array<THREE.Group>
+              gltf.cameras; // Array<THREE.Camera>
+              gltf.asset; // Object
+            }
+          );
+        }
+        InfoView(0);
+        function animate2() {
+          requestAnimationFrame(animate2);
+          // OBJscene.rotation.y += 0.002;
+          OBJrenderer.render(OBJscene, OBJcamera);
+        }
+        animate2();
+        // 使DIV能夠按到
+        BakingRoomDIV.style.pointerEvents = 'auto';
+        DancingRoomDIV.style.pointerEvents = 'auto';
+        BigDIYRoomDIV.style.pointerEvents = 'auto';
+        SmallDIYRoomDIV.style.pointerEvents = 'auto';
+        // DIV監聽事件 監聽DIV開啟小畫面及個別物件function
+        BakingRoomDIV.addEventListener('click', function (e) {
           InfoView(0);
-          function animate2() {
-            requestAnimationFrame(animate2);
-            // OBJscene.rotation.y += 0.002;
-            OBJrenderer.render(OBJscene, OBJcamera);
-          }
-          animate2();
-          // 使DIV能夠按到
-          BakingRoomDIV.style.pointerEvents = 'auto';
-          DancingRoomDIV.style.pointerEvents = 'auto';
-          BigDIYRoomDIV.style.pointerEvents = 'auto';
-          SmallDIYRoomDIV.style.pointerEvents = 'auto';
-          // DIV監聽事件 監聽DIV開啟小畫面及個別物件function
-          BakingRoomDIV.addEventListener('click', function (e) {
+          objView.style = 'display:block';
+        });
+        DancingRoomDIV.addEventListener('click', function (e) {
+          InfoView(1);
+          objView.style = 'display:block';
+        });
+        BigDIYRoomDIV.addEventListener('click', function (e) {
+          objView.style = 'display:block';
+        });
+        SmallDIYRoomDIV.addEventListener('click', function (e) {
+          objView.style = 'display:block';
+        });
+        // 監聽課表按鈕打開課表DIV
+        curriculumBtn.addEventListener('click', function (e) {
+          objcurriculum.style = 'display:block';
+          closeBtnObjView.style = 'display:none';
+        });
+        // // DIV監聽事件 監聽小畫面開關按鈕關閉 環境OBJscene清空
+        closeBtnObjView.addEventListener('click', function (e) {
+          objView.style = 'display:none';
+          OBJscene.clear();
+        });
+        // 監聽課表DIV裡關閉按鈕關閉
+        closeBtnCurriculumInformation.addEventListener('click', function (e) {
+          objcurriculum.style = 'display:none';
+          closeBtnObjView.style = 'display:block';
+        });
+
+
+        // resize用於RWD
+        window.addEventListener('mousemove', mouseMove);
+        window.addEventListener('resize', resetSetting);
+        window.addEventListener('click', mouseClick);
+        function pointerSetting(event) {
+          pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
+          pointer.y = - (event.clientY / window.innerHeight) * 2 + 1;
+        }
+        const one = [gltf.scene.children[0]];
+        const two = [gltf.scene.children[1]];
+        function mouseClick(event) {
+          pointerSetting(event);
+          raycaster.setFromCamera(pointer, cameras[camIndex].camera);
+          const intersects = raycaster.intersectObjects(one, true);
+          const intersects2 = raycaster.intersectObjects(two, true);
+          if (intersects.length > 0) {
             InfoView(0);
             objView.style = 'display:block';
-          });
-          DancingRoomDIV.addEventListener('click', function (e) {
+          } else if (intersects2.length > 0) {
             InfoView(1);
             objView.style = 'display:block';
-          });
-          BigDIYRoomDIV.addEventListener('click', function (e) {
-            objView.style = 'display:block';
-          });
-          SmallDIYRoomDIV.addEventListener('click', function (e) {
-            objView.style = 'display:block';
-          });
-          // 監聽課表按鈕打開課表DIV
-          curriculumBtn.addEventListener('click', function (e) {
-            objcurriculum.style = 'display:block';
-            closeBtnObjView.style = 'display:none';
-          });
-          // // DIV監聽事件 監聽小畫面開關按鈕關閉 環境OBJscene清空
-          closeBtnObjView.addEventListener('click', function (e) {
-            objView.style = 'display:none';
-            OBJscene.clear();
-          });
-          // 監聽課表DIV裡關閉按鈕關閉
-          closeBtnCurriculumInformation.addEventListener('click', function (e) {
-            objcurriculum.style = 'display:none';
-            closeBtnObjView.style = 'display:block';
-          });
-
-
-          // resize用於RWD
-          window.addEventListener('mousemove', mouseMove);
-          window.addEventListener('resize', resetSetting);
-          window.addEventListener('click', mouseClick);
-          function pointerSetting(event) {
-            pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
-            pointer.y = - (event.clientY / window.innerHeight) * 2 + 1;
           }
-          const one = [gltf.scene.children[0]];
-          const two = [gltf.scene.children[1]];
-          function mouseClick(event) {
-            pointerSetting(event);
-            raycaster.setFromCamera(pointer, cameras[camIndex].camera);
-            const intersects = raycaster.intersectObjects(one, true);
-            const intersects2 = raycaster.intersectObjects(two, true);
-            if (intersects.length > 0) {
-              InfoView(0);
-              objView.style = 'display:block';
-            } else if (intersects2.length > 0) {
-              InfoView(1);
-              objView.style = 'display:block';
-            }
 
+        }
+        function mouseMove(event) {
+          pointerSetting(event);
+          raycaster.setFromCamera(pointer, cameras[camIndex].camera);
+          const intersects = raycaster.intersectObjects(one, true);
+          const intersects2 = raycaster.intersectObjects(two, true);
+          if (intersects.length > 0) {
+            gltf.scene.children[0].material.color = { r: 255, b: 255, g: 255 }
+          } else {
+            gltf.scene.children[0].material.color = { r: 1, b: 1, g: 1 }
           }
-          function mouseMove(event) {
-            pointerSetting(event);
-            raycaster.setFromCamera(pointer, cameras[camIndex].camera);
-            const intersects = raycaster.intersectObjects(one, true);
-            const intersects2 = raycaster.intersectObjects(two, true);
-            if (intersects.length > 0) {
-              gltf.scene.children[0].material.color = { r: 255, b: 255, g: 255 }
-            } else {
-              gltf.scene.children[0].material.color = { r: 1, b: 1, g: 1 }
-            }
-            if (intersects2.length > 0) {
-              gltf.scene.children[1].material.color = { r: 255, b: 255, g: 255 }
-            } else {
-              gltf.scene.children[1].material.color = { r: 1, b: 1, g: 1 }
-            }
+          if (intersects2.length > 0) {
+            gltf.scene.children[1].material.color = { r: 255, b: 255, g: 255 }
+          } else {
+            gltf.scene.children[1].material.color = { r: 1, b: 1, g: 1 }
           }
-          // resetSetting用於RWD
-          function resetSetting() {
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            OBJrenderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
-            labelRenderer.setSize(window.innerWidth, window.innerHeight);
-            cameras.forEach((item) => {
-              item.camera.aspect = window.innerWidth / window.innerHeight;
-              item.camera.updateProjectionMatrix();
-            });
-          }
-        },
-      );
+        }
+        // resetSetting用於RWD
+        function resetSetting() {
+          renderer.setSize(window.innerWidth, window.innerHeight);
+          OBJrenderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
+          labelRenderer.setSize(window.innerWidth, window.innerHeight);
+          cameras.forEach((item) => {
+            item.camera.aspect = window.innerWidth / window.innerHeight;
+            item.camera.updateProjectionMatrix();
+          });
+        }
+      },
+    );
 
-      // 滑鼠控制器
-      const controls = new OrbitControls(camera, renderer.domElement);
-      // const controlsx = new OrbitControls( BakingCamera, renderer.domElement );
-      function animate() {
-        requestAnimationFrame(animate);
-        // console.log('相機'+camIndex);
-        // if(camIndex===0){scene.rotation.y += 0.002;}else{
-        //   scene.rotation.y=0;
-        // }
-        renderer.render(scene, cameras[camIndex].camera);
-        labelRenderer.render(scene, cameras[camIndex].camera);
-      }
+    // 滑鼠控制器
+    const controls = new OrbitControls(camera, renderer.domElement);
+    // const controlsx = new OrbitControls( BakingCamera, renderer.domElement );
+    function animate() {
+      requestAnimationFrame(animate);
+      // console.log('相機'+camIndex);
+      // if(camIndex===0){scene.rotation.y += 0.002;}else{
+      //   scene.rotation.y=0;
+      // }
+      renderer.render(scene, cameras[camIndex].camera);
+      labelRenderer.render(scene, cameras[camIndex].camera);
+    }
 
-      animate();
+    animate();
 
-    </script>
+  </script>
 
 
 </body>
