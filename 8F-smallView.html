@@ -153,20 +153,22 @@
 
     .Classroom-name {
       width: 15%;
-      font-size: 20px;
-      border-radius: 20px;
       margin: 20px;
-      background-color: #608cb100;
+      padding: 30px 30px;
+      border-radius: 10px;
       text-align: center;
+      font-size: 16px;
+      background-color: #608CB1;
       display: flex;
+      font-weight: bold;
+      color: #ffffff;
       justify-content: center;
-      flex-direction: column;
+      align-items: center;
     }
 
     .Classroom-introduce {
       width: 70%;
       font-size: 20px;
-      
       margin-top: 20px;
       margin-bottom: 20px;
       border-radius: 10px;
@@ -174,6 +176,7 @@
       justify-content: center;
       flex-direction: column;
       background-color: rgba(255, 255, 255, 0);
+      
     }
 
     .curriculum {
@@ -197,6 +200,8 @@
       border-radius: 10px;
       border-style: none;
       cursor: pointer;
+      color: #575757;
+      font-weight: bold;
 
     }
 
@@ -204,26 +209,9 @@
       box-shadow: 0 0 10px #fff;
     }
 
-    .col-1 {
-      width: 100%;
-      height: 30%;
-      margin-bottom: 20px;
-      background-color: #608CB1;
-      border-radius: 10px;
-      padding: 5px;
+   
 
-    }
-
-    .col-2 {
-      width: 100%;
-      height: 70%;
-      background-color: #ffffff;
-      line-height: 100px;
-      padding: 10px;
-      border-radius: 10px;
-      font-size: 16px;
-
-    }
+   
 
     .col-3 {
       width: 100%;
@@ -233,6 +221,8 @@
       border-radius: 10px;
       padding: 5px;
       text-align: center;
+      color: #ffffff;
+      font-weight: bold;
 
     }
 
@@ -246,6 +236,7 @@
       border-radius: 10px;
       text-align: justify;
       letter-spacing: 1px;
+      color: #575757;
       
 
 
@@ -258,7 +249,6 @@
         font-size: 16px;
       }
 
-      .col-2,
       .col-4 {
         font-size: 14px;
 
@@ -266,7 +256,7 @@
 
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1080px) {
       .objInfo-BIG {
         width: 100%;
         height: 40%;
@@ -285,12 +275,11 @@
         font-size: 14px;
       }
 
-      .col-2,
       .col-4 {
-        font-size: 16px;
+        font-size: 12px;
        
       }
-
+      
     }
 
     .objCanvas {
@@ -417,8 +406,7 @@
     <div class="objInfo-BIG">
       <div class="objInfo">
         <div class="Classroom-name">
-          <div class="col-1">教室名稱</div>
-          <div class="col-2">815 烘焙教室</div>
+          815<br>烘焙教室
         </div>  
         
         <div class="Classroom-introduce">
