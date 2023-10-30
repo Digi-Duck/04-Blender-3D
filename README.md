@@ -18,17 +18,17 @@ HTML / CSS / SCSS / Three.js
   - [GitHub](https://github.com/Eazychen)
   - [Email](easy_chen@icloud.com)
 
-### 張藝襦
-
-- 聯絡方式：
-  - [GitHub](https://github.com/smile0710)
-  - [Email](smile880508@gmail.com)
-
 ### 劉迪翰
 
 - 聯絡方式：
   - [GitHub](https://github.com/dihan188)
   - [Email](ghkw6688@gmail.com)
+
+### 張藝襦
+
+- 聯絡方式：
+  - [GitHub](https://github.com/smile0710)
+  - [Email](smile880508@gmail.com)
 
 ### 黃姵瑄
 
