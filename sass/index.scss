@@ -141,16 +141,16 @@ a:visited {
 			top: 15%;
 		}
 	}
-	@media  (max-width: 768px) {
+	@media  (max-width: 760px) {
 		.banner-group{
 			top: 10%;
 			.banner-title{
-				font-size: 15px;
+				font-size: 12px;
 			}
 			.btn-group{
 				.btn{
 					padding: 5px;
-					font-size: 8px;
+					font-size: 6px;
 				}
 			}
 		}
