@@ -54,7 +54,7 @@
       flex-direction: column;
       padding: 3%;
     }
-    
+
 
 
     .closeBtnObjView {
@@ -81,6 +81,8 @@
       width: 100%;
       height: 50%;
       display: flex;
+      position: relative;
+      bottom: -50px;
       background-color: #608cb100;
       justify-content: center;
 
@@ -107,7 +109,7 @@
       display: flex;
       justify-content: center;
       background-color: #add8e65b;
-      position: relative;
+      position: absolute;
       z-index: 6;
       bottom: 0;
       position: fixed;
@@ -204,12 +206,12 @@
     .curriculumBtn:hover {
       box-shadow: 0 0 10px #fff;
     }
+
     .objCanvas {
       width: 50%;
       height: 50%;
       margin: auto;
       position: relative;
-      /* position: fixed; */
       display: block;
     }
 
@@ -243,12 +245,14 @@
     }
 
     .objcurriculum {
-      width: 100%;
-      height: 50%;
+      width: 90vw;
+      height: 85vh;
+      margin: auto;
       background-color: #ffffff;
       position: absolute;
-      padding: 30px;
-      left: 0;
+      padding: 10%;
+      left: -50%;
+      top: auto;
       display: flex;
       z-index: 9;
 
@@ -274,31 +278,31 @@
     }
 
     @media (max-width: 1080px) {
-      
+
       .objCanvas {
-        /* position: absolute; */
-        /* top: 50px; */
+        height: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
-        
+
       }
+
       .objInfo-BIG {
         width: 100%;
         height: 40%;
-        position: relative;
-        bottom: 0;
+        /* position: relative;
+        bottom: -5; */
 
       }
 
       .objcurriculum {
-        width: 100%;
-        /* height: 50vh; */
-       position: absolute;
-        padding: 0;
+        position: absolute;
+        padding: 10%;
+        left: -50%;
+        top: 0;
 
       }
-      
+
 
       .col-1,
       .col-3 {
@@ -319,11 +323,37 @@
 
     @media (max-width: 930px) {
       .objCanvas {
-        margin: auto;
+        height: 60%;
       }
+
+      .objInfo-BIG {
+        height: 20%;
+        align-items: center;
+        justify-content: center;
+        bottom: 0;
+        position: fixed;
+
+      }
+
+      .objInfo {
+        display: none;
+      }
+
+      .objInfoPhone {
+        position: fixed;
+        text-align: center;
+        width: 100px;
+        height: 50px;
+        line-height: 50px;
+        border-radius: 20px;
+        background-color: #F9DC5C;
+        display: block;
+        
+      }
+
     }
 
-   
+
 
     canvas {
       margin: auto;
@@ -336,14 +366,13 @@
 
 
     .curriculumInformation {
-      width: 80%;
+      width: 100%;
       height: 100%;
       background-color: #ffffff00;
       background-image: url(./img/舞蹈教室課表.png);
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
-      margin: auto;
       z-index: 10;
 
     }
@@ -359,7 +388,7 @@
       background-position: center;
       background-size: contain;
       position: absolute;
-      right: 25%;
+      right: 0;
       top: 0;
     }
 
@@ -381,7 +410,7 @@
       overflow: hidden;
       object-fit: cover;
     }
-    
+
     @keyframes logo {
       0% {
         transform: translateY(10px);
@@ -424,11 +453,10 @@
         <div class="curriculumInformation"></div>
       </div>
     </div>
-    <div class="closeBtnObjView">
-
-    </div>
+    <div class="closeBtnObjView"></div>
 
     <div class="objInfo-BIG">
+      <div class="objInfoPhone" hidden>課表</div>
       <div class="objInfo">
         <div class="Classroom-name">
           815<br>烘焙教室
@@ -577,8 +605,10 @@
         const closeBtnObjView = document.querySelector('.closeBtnObjView');
         const objCanvas = document.querySelector('.objCanvas');
         const objcurriculum = document.querySelector('.objcurriculum');
+        const objInfoBIG = document.querySelector('.objInfo-BIG');
         const closeBtnCurriculumInformation = document.querySelector('.closeBtnCurriculumInformation');
         const curriculumBtn = document.querySelector('.curriculumBtn');
+        const objInfoPhone = document.querySelector('.objInfoPhone');objInfoPhone
         const OBJscene = new THREE.Scene();
         OBJscene.background = color;
         // 第二場景半球光
@@ -650,7 +680,7 @@
         BakingRoomDIV.addEventListener('click', function (e) {
           objView.style = 'display:block';
           InfoView(0);
-          
+
         });
         DancingRoomDIV.addEventListener('click', function (e) {
           objView.style = 'display:block';
@@ -666,6 +696,13 @@
         curriculumBtn.addEventListener('click', function (e) {
           objcurriculum.style = 'display:block';
           closeBtnObjView.style = 'display:none';
+          objInfoBIG.style = 'display:none';
+        });
+        // 監聽課表按鈕打開課表DIV-手機板
+        objInfoPhone.addEventListener('click', function (e) {
+          objcurriculum.style = 'display:block';
+          closeBtnObjView.style = 'display:none';
+          objInfoBIG.style = 'display:none';
         });
         // // DIV監聽事件 監聽小畫面開關按鈕關閉 環境OBJscene清空
         closeBtnObjView.addEventListener('click', function (e) {
@@ -676,6 +713,7 @@
         closeBtnCurriculumInformation.addEventListener('click', function (e) {
           objcurriculum.style = 'display:none';
           closeBtnObjView.style = 'display:block';
+          objInfoBIG.style = 'display:block';
         });
 
 
