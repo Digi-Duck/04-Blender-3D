@@ -54,8 +54,8 @@
 	@media (max-width:760px) {
 		.swiper-button-next,
 		.swiper-button-prev {
-			width: 25px;
-			height: 25px;
+			width: 20px;
+			height: 20px;
 		}
 	}
 	.swiper-button-next:after,
@@ -79,7 +79,7 @@
 	@media (max-width:760px) {
 		.swiper-button-next:after,
 		.swiper-button-prev:after {
-			font-size: 14px;
+			font-size: 12px;
 		}
 	}
 
@@ -90,17 +90,17 @@
 
 	.swiper-button-prev {
 		left: 20%;
-		transform: translateX(-20%);
+		transform: translateX(-25%);
 	}
 	@media (max-width:760px) {
 		.swiper-button-next {
 			top: 55%;
-			right: 18%;
+			transform: translateX(20%);
 		}
 	
 		.swiper-button-prev {
 			top: 55%;
-			left: 18%;
+			transform: translateX(-20%);
 		}
 	}
 
