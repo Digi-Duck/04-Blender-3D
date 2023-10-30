@@ -45,6 +45,10 @@ a:visited {
   }
 }
 @media (max-width: 768px) {
+  .container .banner .logo {
+    top: 15px;
+    left: 15px;
+  }
   .container .banner .logo img {
     width: 100px;
   }
@@ -131,11 +135,15 @@ a:visited {
   }
 }
 @media (max-width: 768px) {
-  .container .banner .banner-title {
-    font-size: 18px;
+  .container .banner .banner-group {
+    top: 10%;
   }
-  .container .banner .btn-group .btn {
-    font-size: 13px;
+  .container .banner .banner-group .banner-title {
+    font-size: 15px;
+  }
+  .container .banner .banner-group .btn-group .btn {
+    padding: 5px;
+    font-size: 8px;
   }
 }
 .container .main {
