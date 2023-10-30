@@ -43,13 +43,13 @@ a:visited {
     width: 150px;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 760px) {
   .container .banner .logo {
-    top: 15px;
-    left: 15px;
+    top: 10px;
+    left: 10px;
   }
   .container .banner .logo img {
-    width: 100px;
+    width: 50px;
   }
 }
 .container .banner .banner-video {
@@ -135,14 +135,19 @@ a:visited {
 }
 @media (max-width: 760px) {
   .container .banner .banner-group {
+    width: 300px;
     top: 10%;
+    left: 10%;
   }
   .container .banner .banner-group .banner-title {
+    padding: 5px;
     font-size: 12px;
+    margin-bottom: 5px;
   }
   .container .banner .banner-group .btn-group .btn {
     padding: 5px;
-    font-size: 6px;
+    font-size: 8px;
+    margin: 5px;
   }
 }
 .container .main {
@@ -176,33 +181,40 @@ a:visited {
   display: inline-block;
   padding: 10px;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1020px) {
   .container .main {
-    height: 50%;
+    height: 40%;
+  }
+  .container .main .main-paragraph {
+    letter-spacing: 2px;
   }
   .container .main .main-paragraph .main-title {
     width: 30%;
-    font-size: 15px;
+    font-size: 18px;
   }
   .container .main .main-paragraph .main-article {
-    font-size: 10px;
-    padding: 3px;
+    font-size: 14px;
+    padding: 10px 3px;
   }
   .container .main .main-paragraph .main-article span {
-    padding: 5px;
+    padding: 10px 3px;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 760px) {
   .container .main {
-    height: 20%;
+    height: 30%;
+  }
+  .container .main .main-paragraph {
+    letter-spacing: 0;
   }
   .container .main .main-paragraph .main-title {
     width: 30%;
     font-size: 10px;
+    margin-bottom: 10px;
   }
   .container .main .main-paragraph .main-article {
-    font-size: 3px;
-    padding: 3px;
+    font-size: 8px;
+    padding: 2px;
   }
 }
 .container .main-four-card {
