@@ -53,8 +53,6 @@
       justify-content: space-between;
       flex-direction: column;
       padding: 3%;
-      /* display: none; */
-
     }
     
 
@@ -211,6 +209,7 @@
       height: 50%;
       margin: auto;
       /* position: fixed; */
+      display: block;
     }
 
     .col-3 {
@@ -524,21 +523,7 @@
     const pointer = new THREE.Vector2();
     // 相機
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100000);
-    const BakingCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    let camIndex = 0;
-    const cameras = [
-      {
-        name: '上帝視角',
-        camera: camera,
-      },
-      {
-        name: '烘焙教室',
-        camera: BakingCamera,
-      },
-    ];
-
     camera.position.set(1, 1, 1);
-
     // 物件
     let AllObj = [];
     // 8F樓板
@@ -551,7 +536,6 @@
       function (gltf) {
         scene.add(gltf.scene);
         console.log(gltf.scene.children);
-        // gltf.scene.children[16].material.color={r:9,b:2,g:2}
         gltf.animations; // Array<THREE.AnimationClip>
         gltf.scene; // THREE.Group
         gltf.scenes; // Array<THREE.Group>
@@ -623,9 +607,10 @@
         OBJrenderer.setSize(w, h);
         objCanvas.appendChild(OBJrenderer.domElement);
         const OBJcontrols = new OrbitControls(OBJcamera, OBJrenderer.domElement);
-        // 第二場景物件
-        // 為了點擊事件，load物件都包成function
+        objView.style = 'display:none';
+        objcurriculum.style = 'display:none';
 
+        // 第二場景物件
         function InfoView(InfoViewValue) {
           OBJscene.add(hemispherelight2);
           OBJscene.add(hemispherehelper2);
@@ -646,6 +631,7 @@
             }
           );
         }
+
         InfoView(0);
         function animate2() {
           requestAnimationFrame(animate2);
@@ -659,15 +645,15 @@
         BigDIYRoomDIV.style.pointerEvents = 'auto';
         SmallDIYRoomDIV.style.pointerEvents = 'auto';
         // DIV監聽事件 監聽DIV開啟小畫面及個別物件function
-        objView.style = 'display:none';
-        objcurriculum.style = 'display:none';
+
         BakingRoomDIV.addEventListener('click', function (e) {
-          InfoView(0);
           objView.style = 'display:block';
+          InfoView(0);
+          
         });
         DancingRoomDIV.addEventListener('click', function (e) {
-          InfoView(1);
           objView.style = 'display:block';
+          InfoView(1);
         });
         BigDIYRoomDIV.addEventListener('click', function (e) {
           objView.style = 'display:block';
@@ -704,7 +690,7 @@
         const two = [gltf.scene.children[1]];
         function mouseClick(event) {
           pointerSetting(event);
-          raycaster.setFromCamera(pointer, cameras[camIndex].camera);
+          raycaster.setFromCamera(pointer, camera);
           const intersects = raycaster.intersectObjects(one, true);
           const intersects2 = raycaster.intersectObjects(two, true);
           if (intersects.length > 0) {
@@ -718,7 +704,7 @@
         }
         function mouseMove(event) {
           pointerSetting(event);
-          raycaster.setFromCamera(pointer, cameras[camIndex].camera);
+          raycaster.setFromCamera(pointer, camera);
           const intersects = raycaster.intersectObjects(one, true);
           const intersects2 = raycaster.intersectObjects(two, true);
           if (intersects.length > 0) {
@@ -736,10 +722,8 @@
         function resetSetting() {
           renderer.setSize(window.innerWidth, window.innerHeight);
           labelRenderer.setSize(window.innerWidth, window.innerHeight);
-          cameras.forEach((item) => {
-            item.camera.aspect = window.innerWidth / window.innerHeight;
-            item.camera.updateProjectionMatrix();
-          });
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
         }
       },
     );
@@ -753,8 +737,8 @@
       // if(camIndex===0){scene.rotation.y += 0.002;}else{
       //   scene.rotation.y=0;
       // }
-      renderer.render(scene, cameras[camIndex].camera);
-      labelRenderer.render(scene, cameras[camIndex].camera);
+      renderer.render(scene, camera);
+      labelRenderer.render(scene, camera);
     }
 
     animate();
