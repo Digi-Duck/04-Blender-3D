@@ -16,45 +16,49 @@
 </head>
 
 <body>
-  <section class="container">
+  <section class="container" id="container">
     <section class="banner">
         <h1 class="logo"> <img src="./img/LOGO(橫白透).png" alt=""></h1>
-        <video width="100%"  muted loop autoplay class="banner-video">
+        <video width="100%" muted loop autoplay class="banner-video">
           <source src="./video/20231030-背景影片-NEW0001-0600.mp4" type="video/mp4">
         </video>
-        <div class="banner-group">
-          <h3 class="banner-title" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">Overview
+        <div class="banner-group" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+          <h3 class="banner-title">Overview
             of the 8th floor</h3>
-          <ul class="btn-group">
-            <a href="8F-smallView.html">
-              <li class="btn">看見捌樓</li>
-            </a>
-            <a href="#">
-              <li class="btn">漫步捌樓</li>
-            </a>
-          </ul>
+            <ul class="btn-group">
+              <a href="8F-smallView.html">
+                <li class="btn">看見捌樓</li>
+              </a>
+              <a href="#">
+                <li class="btn">漫步捌樓</li>
+              </a>
+            </ul>
+        </div>
+        <div class="btn-down">
+          <i class="fa-solid fa-chevron-down fa-beat fa-2xl"></i>
         </div>
       </section>
     <section class="main">
-      <div class="main-paragraph">
-        <h2 class="main-title" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">綜合教學大樓8F</h2>
-        <p class="main-article" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
-          <span>這棟建築與創新產業做結合</span><br><span>於特定樓層有課程上的連結，而在八樓擁有多元功能的教室</span><br><span>如：舞蹈教室、音樂教室、手作教室、烘焙教室以及物聯網基地與負責推廣這些課程的推廣教育組等等</span>
+      <div class="main-picture"data-aos="flip-up" data-aos-duration="3000"><img src="./img/整棟樓.jpg" alt=""></div>
+      <div class="main-paragraph" data-aos="flip-up" data-aos-duration="3000">
+        <h2 class="main-title">綜合教學大樓8F</h2>
+        <p class="main-article">
+          <span>這棟建築與創新產業做結合，配合政府的政策推動，於特定樓層有發展特色培訓人才的課程，進而提升競爭力以及獨特性。</span>
+          <span>而在八樓擁有多元功能的教室，培養多元專業如：舞蹈教室、音樂教室、手作教室、烘焙教室以及物聯網基地與負責推廣這些課程的推廣教育組等等</span>
         </p>
       </div>
     </section>
     <section>
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="./img/輪播圖--1.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="./img/輪播圖--2.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="./img/輪播圖--3.jpg" alt=""></div>
-          <div class="swiper-slide"><img src="./img/教室走廊.png" alt=""></div>
-          <div class="swiper-slide"><img src="./img/教室走廊（清楚一點的版本）.png" alt=""></div>
+          <div class="swiper-slide"><img src="./img/輪播圖/輪播圖--1.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="./img/輪播圖/輪播圖--2.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="./img/輪播圖/輪播圖--3.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="./img/輪播圖/輪播圖--4.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="./img/輪播圖/輪播圖--5.png" alt=""></div>
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
-        <!-- <div class="swiper-pagination"></div> -->
       </div>
     </section>
     <section class="main-four-card">
@@ -98,7 +102,7 @@
       </div>
     </section>
     <footer>
-            <a href="#">TO TOP
+            <a href="#container">TO TOP
             <i class="fa-solid fa-arrow-up"></i>
             </a>
     </footer>
@@ -129,19 +133,12 @@
     });
   </script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
-    integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
-    crossorigin="anonymous"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
   <script>
     AOS.init();
   </script>
+
+  
 
 </body>
 

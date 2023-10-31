@@ -110,6 +110,5 @@ footer .logo {
 }
 footer .logo img {
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }/*# sourceMappingURL=8Fraycaster.css.map */
