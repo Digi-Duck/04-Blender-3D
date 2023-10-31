@@ -66,11 +66,7 @@
         const renderer=new THREE.WebGLRenderer({
       antialias: true,    //是否開啟反鋸齒
       precision:" highp", //highp/mediump/lowp 著色的精準度選擇，分別為高/中/低
-      alpha: true,        //是否設置背景色透明
-      premultipliedAlpha: false,  //是否設置Alpha著色透明度
-      stencil: false, //是否開啟繪圖緩衝組成
       preserveDrawingBuffer: true, //是否保存繪圖緩衝
-      maxLights:1         //maxLights:最大燈光數
     });
     renderer.setSize( window.innerWidth, window.innerHeight );
     document.body.appendChild( renderer.domElement,);
