@@ -34,5 +34,13 @@ let records = [
             },
 
         ],
+        "classroomName": "814 飛輪教室",
+        "ClassroomInformation": [
+            {
+                "Information": "該教室與推廣教育組配合給予校外人士學習之機會可提供相關課程使用。報名中：流行鋼琴自彈自唱班",
+                "classroomimg":"./img/classroom/音樂教室課表.png"
+            },
+
+        ],
     }
 ]
