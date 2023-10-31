@@ -378,7 +378,7 @@ a:visited {
     justify-content: space-evenly;
   }
   .container .main-four-card .four-card .card .card-img {
-    display: block;
+    display: none;
   }
   .container .main-four-card .four-card .card h4 {
     font-size: 16px;
