@@ -233,13 +233,16 @@ a:visited {
   width: 95%;
   background-color: #ffffff;
   position: absolute;
-  top: auto;
-  left: auto;
+  top: 0;
+  margin: 50px;
   padding: 2%;
   z-index: 9;
 }
 
 @media (max-width: 1280px) {
+  .objCanvas {
+    width: 60%;
+  }
   .col-1,
   .col-3 {
     font-size: 16px;
@@ -283,32 +286,6 @@ a:visited {
   .curriculumBtn {
     width: 80px;
     font-size: 14px;
-  }
-}
-@media (max-width: 930px) {
-  .objCanvas {
-    height: 60%;
-  }
-  #objInfo-BIG {
-    height: 20%;
-    align-items: center;
-    justify-content: center;
-    bottom: 0;
-    position: fixed;
-  }
-  .objInfo {
-    display: none;
-  }
-  .objInfoPhone {
-    position: fixed;
-    text-align: center;
-    width: 100px;
-    height: 50px;
-    line-height: 50px;
-    border-radius: 20px;
-    background-color: #F9DC5C;
-    display: block;
-    cursor: pointer;
   }
 }
 canvas {
