@@ -15,6 +15,21 @@
 </head>
 
 <body>
+    <div class="loading">
+    <div class="sk-cube-grid">
+      <div class="sk-cube sk-cube1"></div>
+      <div class="sk-cube sk-cube2"></div>
+      <div class="sk-cube sk-cube3"></div>
+      <div class="sk-cube sk-cube4"></div>
+      <div class="sk-cube sk-cube5"></div>
+      <div class="sk-cube sk-cube6"></div>
+      <div class="sk-cube sk-cube7"></div>
+      <div class="sk-cube sk-cube8"></div>
+      <div class="sk-cube sk-cube9"></div>
+    </div>
+    <div class="loadingNumberName">載入進度</div>
+    <div class="loadingNumber">0</div>
+  </div>
   <div>
     <h1 class="logo"> <img src="./img/LOGO(橫白透).png" alt=""></h1>
   </div>
@@ -223,7 +238,6 @@
             function (gltf) {
               OBJscene.add(gltf.scene.children[InfoViewValue]);
               OBJscene.add(gltf.scene.children[6]);
-              console.log('第二場警', gltf.scene.children);
             }
           );
         }
@@ -436,8 +450,24 @@
           labelRenderer.setSize(window.innerWidth, window.innerHeight);
           camera.aspect = window.innerWidth / window.innerHeight;
           camera.updateProjectionMatrix();
-          console.log(camera);
         }
+      },
+      function ( xhr ) {
+      const loadingNumber = document.querySelector('.loadingNumber');
+      const loading = document.querySelector('.loading');
+      var number= ( xhr.loaded / xhr.total * 100 ).toFixed(1);
+      loadingNumber.textContent = number;
+      console.dir(number);
+      if(number == 100.0){
+        let timeRun = 1;
+        let timerA = setInterval(function () {
+                timeRun-- ;
+                if (timeRun <= 0) {
+                clearTimeout(timerA);
+                loading.style.display = 'none';
+                }
+            }, 1000);
+      }
       },
     );
     function animate() {
