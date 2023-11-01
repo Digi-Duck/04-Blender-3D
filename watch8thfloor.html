@@ -860,6 +860,7 @@
         function resetSetting() {
           renderer.setSize(window.innerWidth, window.innerHeight);
           labelRenderer.setSize(window.innerWidth, window.innerHeight);
+          OBJrenderer.setSize(w, h);
           camera.aspect = window.innerWidth / window.innerHeight;
           camera.updateProjectionMatrix();
         }
