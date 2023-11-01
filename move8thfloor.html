@@ -179,7 +179,7 @@
 			}
 
 			const loader = new GLTFLoader();
-			loader.load( './models1023/1031move碰撞.glb', ( gltf ) => {
+			loader.load( './models/1031MoveCollision.glb', ( gltf ) => {
 				scene.add( gltf.scene );
 				worldOctree.fromGraphNode( gltf.scene );
 				gltf.scene.traverse( child => {
@@ -194,7 +194,7 @@
 
                 const planeLoader = new GLTFLoader();
                 planeLoader.load(
-                    './models1023/1031move場景.glb',
+                    './models/1031MoveView.glb',
                     function (gltf) {
                     scene.add(gltf.scene);
                     })
