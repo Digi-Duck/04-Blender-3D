@@ -8,6 +8,8 @@
 	/* width: 100%; */
 	margin:auto;
 	padding: 0;
+	display: flex;
+	
   }
 
   li {
@@ -55,7 +57,7 @@
   .closeBtnObjView {
 	width: 40px;
 	height: 40px;
-	background-image: url(./img/close.png);
+	background-image: url(../img/close.png);
 	color: white;
 	cursor: pointer;
 	background-repeat: no-repeat;
@@ -68,7 +70,7 @@
   }
 
   .closeBtnObjView:hover {
-	background-image: url(./img/cross.png);
+	background-image: url(../img/cross.png);
   }
 
 
@@ -90,12 +92,13 @@
 	background-color: #ADD8E6;
 	color: black;
 	font-size: 24;
-	bottom: 55px;
+	// bottom: 55px;
 	display: flex;
 	align-items: stretch;
 	border-radius: 20px;
 	box-shadow: 3px 3px 5px #575757;
 	margin: auto;
+	
   }
 
   .nav {
@@ -239,12 +242,12 @@
 
   .objcurriculum {
 	text-align: center;
-	width: 90vw;
-	margin: auto;
+	width: 95%;
 	background-color: #ffffff;
-	position: relative;
-	padding: 10%;
-	display: flex;
+	position: absolute;
+	top:auto;
+	left: auto;
+	padding: 2%;
 	z-index: 9;
 
   }
@@ -372,7 +375,7 @@
 	width: 40px;
 	height: 40px;
 	/* margin: auto; */
-	background-image: url(./img/close.png);
+	background-image: url(../img/close.png);
 	color: white;
 	cursor: pointer;
 	background-repeat: no-repeat;
@@ -384,7 +387,7 @@
   }
 
   .closeBtnCurriculumInformation:hover {
-	background-image: url(./img/cross.png);
+	background-image: url(../img/cross.png);
   }
 
   .logo {
