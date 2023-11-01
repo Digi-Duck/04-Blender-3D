@@ -14,8 +14,8 @@
     body,
     html {
       font-family: Arial, Helvetica, sans-serif;
-      width: 100%;
-      margin: 0;
+      /* width: 100%; */
+      margin:auto;
       padding: 0;
     }
 
@@ -253,8 +253,6 @@
       background-color: #ffffff;
       position: relative;
       padding: 10%;
-      /* left: -50%;
-      top: auto; */
       display: flex;
       z-index: 9;
 
@@ -448,8 +446,7 @@
     <h1 class="logo"> <img src="./img/LOGO(橫白透).png" alt=""></h1>
   </div>
   <div class="objView">
-    <div class="objCanvas">
-    </div>
+    <div class="objCanvas"></div>
     <div class="closeBtnObjView"></div>
     <div class="objInfo-BIG">
       <div class="objInfoPhone" hidden>課表</div>
@@ -683,19 +680,6 @@
               closeBtnObjView.style.display = 'none';
               objInfoBIG.style.display = 'none';
               changecurriculum(4);
-
-             
-            
-              // // 假设强制出现的数据被添加到一个 ID 为 "dataContainer" 的父元素中
-              // document.addEventListener('click', function (e) {
-              //   if (e.target.classList.contains('closeBtnCurriculumInformation')) {
-              //     console.log('關閉按鈕被點擊了!');
-              //     objcurriculum.style = 'display:none';
-              //     closeBtnObjView.style = 'display:block';
-              //     objInfoBIG.style = 'display:block';
-
-              //   }
-              // });
 
             }
           });
