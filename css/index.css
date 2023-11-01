@@ -41,7 +41,8 @@ a:visited {
 .container .banner .logo img {
   width: 200px;
   overflow: hidden;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .container .banner .banner-video {
   overflow: hidden;
@@ -180,11 +181,13 @@ a:visited {
 .container .main .main-picture {
   margin-left: 20px;
   width: 25%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .container .main .main-picture img {
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   overflow: hidden;
   border-radius: 20px;
 }
@@ -265,7 +268,8 @@ a:visited {
   background-repeat: no-repeat;
   background-position: center;
   overflow: hidden;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   box-shadow: 1px 1px 10px #bfbfbf;
 }
 .container .main-four-card .card .card-img-1 {
