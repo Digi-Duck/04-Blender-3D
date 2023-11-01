@@ -43,6 +43,12 @@ a:visited {
   cursor: pointer;
 }
 
+.label:hover {
+  background-color: #F9DC5C;
+  border: 2px solid rgb(255, 255, 255);
+  color: rgba(96, 140, 177, 0.4705882353);
+}
+
 .objView {
   opacity: 0;
   width: 100vw;
