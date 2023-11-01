@@ -291,14 +291,15 @@
 					window.scrollY || document.documentElement.scrollTop;
 
 				if (currentScrollTop > scrollThreshold) {
-					// 检查滚动距离是否超过阈值，隐藏按钮
+					// 檢查滾動距離是否超過設定值，若超過就隱藏按鈕
 					btnDown.classList.remove("btn-down-show");
 					btnDown.classList.add("btn-down-none");
 				} else {
-					// 滚动距离小于阈值，移除隐藏样式，显示按钮
+					// 檢查滾動距離是否小過設定值，若小於就顯示按鈕
 					btnDown.classList.remove("btn-down-none");
 					btnDown.classList.add("btn-down-show");
 				}
+				//用於瀏覽器動畫的 JavaScript 方法
 				requestAnimationFrame(scrollHandler);
 			}
 
