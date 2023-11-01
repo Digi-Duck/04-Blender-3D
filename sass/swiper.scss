@@ -13,72 +13,70 @@
 			border-radius: 120px;
 		}
 	}
-	@media (max-width:1024px) {
+	@media (max-width: 1024px) {
 		.swiper-slide {
 			img {
 				border-radius: 80px;
 			}
 		}
 	}
-	@media (max-width:768px) {
+	@media (max-width: 768px) {
 		.swiper-slide {
 			img {
-				border-radius: 40px;
+				border-radius: 60px;
 			}
 		}
 	}
-	
+
 	.swiper-button-next,
 	.swiper-button-prev {
-		width: 60px;
-		height: 60px;
-		background-color: lightgray;
+		width: 40px;
+		height: 40px;
+		background-color: #bca8a8;
 		box-shadow: 2px 2px 5px #000;
 		border-radius: 60%;
 	}
-	@media (max-width:1024px) {
+	.swiper-button-next:hover,
+	.swiper-button-prev:hover {
+		transform: scale(105%);
+	}
+
+	@media (max-width: 1024px) {
 		.swiper-button-next,
 		.swiper-button-prev {
-			width: 40px;
-			height: 40px;
+			width: 30px;
+			height: 30px;
 		}
 	}
-	@media (max-width:800px) {
-		.swiper-button-next,
-		.swiper-button-prev {
-			width: 35px;
-			height: 35px;
-		}
-	}
-	@media (max-width:760px) {
+	@media (max-width: 800px) {
 		.swiper-button-next,
 		.swiper-button-prev {
 			width: 20px;
 			height: 20px;
 		}
 	}
+	@media (max-width: 600px) {
+		.swiper-button-next,
+		.swiper-button-prev {
+			display: none;
+		}
+	}
 	.swiper-button-next:after,
 	.swiper-button-prev:after {
-		font-size: 36px;
+		font-size: 24px;
 		overflow: hidden;
-		color: gray;
+		color: #000;
 	}
-	@media (max-width:1024px) {
+	@media (max-width: 1024px) {
 		.swiper-button-next:after,
 		.swiper-button-prev:after {
-			font-size: 26px;
+			font-size: 20px;
 		}
 	}
-	@media (max-width:800px) {
+	@media (max-width: 800px) {
 		.swiper-button-next:after,
 		.swiper-button-prev:after {
-			font-size: 24px;
-		}
-	}
-	@media (max-width:760px) {
-		.swiper-button-next:after,
-		.swiper-button-prev:after {
-			font-size: 12px;
+			font-size: 13px;
 		}
 	}
 
@@ -91,18 +89,14 @@
 		left: 20%;
 		transform: translateX(-25%);
 	}
-	@media (max-width:760px) {
+	@media (max-width: 760px) {
 		.swiper-button-next {
 			top: 55%;
 			transform: translateX(20%);
 		}
-	
 		.swiper-button-prev {
 			top: 55%;
 			transform: translateX(-20%);
 		}
 	}
-
 }
-
-
