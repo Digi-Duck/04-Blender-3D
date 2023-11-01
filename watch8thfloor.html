@@ -253,8 +253,8 @@
       background-color: #ffffff;
       position: relative;
       padding: 10%;
-      left: -50%;
-      top: auto;
+      /* left: -50%;
+      top: auto; */
       display: flex;
       z-index: 9;
 
@@ -302,8 +302,8 @@
         margin: auto;
         position: absolute;
         padding: 10%;
-        left: -50%;
-        top: 0;
+        /* left: -50%; */
+        /* top: 0; */
 
       }
 
@@ -449,13 +449,8 @@
   </div>
   <div class="objView">
     <div class="objCanvas">
-      <div class="objcurriculum">
-        <div class="closeBtnCurriculumInformation"></div>
-        <div class="curriculumInformation"><img src="./img/classroom/舞蹈教室課表.png" style="margin:auto" ></div>
-      </div>
     </div>
     <div class="closeBtnObjView"></div>
-
     <div class="objInfo-BIG">
       <div class="objInfoPhone" hidden>課表</div>
       <div class="objInfo">
@@ -471,8 +466,11 @@
         </div>
         <div class="curriculum"> <button class="curriculumBtn">課表</button></div>
       </div>
-
     </div>
+  </div>
+  <div class="objcurriculum">
+    <div class="closeBtnCurriculumInformation"></div>
+    <div class="curriculumInformation"><img src="./img/classroom/舞蹈教室課表.png" style="margin:auto" ></div>
   </div>
   <div class="nav">
     <ul class="btn-group">
@@ -546,11 +544,10 @@
     function changecurriculum(i) {
 
       const item = records[i]
-      objCanvas.innerHTML =
-        `<div class="objcurriculum">
+      objcurriculum.innerHTML =
+        `
         <div class="closeBtnCurriculumInformation"></div>
-        <div class="curriculumInformation"><img src="${item.img}" style="margin:auto"></div>
-      </div>`
+        <div class="curriculumInformation"><img src="${item.img}" style="margin:auto"></div>`
 
 
     }
