@@ -544,10 +544,8 @@
     function changecurriculum(i) {
 
       const item = records[i]
-      objcurriculum.innerHTML =
-        `
-        <div class="closeBtnCurriculumInformation"></div>
-        <div class="curriculumInformation"><img src="${item.img}" style="margin:auto"></div>`
+      curriculumInformation.innerHTML =
+        `<img src="${item.img}" style="margin:auto">`
 
 
     }
