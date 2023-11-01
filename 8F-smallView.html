@@ -247,11 +247,11 @@
     }
 
     .objcurriculum {
+      text-align: center;
       width: 90vw;
-      height: 85vh;
       margin: auto;
       background-color: #ffffff;
-      position: absolute;
+      position: relative;
       padding: 10%;
       left: -50%;
       top: auto;
@@ -298,6 +298,8 @@
       }
 
       .objcurriculum {
+        display: flex;
+        margin: auto;
         position: absolute;
         padding: 10%;
         left: -50%;
@@ -369,10 +371,10 @@
 
 
     .curriculumInformation img {
-      width: 80%;
+      text-align:center;
+      width: 60%;
+      height: 100%;
       background-color: #ffffff00;
-      /* background-image: url(./img/classroom/舞蹈教室課表.png); */
-
       z-index: 10;
 
     }
@@ -446,11 +448,10 @@
     <h1 class="logo"> <img src="./img/LOGO(橫白透).png" alt=""></h1>
   </div>
   <div class="objView">
-    <!-- <div class="closeBtnObjView"></div> -->
     <div class="objCanvas">
       <div class="objcurriculum">
         <div class="closeBtnCurriculumInformation"></div>
-        <div class="curriculumInformation"><img src="./img/classroom/舞蹈教室課表.png" style="margin:auto"></div>
+        <div class="curriculumInformation"><img src="./img/classroom/舞蹈教室課表.png" style="margin:auto" ></div>
       </div>
     </div>
     <div class="closeBtnObjView"></div>
@@ -543,6 +544,7 @@
     const curriculumInformation = document.querySelector('.curriculumInformation');
 
     function changecurriculum(i) {
+
       const item = records[i]
       objCanvas.innerHTML =
         `<div class="objcurriculum">
@@ -552,13 +554,13 @@
 
 
     }
-    
+
     // 監聽課表按鈕打開課表DIV
     curriculumBtn.addEventListener('click', function (e) {
-      objcurriculum.style = 'display:block';
-      closeBtnObjView.style = 'display:none';
-      objInfoBIG.style = 'display:none';
-      
+      objcurriculum.style.display = 'block';
+      closeBtnObjView.style.display = 'none';
+      objInfoBIG.style.display = 'none';
+
     });
     // 監聽課表按鈕打開課表DIV-手機板
     objInfoPhone.addEventListener('click', function (e) {
@@ -674,12 +676,38 @@
         gltf.scene.children[0].add(RoomZeroLabel);
         RoomZeroDIV.style.pointerEvents = 'auto';
         RoomZeroDIV.addEventListener('click', function (e) {
+          console.log('RoomZeroDIV 被點擊了');
           OBJscene.clear();
           objView.style = 'display:block';
           InfoView(3);
           newobjInfo(4);
-          
+          document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('curriculumBtn')) {
+              console.log('curriculumBtn 被點擊了');
+              objcurriculum.style.display = 'block';
+              closeBtnObjView.style.display = 'none';
+              objInfoBIG.style.display = 'none';
+              changecurriculum(4);
+
+             
+            
+              // // 假设强制出现的数据被添加到一个 ID 为 "dataContainer" 的父元素中
+              // document.addEventListener('click', function (e) {
+              //   if (e.target.classList.contains('closeBtnCurriculumInformation')) {
+              //     console.log('關閉按鈕被點擊了!');
+              //     objcurriculum.style = 'display:none';
+              //     closeBtnObjView.style = 'display:block';
+              //     objInfoBIG.style = 'display:block';
+
+              //   }
+              // });
+
+            }
+          });
+
+
         });
+
         // 815舞蹈教室標籤
         const RoomOneDIV = document.createElement('div');
         RoomOneDIV.className = 'label';
@@ -693,6 +721,16 @@
           objView.style = 'display:block';
           InfoView(4);
           newobjInfo(0);
+
+          document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('curriculumBtn')) {
+              console.log('curriculumBtn 被點擊了');
+              objcurriculum.style.display = 'block';
+              closeBtnObjView.style.display = 'none';
+              objInfoBIG.style.display = 'none';
+              changecurriculum(0);
+            }
+          });
         });
         // 813烘焙教室標籤
         const RoomTwoDIV = document.createElement('div');
@@ -707,6 +745,15 @@
           objView.style = 'display:block';
           InfoView(0);
           newobjInfo(3);
+          document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('curriculumBtn')) {
+              console.log('curriculumBtn 被點擊了');
+              objcurriculum.style.display = 'block';
+              closeBtnObjView.style.display = 'none';
+              objInfoBIG.style.display = 'none';
+              changecurriculum(3);
+            }
+          });
         });
         // 814飛輪教室標籤
         const RoomThreeDIV = document.createElement('div');
@@ -721,6 +768,15 @@
           objView.style = 'display:block';
           InfoView(2);
           newobjInfo(5);
+          document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('curriculumBtn')) {
+              console.log('curriculumBtn 被點擊了');
+              objcurriculum.style.display = 'block';
+              closeBtnObjView.style.display = 'none';
+              objInfoBIG.style.display = 'none';
+              changecurriculum(5);
+            }
+          });
         });
         // 811手作教室
         const RoomFourDIV = document.createElement('div');
@@ -735,6 +791,15 @@
           objView.style = 'display:block';
           InfoView(1);
           newobjInfo(1);
+          document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('curriculumBtn')) {
+              console.log('curriculumBtn 被點擊了');
+              objcurriculum.style.display = 'block';
+              closeBtnObjView.style.display = 'none';
+              objInfoBIG.style.display = 'none';
+              changecurriculum(1);
+            }
+          });
         });
         // 812手作教室標籤
         const RoomFiveDIV = document.createElement('div');
@@ -749,6 +814,15 @@
           objView.style = 'display:block';
           InfoView(5);
           newobjInfo(2);
+          document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('curriculumBtn')) {
+              console.log('curriculumBtn 被點擊了');
+              objcurriculum.style.display = 'block';
+              closeBtnObjView.style.display = 'none';
+              objInfoBIG.style.display = 'none';
+              changecurriculum(2);
+            }
+          });
 
         });
 
@@ -764,6 +838,15 @@
           OBJscene.clear();
           objView.style = 'display:block';
           InfoView(6);
+          document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('curriculumBtn')) {
+              console.log('curriculumBtn 被點擊了');
+              objcurriculum.style.display = 'block';
+              closeBtnObjView.style.display = 'none';
+              objInfoBIG.style.display = 'none';
+              changecurriculum(6);
+            }
+          });
         });
         // 滑鼠監聽
         window.addEventListener('mousemove', mouseMove);
