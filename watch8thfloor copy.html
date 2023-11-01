@@ -27,9 +27,9 @@
       <div class="sk-cube sk-cube8"></div>
       <div class="sk-cube sk-cube9"></div>
     </div>
-    <div class="loadingNumberName">
-      <span>載入進度</span>
-      <div class="loadingNumber">0</div></div>
+    <div class="loadingCalcBox" >
+      <span class="loadingCalcName">載入中</span>
+      <div class="loadingCalc">0</div></div>
 
   </div>
   <div>
@@ -177,7 +177,7 @@
     document.body.appendChild(labelRenderer.domElement);
     // 場景
     const scene = new THREE.Scene();
-    const color = new THREE.Color("rgb(173,216,230)");
+    const color = new THREE.Color("rgb(188,168,168)");
     scene.background = color;
     // 半球光
     const hemispherelight = new THREE.HemisphereLight(0x404040, 0x404040, 5);
@@ -455,13 +455,16 @@
         }
       },
       function ( xhr ) {
-      const loadingNumber = document.querySelector('.loadingNumber');
       const loading = document.querySelector('.loading');
+      const loadingCalc = document.querySelector('.loadingCalc');
+      const loadingCalcName = document.querySelector('.loadingCalcName');
       var number= ( xhr.loaded / xhr.total * 100 ).toFixed(1);
-      loadingNumber.textContent = number;
-      console.dir(number);
+      loadingCalc.textContent = number;
       if(number == 100.0){
-        let timeRun = 1;
+        loadingCalcName.textContent ='載入完成';
+        loadingCalcName.style.color = 'lightgreen';
+        loadingCalc.style.color = 'lightgreen';
+        let timeRun = 2;
         let timerA = setInterval(function () {
                 timeRun-- ;
                 if (timeRun <= 0) {
