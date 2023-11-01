@@ -215,7 +215,6 @@
       margin: auto;
       position: relative;
       display: block;
-      background-color: #608CB1;
     }
 
     .col-3 {
@@ -620,10 +619,8 @@
           precision: " highp",
           preserveDrawingBuffer: true,
         });
-        var w = objCanvas.clientWidth;
-        var h = objCanvas.clientHeight;
-        OBJrenderer.setSize(w, h);
-        // objCanvas.appendChild(OBJrenderer.domElement);
+        OBJrenderer.setSize(objCanvas.clientWidth, objCanvas.clientHeight);
+        objCanvas.appendChild(OBJrenderer.domElement);
         // 第二場景
         const OBJscene = new THREE.Scene();
         OBJscene.background = color;
@@ -861,7 +858,7 @@
         function resetSetting() {
           renderer.setSize(window.innerWidth, window.innerHeight);
           labelRenderer.setSize(window.innerWidth, window.innerHeight);
-          OBJrenderer.setSize(w, h);
+          OBJrenderer.setSize(objCanvas.clientWidth, objCanvas.clientHeight);
           camera.aspect = window.innerWidth / window.innerHeight;
           camera.updateProjectionMatrix();
         }
