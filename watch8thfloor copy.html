@@ -29,7 +29,7 @@
     </div>
     <div class="loadingCalcBox" >
       <span class="loadingCalcName">載入中</span>
-      <div class="loadingCalc">0 %</div></div>
+      <div class="loadingCalc">0</div></div>
 
   </div>
   <div>
@@ -141,8 +141,8 @@
     curriculumBtn.addEventListener('click', function (e) {
       objcurriculum.style.display = 'block';
       closeBtnObjView.style.display = 'none';
-      objCanvas.style ='opacity:0';
-      objInfoBIG.style ='opacity:0';
+      objCanvas.style.display = 'none';
+      objInfoBIG.style.display = 'none';
 
     });
     // 監聽課表按鈕打開課表DIV-手機板
@@ -158,10 +158,10 @@
     });
     // 監聽課表DIV裡關閉按鈕關閉
     closeBtnCurriculumInformation.addEventListener('click', function (e) {
-      objcurriculum.style = 'display:none';
-      closeBtnObjView.style ='opacity:1';
-      objInfoBIG.style ='opacity:1';
-      objCanvas.style='opacity:1';
+      objcurriculum.style.display = 'none';
+      closeBtnObjView.style.display = 'block';
+      // objInfoBIG.style.display = 'block';
+      objCanvas.style.display = 'block';
       
     });
     // 第一渲染
@@ -272,7 +272,7 @@
               console.log('curriculumBtn 被點擊了');
               objcurriculum.style ='opacity:1';
               closeBtnObjView.style.display = 'none';
-              objInfoBIG.style.display = 'none';
+              // objInfoBIG.style.display = 'none';
               changecurriculum(4);
 
             }
@@ -300,7 +300,7 @@
               console.log('curriculumBtn 被點擊了');
               objcurriculum.style ='opacity:1';
               closeBtnObjView.style.display = 'none';
-              objInfoBIG.style.display = 'none';
+              // objInfoBIG.style.display = 'none';
               changecurriculum(0);
             }
           });
@@ -323,7 +323,7 @@
               console.log('curriculumBtn 被點擊了');
               objcurriculum.style ='opacity:1';
               closeBtnObjView.style.display = 'none';
-              objInfoBIG.style.display = 'none';
+              // objInfoBIG.style.display = 'none';
               changecurriculum(3);
             }
           });
@@ -346,7 +346,7 @@
               console.log('curriculumBtn 被點擊了');
               objcurriculum.style ='opacity:1';
               closeBtnObjView.style.display = 'none';
-              objInfoBIG.style.display = 'none';
+              // objInfoBIG.style.display = 'none';
               changecurriculum(5);
             }
           });
@@ -369,7 +369,7 @@
               console.log('curriculumBtn 被點擊了');
               objcurriculum.style ='opacity:1';
               closeBtnObjView.style.display = 'none';
-              objInfoBIG.style.display = 'none';
+              // objInfoBIG.style.display = 'none';
               changecurriculum(1);
             }
           });
@@ -392,7 +392,7 @@
               console.log('curriculumBtn 被點擊了');
               objcurriculum.style ='opacity:1';
               closeBtnObjView.style.display = 'none';
-              objInfoBIG.style.display = 'none';
+              // objInfoBIG.style.display = 'none';
               changecurriculum(2);
             }
           });
@@ -416,7 +416,7 @@
               console.log('curriculumBtn 被點擊了');
               objcurriculum.style ='opacity:1';
               closeBtnObjView.style.display = 'none';
-              objInfoBIG.style.display = 'none';
+              // objInfoBIG.style.display = 'none';
               changecurriculum(6);
             }
           });
@@ -464,7 +464,7 @@
       const loadingCalcName = document.querySelector('.loadingCalcName');
       var number= ( xhr.loaded / xhr.total * 100 ).toFixed(1);
       loadingCalc.textContent = number;
-      if(number == 100.0 ){
+      if(number == 100.0){
         loadingCalcName.textContent ='載入完成';
         loadingCalcName.style.color = 'lightgreen';
         loadingCalc.style.color = 'lightgreen';
@@ -474,7 +474,6 @@
                 if (timeRun <= 0) {
                 clearTimeout(timerA);
                 loading.style.display = 'none';
-                
                 }
             }, 1000);
       }
