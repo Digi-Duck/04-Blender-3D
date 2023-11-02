@@ -30,12 +30,12 @@
 			<span class="loadingCalcName">載入中</span>
 			<div class="loadingCalc">0</div></div>
 	</div>
-	<div onclick="clickInfo()" class="clickInfo" >aaaa
-		<!-- <div class="col ">
+	<div onclick="clickInfo()" id="clickInfo" >
+		<div class="col ">
 			<div class="p-3"><img src="./img/letter-w.png" alt="">
 				<div class="card-body">按下左鍵進入</div>
 			</div>
-		</div> -->
+		</div>
 	</div>
 	<nav class="navbar navbar-expand-lg  position-absolute top-0">
 		<div class="container-fluid ">
@@ -46,7 +46,7 @@
 	<div id="container" class="bg-light"></div>
 	<div onclick="myFunction()" class="question"></div>
 	<div id="container-md"
-		class="mystyle overflow-hidden text-center position-absolute bottom-0 start-50 translate-middle-x">
+		class="hide overflow-hidden text-center position-absolute bottom-0 start-50 translate-middle-x">
 		<div class="row gx-5">
 			<div class="col ">
 				<div class="p-3"><img src="./img/letter-w.png" alt="">
@@ -95,10 +95,11 @@
 		// });
 
 		function myFunction() {
-			document.getElementById("container-md").classList.toggle("newClassName");
+			document.getElementById("container-md").classList.toggle("show");
 		};
 		function clickInfo() {
-			document.getElementsByClassName.classList.toggle("mystyle");
+			console.log('電擊');
+
 		}
 
 
@@ -162,6 +163,7 @@
 		const vector2 = new THREE.Vector3();
 		const vector3 = new THREE.Vector3();
 		document.addEventListener('keydown', (event) => {
+			console.log(event.code);
 			keyStates[event.code] = true;
 		});
 		document.addEventListener('keyup', (event) => {
@@ -169,6 +171,7 @@
 		});
 
 		container.addEventListener('mousedown', () => {
+			document.getElementById("clickInfo").classList.add("hide");
 			document.body.requestPointerLock();
 			mouseTime = performance.now();
 		});
@@ -177,6 +180,12 @@
 			if (document.pointerLockElement === document.body) {
 				camera.rotation.y -= event.movementX / 500;
 				camera.rotation.x -= event.movementY / 500;
+			}
+		});
+		document.addEventListener('keydown', (event) => {
+			var aa ='KeyW';
+			if (event.code = aa) {
+				console.log('aa');
 			}
 		});
 
