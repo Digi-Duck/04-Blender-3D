@@ -36,7 +36,7 @@
   <div>
     <h1 class="logo"> <img src="./img/LOGO(橫白透).png" alt=""></h1>
   </div>
-  <div class="objView ">
+    <div class="objView hide">
     <div class="objCanvas "></div>
     <div class="closeBtnObjView "></div>
     <div class="objInfo-BIG ">
@@ -56,6 +56,7 @@
       </div>
     </div>
   </div>
+
   <div class="objcurriculum hide">
     <div class="closeBtnCurriculumInformation"></div>
     <div class="curriculumInformation"><img src="./img/classroom/舞蹈教室課表.png" style="margin:auto"></div>
@@ -118,7 +119,7 @@
 
 
     }
-
+    
     const objView = document.querySelector('.objView');
     const closeBtnObjView = document.querySelector('.closeBtnObjView');
     const objCanvas = document.querySelector('.objCanvas');
@@ -147,16 +148,14 @@
     });
     // // DIV監聽事件 監聽小畫面開關按鈕關閉 環境OBJscene清空
     closeBtnObjView.addEventListener('click', function () {
-      objView.classList.remove('show');
       objView.classList.add('hide');
     });
     // 監聽課表DIV裡關閉按鈕關閉
     closeBtnCurriculumInformation.addEventListener('click', function () {
-      objcurriculum.classList.remove('show');
       objcurriculum.classList.add('hide');
-      closeBtnObjView.classList.add('opacity-1');
-      objCanvas.classList.add('opacity-1');
-      objInfo.classList.add('opacity-1');
+      closeBtnObjView.classList.remove('hide');
+      objCanvas.classList.remove('hide');
+      objInfo.classList.remove('hide');
     });
     // 第一渲染
     const renderer = new THREE.WebGLRenderer({
@@ -259,7 +258,7 @@
           console.log('RoomZeroDIV 被點擊了');
           OBJscene.clear();
           objView.classList.remove('hide');
-          objView.classList.add('show');
+          
           
           InfoView(3);
           newobjInfo(4);
@@ -267,10 +266,9 @@
             if (e.target.classList.contains('curriculumBtn')) {
               console.log('curriculumBtn 被點擊了');
               objcurriculum.classList.remove('hide');
-              objcurriculum.classList.add('show');
-              closeBtnObjView.classList.add('opacity-0');
-              objCanvas.classList.add('opacity-0');
-              objInfo.classList.add('opacity-0');
+              closeBtnObjView.classList.add('hide');
+              objCanvas.classList.add('hide');
+              objInfo.classList.add('hide');
               changecurriculum(4);
 
             }
