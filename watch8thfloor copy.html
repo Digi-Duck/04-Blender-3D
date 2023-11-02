@@ -138,7 +138,7 @@
     }
     
     // 監聽課表按鈕打開課表DIV
-    curriculumBtn.addEventListener('click', function (e) {
+    curriculumBtn.addEventListener('click', function () {
       objcurriculum.style.display = 'block';
       closeBtnObjView.style.display = 'none';
       objCanvas.style.display = 'none';
@@ -146,18 +146,18 @@
 
     });
     // 監聽課表按鈕打開課表DIV-手機板
-    objInfoPhone.addEventListener('click', function (e) {
+    objInfoPhone.addEventListener('click', function () {
       objcurriculum.style ='opacity:1';
       closeBtnObjView.style = 'display:none';
       objInfoBIG.style ='opacity:0';
       objCanvas.style='opacity:0';
     });
     // // DIV監聽事件 監聽小畫面開關按鈕關閉 環境OBJscene清空
-    closeBtnObjView.addEventListener('click', function (e) {
+    closeBtnObjView.addEventListener('click', function () {
       objView.style = 'display:none';
     });
     // 監聽課表DIV裡關閉按鈕關閉
-    closeBtnCurriculumInformation.addEventListener('click', function (e) {
+    closeBtnCurriculumInformation.addEventListener('click', function () {
       objcurriculum.style.display = 'none';
       closeBtnObjView.style.display = 'block';
       // objInfoBIG.style.display = 'block';
@@ -261,7 +261,7 @@
         RoomZeroLabel.position.set(0, 0.5, 0);
         gltf.scene.children[0].add(RoomZeroLabel);
         RoomZeroDIV.style.pointerEvents = 'auto';
-        RoomZeroDIV.addEventListener('click', function (e) {
+        RoomZeroDIV.addEventListener('click', function () {
           console.log('RoomZeroDIV 被點擊了');
           OBJscene.clear();
           objView.style ='opacity:1';
@@ -289,7 +289,7 @@
         RoomOneLabel.position.set(0, 0.5, 0);
         gltf.scene.children[1].add(RoomOneLabel);
         RoomOneDIV.style.pointerEvents = 'auto';
-        RoomOneDIV.addEventListener('click', function (e) {
+        RoomOneDIV.addEventListener('click', function () {
           OBJscene.clear();
           objView.style ='opacity:1';
           InfoView(4);
@@ -313,7 +313,7 @@
         RoomTwoLabel.position.set(0, 0.5, 0);
         gltf.scene.children[2].add(RoomTwoLabel);
         RoomTwoDIV.style.pointerEvents = 'auto';
-        RoomTwoDIV.addEventListener('click', function (e) {
+        RoomTwoDIV.addEventListener('click', function () {
           OBJscene.clear();
           objView.style ='opacity:1';
           InfoView(0);
@@ -336,7 +336,7 @@
         RoomThreeLabel.position.set(0, 0.5, 0);
         gltf.scene.children[3].add(RoomThreeLabel);
         RoomThreeDIV.style.pointerEvents = 'auto';
-        RoomThreeDIV.addEventListener('click', function (e) {
+        RoomThreeDIV.addEventListener('click', function () {
           OBJscene.clear();
           objView.style ='opacity:1';
           InfoView(2);
@@ -359,7 +359,7 @@
         RoomFourLabel.position.set(0, 0.5, 0);
         gltf.scene.children[4].add(RoomFourLabel);
         RoomFourDIV.style.pointerEvents = 'auto';
-        RoomFourDIV.addEventListener('click', function (e) {
+        RoomFourDIV.addEventListener('click', function () {
           OBJscene.clear();
           objView.style ='opacity:1';
           InfoView(1);
@@ -382,7 +382,7 @@
         RoomFiveLabel.position.set(0, 0.5, 0);
         gltf.scene.children[5].add(RoomFiveLabel);
         RoomFiveDIV.style.pointerEvents = 'auto';
-        RoomFiveDIV.addEventListener('click', function (e) {
+        RoomFiveDIV.addEventListener('click', function () {
           OBJscene.clear();
           objView.style ='opacity:1';
           InfoView(5);
@@ -407,7 +407,7 @@
         RoomSixLabel.position.set(0, 0.5, 0);
         gltf.scene.children[37].add(RoomSixLabel);
         RoomSixDIV.style.pointerEvents = 'auto';
-        RoomSixDIV.addEventListener('click', function (e) {
+        RoomSixDIV.addEventListener('click', function () {
           OBJscene.clear();
           objView.style ='opacity:1';
           InfoView(6);
