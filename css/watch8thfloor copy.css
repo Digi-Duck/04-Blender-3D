@@ -440,7 +440,7 @@ canvas {
   animation: fadein 6s;
 }
 @keyframes fadein {
-  50% {
+  0% {
     opacity: 1;
   }
   100% {
