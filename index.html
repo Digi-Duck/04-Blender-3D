@@ -137,7 +137,28 @@
   <script>
     AOS.init();
   </script>
+  <script>
+    const btnDown = document.querySelector(".btn-down");
+    const scrollThreshold = 200;
+    function scrollHandler() {
+      const currentScrollTop =
+        window.scrollY || document.documentElement.scrollTop;
 
+      if (currentScrollTop > scrollThreshold) {
+        // 檢查滾動距離是否超過設定值，若超過就隱藏按鈕
+        btnDown.classList.remove("btn-down-show");
+        btnDown.classList.add("btn-down-none");
+      } else {
+        // 檢查滾動距離是否小過設定值，若小於就顯示按鈕
+        btnDown.classList.remove("btn-down-none");
+        btnDown.classList.add("btn-down-show");
+      }
+      //用於瀏覽器動畫的 JavaScript 方法
+      requestAnimationFrame(scrollHandler);
+    }
+
+    window.addEventListener("scroll", scrollHandler);
+  </script>
   
 
 </body>
