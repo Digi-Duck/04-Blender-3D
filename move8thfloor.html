@@ -14,6 +14,22 @@
 
 
 <body>
+	<div class="loading">
+		<div class="sk-cube-grid">
+			<div class="sk-cube sk-cube1"></div>
+			<div class="sk-cube sk-cube2"></div>
+			<div class="sk-cube sk-cube3"></div>
+			<div class="sk-cube sk-cube4"></div>
+			<div class="sk-cube sk-cube5"></div>
+			<div class="sk-cube sk-cube6"></div>
+			<div class="sk-cube sk-cube7"></div>
+			<div class="sk-cube sk-cube8"></div>
+			<div class="sk-cube sk-cube9"></div>
+		</div>
+		<div class="loadingCalcBox" >
+			<span class="loadingCalcName">載入中</span>
+			<div class="loadingCalc">0</div></div>
+		</div>
 	<nav class="navbar navbar-expand-lg  position-absolute top-0">
 		<div class="container-fluid ">
 			<a class="col" href="index.html"><img class="logo" src="./img/LOGO(橫白透).png" width="200" alt=""></a>
@@ -114,9 +130,7 @@
 		directionalLight.shadow.radius = 4;
 		directionalLight.shadow.bias = - 0.00006;
 		scene.add(directionalLight);
-
 		const container = document.getElementById('container');
-
 		const renderer = new THREE.WebGLRenderer({ antialias: true });
 		renderer.setPixelRatio(window.devicePixelRatio);
 		renderer.setSize(window.innerWidth, window.innerHeight);
@@ -126,21 +140,14 @@
 		container.appendChild(renderer.domElement);
 
 		const GRAVITY = 30;
-
 		const STEPS_PER_FRAME = 5;
-
 		const worldOctree = new Octree();
-
 		const playerCollider = new Capsule(new THREE.Vector3(0, 0.35, 0), new THREE.Vector3(0, 2.7, 0), 0.35);
-
 		const playerVelocity = new THREE.Vector3();
 		const playerDirection = new THREE.Vector3();
-
 		let playerOnFloor = false;
 		let mouseTime = 0;
-
 		const keyStates = {};
-
 		const vector1 = new THREE.Vector3();
 		const vector2 = new THREE.Vector3();
 		const vector3 = new THREE.Vector3();
@@ -246,40 +253,52 @@
 					}
 				}
 			});
-
 			const planeLoader = new GLTFLoader();
 			planeLoader.load(
 				'./models/1031MoveView.glb',
 				function (gltf) {
 					scene.add(gltf.scene);
-				})
-
-
-
+				},
+				function ( xhr ) {
+				const loading = document.querySelector('.loading');
+				const loadingCalc = document.querySelector('.loadingCalc');
+				const loadingCalcName = document.querySelector('.loadingCalcName');
+				var number= ( xhr.loaded / xhr.total * 100 ).toFixed(1);
+				loadingCalc.textContent = number;
+				if(number == 100.0){
+					loadingCalcName.textContent ='載入完成';
+					loadingCalcName.style.color = 'lightgreen';
+					loadingCalc.style.color = 'lightgreen';
+					let timeRun = 2;
+					let timerA = setInterval(function () {
+							timeRun-- ;
+							if (timeRun <= 0) {
+							clearTimeout(timerA);
+							loading.style.display = 'none';
+							}
+						}, 1000);
+				}
+				},
+				
+				)
 
 			animate();
 
 		});
 
 		function teleportPlayerIfOob() {
-
 			if (camera.position.y <= - 25) {
-
 				playerCollider.start.set(0, 0.35, 0);
 				playerCollider.end.set(0, 1, 0);
 				playerCollider.radius = 0.35;
 				camera.position.copy(playerCollider.end);
 				camera.rotation.set(0, 0, 0);
-
 			}
-
 		}
 
 
 		function animate() {
 			const deltaTime = Math.min(0.05, clock.getDelta()) / STEPS_PER_FRAME;
-			// we look for collisions in substeps to mitigate the risk of
-			// an object traversing another too quickly for detection.
 			for (let i = 0; i < STEPS_PER_FRAME; i++) {
 				controls(deltaTime);
 				updatePlayer(deltaTime);

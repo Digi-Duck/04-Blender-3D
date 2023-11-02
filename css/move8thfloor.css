@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .logo {
   animation: logo 0.8s infinite;
   position: absolute;
@@ -74,4 +75,76 @@
   100% {
     transform: translateY(0px);
   }
+}
+.loading {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #608cb1;
+  z-index: 10;
+  animation: fadein 6s;
+}
+@keyframes fadein {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.loading .sk-cube-grid {
+  width: 390px;
+  height: 120px;
+  margin: 200px auto 0px;
+  background-image: url(../img/LOGO\(橫白透\).png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.loading .sk-cube-grid .sk-cube {
+  width: 33.3%;
+  height: 33.3%;
+  background-color: #608cb1;
+  float: left;
+  animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+}
+.loading .sk-cube-grid .sk-cube1 {
+  animation-delay: 0.2s;
+}
+.loading .sk-cube-grid .sk-cube2 {
+  animation-delay: 0.3s;
+}
+.loading .sk-cube-grid .sk-cube3 {
+  animation-delay: 0.4s;
+}
+.loading .sk-cube-grid .sk-cube4 {
+  animation-delay: 0.1s;
+}
+.loading .sk-cube-grid .sk-cube5 {
+  animation-delay: 0.2s;
+}
+.loading .sk-cube-grid .sk-cube6 {
+  animation-delay: 0.3s;
+}
+.loading .sk-cube-grid .sk-cube7 {
+  animation-delay: 0s;
+}
+.loading .sk-cube-grid .sk-cube8 {
+  animation-delay: 0.1s;
+}
+.loading .sk-cube-grid .sk-cube9 {
+  animation-delay: 0.2s;
+}
+@keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    transform: scale3D(1, 1, 1);
+  }
+  35% {
+    transform: scale3D(0, 0, 1);
+  }
+}
+.loading .loadingCalcBox {
+  font-size: 48px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 100px;
 }/*# sourceMappingURL=move8thfloor.css.map */
