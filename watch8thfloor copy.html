@@ -56,7 +56,7 @@
       </div>
     </div>
   </div>
-  <div class="objcurriculum">
+  <div class="objcurriculum hide">
     <div class="closeBtnCurriculumInformation"></div>
     <div class="curriculumInformation"><img src="./img/classroom/舞蹈教室課表.png" style="margin:auto"></div>
   </div>
@@ -138,30 +138,25 @@
 
     }
 
-    // 監聽課表按鈕打開課表DIV
-    curriculumBtn.addEventListener('click', function (e) {
-      objcurriculum.classList.add("show");
-      closeBtnObjView.classList.add("hide");
-
-    });
     // 監聽課表按鈕打開課表DIV-手機板
-    objInfoPhone.addEventListener('click', function (e) {
-      objcurriculum.style = 'opacity:1';
-      closeBtnObjView.style = 'display:none';
-      objInfoBIG.style = 'opacity:0';
-      objCanvas.style = 'opacity:0';
+    objInfoPhone.addEventListener('click', function () {
+      // objcurriculum.style = 'opacity:1';
+      // closeBtnObjView.style = 'display:none';
+      // objInfoBIG.style = 'opacity:0';
+      // objCanvas.style = 'opacity:0';
     });
     // // DIV監聽事件 監聽小畫面開關按鈕關閉 環境OBJscene清空
     closeBtnObjView.addEventListener('click', function () {
-      objView.style = 'display:none';
+      objView.classList.remove('show');
+      objView.classList.add('hide');
     });
     // 監聽課表DIV裡關閉按鈕關閉
     closeBtnCurriculumInformation.addEventListener('click', function () {
-      objcurriculum.style.display = 'none';
-      closeBtnObjView.style.display = 'block';
-      objCanvas.style = 'opacity:1';
-      objInfo.style = 'opacity:1';
-
+      objcurriculum.classList.remove('show');
+      objcurriculum.classList.add('hide');
+      closeBtnObjView.classList.add('opacity-1');
+      objCanvas.classList.add('opacity-1');
+      objInfo.classList.add('opacity-1');
     });
     // 第一渲染
     const renderer = new THREE.WebGLRenderer({
@@ -228,8 +223,8 @@
         OBJcamera.position.set(1, 0.5, -6);
         // 第二控制
         const OBJcontrols = new OrbitControls(OBJcamera, OBJrenderer.domElement);
-        objView.classList.add('hide')
-        objcurriculum.style.display = 'none';
+        objView.classList.remove('show');
+        // objcurriculum.toggle('show');
 
         // 第二場景Loader
         function InfoView(InfoViewValue) {
@@ -265,16 +260,16 @@
           OBJscene.clear();
           objView.classList.remove('hide');
           objView.classList.add('show');
-
           InfoView(3);
           newobjInfo(4);
           document.addEventListener('click', function (e) {
             if (e.target.classList.contains('curriculumBtn')) {
               console.log('curriculumBtn 被點擊了');
-              objcurriculum.style = 'opacity:1';
-              closeBtnObjView.style.display = 'none';
-              objCanvas.style = 'opacity:0';
-              objInfo.style = 'opacity:0';
+              objcurriculum.classList.remove('hide');
+              objcurriculum.classList.add('show');
+              closeBtnObjView.classList.add('opacity-0');
+              objCanvas.classList.add('opacity-0');
+              objInfo.classList.add('opacity-0');
               changecurriculum(4);
 
             }
@@ -293,16 +288,19 @@
         RoomOneDIV.style.pointerEvents = 'auto';
         RoomOneDIV.addEventListener('click', function () {
           OBJscene.clear();
-          objView.style = 'opacity:1';
+          objView.classList.remove('hide');
+          objView.classList.add('show');
           InfoView(4);
           newobjInfo(0);
 
           document.addEventListener('click', function (e) {
             if (e.target.classList.contains('curriculumBtn')) {
               console.log('curriculumBtn 被點擊了');
-              objcurriculum.style = 'opacity:1';
-              closeBtnObjView.style.display = 'none';
-              // objInfoBIG.style.display = 'none';
+              objcurriculum.classList.remove('hide');
+              objcurriculum.classList.add('show');
+              closeBtnObjView.classList.add('opacity-0');
+              objCanvas.classList.add('opacity-0');
+              objInfo.classList.add('opacity-0');
               changecurriculum(0);
             }
           });
@@ -317,15 +315,18 @@
         RoomTwoDIV.style.pointerEvents = 'auto';
         RoomTwoDIV.addEventListener('click', function () {
           OBJscene.clear();
-          objView.style = 'opacity:1';
+          objView.classList.remove('hide');
+          objView.classList.add('show');
           InfoView(0);
           newobjInfo(3);
           document.addEventListener('click', function (e) {
             if (e.target.classList.contains('curriculumBtn')) {
               console.log('curriculumBtn 被點擊了');
-              objcurriculum.style = 'opacity:1';
-              closeBtnObjView.style.display = 'none';
-              // objInfoBIG.style.display = 'none';
+              objcurriculum.classList.remove('hide');
+              objcurriculum.classList.add('show');
+              closeBtnObjView.classList.add('opacity-0');
+              objCanvas.classList.add('opacity-0');
+              objInfo.classList.add('opacity-0');
               changecurriculum(3);
             }
           });
@@ -340,15 +341,18 @@
         RoomThreeDIV.style.pointerEvents = 'auto';
         RoomThreeDIV.addEventListener('click', function () {
           OBJscene.clear();
-          objView.style = 'opacity:1';
+          objView.classList.remove('hide');
+          objView.classList.add('show');
           InfoView(2);
           newobjInfo(5);
           document.addEventListener('click', function (e) {
             if (e.target.classList.contains('curriculumBtn')) {
               console.log('curriculumBtn 被點擊了');
-              objcurriculum.style = 'opacity:1';
-              closeBtnObjView.style.display = 'none';
-              // objInfoBIG.style.display = 'none';
+              objcurriculum.classList.remove('hide');
+              objcurriculum.classList.add('show');
+              closeBtnObjView.classList.add('opacity-0');
+              objCanvas.classList.add('opacity-0');
+              objInfo.classList.add('opacity-0');
               changecurriculum(5);
             }
           });
@@ -363,15 +367,18 @@
         RoomFourDIV.style.pointerEvents = 'auto';
         RoomFourDIV.addEventListener('click', function () {
           OBJscene.clear();
-          objView.style = 'opacity:1';
+          objView.classList.remove('hide');
+          objView.classList.add('show');
           InfoView(1);
           newobjInfo(1);
           document.addEventListener('click', function (e) {
             if (e.target.classList.contains('curriculumBtn')) {
               console.log('curriculumBtn 被點擊了');
-              objcurriculum.style = 'opacity:1';
-              closeBtnObjView.style.display = 'none';
-              // objInfoBIG.style.display = 'none';
+              objcurriculum.classList.remove('hide');
+              objcurriculum.classList.add('show');
+              closeBtnObjView.classList.add('opacity-0');
+              objCanvas.classList.add('opacity-0');
+              objInfo.classList.add('opacity-0');
               changecurriculum(1);
             }
           });
@@ -386,15 +393,18 @@
         RoomFiveDIV.style.pointerEvents = 'auto';
         RoomFiveDIV.addEventListener('click', function () {
           OBJscene.clear();
-          objView.style = 'opacity:1';
+          objView.classList.remove('hide');
+          objView.classList.add('show');
           InfoView(5);
           newobjInfo(2);
           document.addEventListener('click', function (e) {
             if (e.target.classList.contains('curriculumBtn')) {
               console.log('curriculumBtn 被點擊了');
-              objcurriculum.style = 'opacity:1';
-              closeBtnObjView.style.display = 'none';
-              // objInfoBIG.style.display = 'none';
+              objcurriculum.classList.remove('hide');
+              objcurriculum.classList.add('show');
+              closeBtnObjView.classList.add('opacity-0');
+              objCanvas.classList.add('opacity-0');
+              objInfo.classList.add('opacity-0');
               changecurriculum(2);
             }
           });
@@ -411,14 +421,17 @@
         RoomSixDIV.style.pointerEvents = 'auto';
         RoomSixDIV.addEventListener('click', function () {
           OBJscene.clear();
-          objView.style = 'opacity:1';
+          objView.classList.remove('hide');
+          objView.classList.add('show');
           InfoView(6);
           document.addEventListener('click', function (e) {
             if (e.target.classList.contains('curriculumBtn')) {
               console.log('curriculumBtn 被點擊了');
-              objcurriculum.style = 'opacity:1';
-              closeBtnObjView.style.display = 'none';
-              // objInfoBIG.style.display = 'none';
+              objcurriculum.classList.remove('hide');
+              objcurriculum.classList.add('show');
+              closeBtnObjView.classList.add('opacity-0');
+              objCanvas.classList.add('opacity-0');
+              objInfo.classList.add('opacity-0');
               changecurriculum(6);
             }
           });

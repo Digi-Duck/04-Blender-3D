@@ -26,11 +26,21 @@ a:visited {
 }
 
 .show {
+  opacity: 1;
   display: flex;
 }
 
 .hide {
+  opacity: 0;
   display: none;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-1 {
+  opacity: 1;
 }
 
 .loadingCalc {
@@ -58,10 +68,8 @@ a:visited {
 }
 
 .objView {
-  opacity: 0;
   width: 100vw;
   height: 100vh;
-  display: flex;
   background-color: #ffffff;
   z-index: 9;
   position: absolute;
@@ -70,7 +78,6 @@ a:visited {
   justify-content: space-between;
   flex-direction: column;
   padding: 3%;
-  display: none;
 }
 
 .closeBtnObjView {
@@ -243,7 +250,6 @@ a:visited {
 }
 
 .objcurriculum {
-  opacity: 0;
   text-align: center;
   width: 85%;
   background-color: #ffffff;
