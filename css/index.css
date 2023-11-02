@@ -41,8 +41,7 @@ a:visited {
 .container .banner .logo img {
   width: 200px;
   overflow: hidden;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .container .banner .banner-video {
   overflow: hidden;
@@ -176,15 +175,15 @@ a:visited {
   }
 }
 .container .banner .btn-down {
-  background-color: #bfbfbf;
+  background-color: #ffffff;
   left: calc(50% - 50px);
-  padding: 5px;
+  padding: 10px;
   bottom: 20px;
   position: fixed;
-  width: 50px;
+  width: 70px;
   text-align: center;
   z-index: 999;
-  opacity: 0.8;
+  opacity: 0.4;
 }
 .container .banner .btn-down-none {
   display: none;
@@ -209,17 +208,16 @@ a:visited {
 }
 .container .main .main-picture img {
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   overflow: hidden;
   border-radius: 10px;
 }
 .container .main .main-paragraph {
-  width: 70%;
+  width: 65%;
   padding: 5px;
 }
 .container .main .main-paragraph .main-title {
-  width: 300px;
+  width: 100%;
   letter-spacing: 5px;
   font-size: 30px;
   color: #fff;
@@ -230,14 +228,14 @@ a:visited {
   display: block;
   color: #fff;
   padding: 10px 5px;
-  font-size: 14px;
+  font-size: 16px;
 }
-@media (max-width: 1400px) {
+@media (max-width: 1460px) {
   .container .main .main-paragraph .main-title {
     font-size: 24px;
   }
-  .container .main .main-paragraph .main-article {
-    font-size: 14px;
+  .container .main .main-paragraph .main-article span {
+    font-size: 13px;
   }
 }
 @media (max-width: 1280px) {
@@ -284,7 +282,7 @@ a:visited {
     font-size: 13px;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 810px) {
   .container .main {
     padding: 20px;
   }
@@ -292,19 +290,25 @@ a:visited {
     font-size: 18px;
   }
   .container .main .main-paragraph .main-article span {
-    text-align: center;
-    font-size: 10px;
+    font-size: 11px;
   }
 }
-@media (max-width: 600px) {
-  .container .main {
-    padding: 20px;
-  }
+@media (max-width: 663px) {
   .container .main .main-paragraph .main-title {
     font-size: 16px;
   }
   .container .main .main-paragraph .main-article span {
-    text-align: center;
+    font-size: 9px;
+  }
+}
+@media (max-width: 553px) {
+  .container .main {
+    padding: 10px;
+  }
+  .container .main .main-paragraph .main-title {
+    font-size: 14px;
+  }
+  .container .main .main-paragraph .main-article span {
     font-size: 6px;
   }
 }
@@ -364,8 +368,7 @@ a:visited {
   background-repeat: no-repeat;
   background-position: center;
   overflow: hidden;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   box-shadow: 1px 1px 10px #bfbfbf;
 }
 .container .main-four-card .card .card-img-1 {
@@ -388,13 +391,12 @@ a:visited {
   font-size: 20px;
 }
 .container .main-four-card .card .card-intro {
-  margin: 10px;
+  margin: 10px 0px;
   width: 100px;
   height: 50px;
   background-color: #608cb1;
-  font-size: 18px;
-  line-height: 45px;
   border-radius: 10px;
+  line-height: 45px;
   padding: 5px;
   cursor: pointer;
   opacity: 0.8;
@@ -406,10 +408,10 @@ a:visited {
 }
 .container .main-four-card .card .card-intro:hover,
 .container .main-four-card .card .card-intro:focus {
-  opacity: 1;
   transform: translateX(-2px);
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4745098039);
   background-color: #f9dc5c;
+  transition: 2s;
 }
 .container .main-four-card .card:hover {
   transform: translateY(-40px);

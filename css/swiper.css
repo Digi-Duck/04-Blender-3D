@@ -9,7 +9,6 @@
   margin: auto;
   width: 60%;
   height: 50%;
-  -o-object-fit: cover;
   object-fit: cover;
   padding: 5%;
   border-radius: 120px;
@@ -34,9 +33,12 @@
   border-radius: 60%;
 }
 
-.swiper .swiper-button-next:hover,
+.swiper .swiper-button-next:hover {
+  transform: translateX(20px);
+}
+
 .swiper .swiper-button-prev:hover {
-  transform: scale(105%);
+  transform: translateX(-20px);
 }
 
 @media (max-width: 1024px) {
@@ -51,6 +53,12 @@
   .swiper .swiper-button-prev {
     width: 20px;
     height: 20px;
+  }
+  .swiper .swiper-button-next:hover {
+    transform: translateX(10px);
+  }
+  .swiper .swiper-button-prev:hover {
+    transform: translateX(-10px);
   }
 }
 @media (max-width: 600px) {
@@ -97,4 +105,4 @@
     top: 55%;
     transform: translateX(-20%);
   }
-} /*# sourceMappingURL=swiper.css.map */
+}/*# sourceMappingURL=swiper.css.map */
