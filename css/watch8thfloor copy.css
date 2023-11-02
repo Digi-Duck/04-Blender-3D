@@ -33,6 +33,14 @@ a:visited {
   display: none;
 }
 
+.loadingCalc {
+  font-weight: bold;
+}
+
+.loadingCalcName {
+  font-weight: bold;
+}
+
 .label {
   padding: 5px;
   font-size: 12px;
@@ -237,7 +245,7 @@ a:visited {
 .objcurriculum {
   opacity: 0;
   text-align: center;
-  width: 95%;
+  width: 85%;
   background-color: #ffffff;
   position: absolute;
   top: 0;
@@ -368,6 +376,15 @@ canvas {
   position: absolute;
   background-color: #608cb1;
   z-index: 10;
+  animation: fadein 6s;
+}
+@keyframes fadein {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 .loading .sk-cube-grid {
   width: 390px;
@@ -423,4 +440,5 @@ canvas {
   font-size: 48px;
   color: #ffffff;
   text-align: center;
+  line-height: 100px;
 }/*# sourceMappingURL=watch8thfloor copy.css.map */
