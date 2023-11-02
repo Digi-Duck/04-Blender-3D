@@ -22,6 +22,17 @@
     }
 }
 
+#clickInfo{
+    width: 64px;
+    height: 64px;
+    background-color: aqua;
+    opacity: 0.7;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    z-index: 9;
+}
+
 .question {
     width: 64px;
     height: 64px;
@@ -59,13 +70,11 @@
 
 .mystyle {
     display: none;
-    
 
 }
 
 .newClassName {
     display: block;
-
 }
 
 
@@ -103,7 +112,7 @@
 	height: 100%;
 	position: absolute;
 	background-color:  #608cb1;
-	z-index: 10;
+	z-index: 20;
 	animation: fadein 6s;
 	// display: none;
 

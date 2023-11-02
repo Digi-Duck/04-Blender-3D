@@ -519,6 +519,7 @@ canvas {
 	background-color: #608cb1;
 	z-index: 10;
 	animation: fadein 6s;
+	opacity: 0;
 	// display: none;
 
 	@keyframes fadein {
