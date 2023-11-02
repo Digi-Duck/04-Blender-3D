@@ -58,11 +58,11 @@
   font-weight: bold;
 }
 
-.mystyle {
+.hide {
   display: none;
 }
 
-.newClassName {
+.show {
   display: block;
 }
 
