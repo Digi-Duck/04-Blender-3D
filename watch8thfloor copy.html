@@ -36,8 +36,8 @@
   <div>
     <h1 class="logo"> <img src="./img/LOGO(橫白透).png" alt=""></h1>
   </div>
-  <div class="objView hide">
-    <div class="objCanvas"></div>
+  <div class="objView ">
+    <div class="objCanvas "></div>
     <div class="closeBtnObjView "></div>
     <div class="objInfo-BIG ">
       <div class="objInfoPhone" hidden>課表</div>
@@ -223,8 +223,7 @@
         OBJcamera.position.set(1, 0.5, -6);
         // 第二控制
         const OBJcontrols = new OrbitControls(OBJcamera, OBJrenderer.domElement);
-        objView.classList.remove('show');
-        // objcurriculum.toggle('show');
+        
 
         // 第二場景Loader
         function InfoView(InfoViewValue) {
@@ -238,6 +237,7 @@
             function (gltf) {
               OBJscene.add(gltf.scene.children[InfoViewValue]);
               OBJscene.add(gltf.scene.children[6]);
+              console.log('第二場警', gltf.scene.children);
             }
           );
         }
@@ -255,11 +255,12 @@
         RoomZeroLabel.position.set(0, 0.5, 0);
         gltf.scene.children[0].add(RoomZeroLabel);
         RoomZeroDIV.style.pointerEvents = 'auto';
-        RoomZeroDIV.addEventListener('click', function () {
+        RoomZeroDIV.addEventListener('click', function (e) {
           console.log('RoomZeroDIV 被點擊了');
           OBJscene.clear();
           objView.classList.remove('hide');
           objView.classList.add('show');
+          
           InfoView(3);
           newobjInfo(4);
           document.addEventListener('click', function (e) {
@@ -286,7 +287,7 @@
         RoomOneLabel.position.set(0, 0.5, 0);
         gltf.scene.children[1].add(RoomOneLabel);
         RoomOneDIV.style.pointerEvents = 'auto';
-        RoomOneDIV.addEventListener('click', function () {
+        RoomOneDIV.addEventListener('click', function (e) {
           OBJscene.clear();
           objView.classList.remove('hide');
           objView.classList.add('show');
@@ -313,7 +314,7 @@
         RoomTwoLabel.position.set(0, 0.5, 0);
         gltf.scene.children[2].add(RoomTwoLabel);
         RoomTwoDIV.style.pointerEvents = 'auto';
-        RoomTwoDIV.addEventListener('click', function () {
+        RoomTwoDIV.addEventListener('click', function (e) {
           OBJscene.clear();
           objView.classList.remove('hide');
           objView.classList.add('show');
@@ -339,7 +340,7 @@
         RoomThreeLabel.position.set(0, 0.5, 0);
         gltf.scene.children[3].add(RoomThreeLabel);
         RoomThreeDIV.style.pointerEvents = 'auto';
-        RoomThreeDIV.addEventListener('click', function () {
+        RoomThreeDIV.addEventListener('click', function (e) {
           OBJscene.clear();
           objView.classList.remove('hide');
           objView.classList.add('show');
@@ -365,7 +366,7 @@
         RoomFourLabel.position.set(0, 0.5, 0);
         gltf.scene.children[4].add(RoomFourLabel);
         RoomFourDIV.style.pointerEvents = 'auto';
-        RoomFourDIV.addEventListener('click', function () {
+        RoomFourDIV.addEventListener('click', function (e) {
           OBJscene.clear();
           objView.classList.remove('hide');
           objView.classList.add('show');
@@ -391,7 +392,7 @@
         RoomFiveLabel.position.set(0, 0.5, 0);
         gltf.scene.children[5].add(RoomFiveLabel);
         RoomFiveDIV.style.pointerEvents = 'auto';
-        RoomFiveDIV.addEventListener('click', function () {
+        RoomFiveDIV.addEventListener('click', function (e) {
           OBJscene.clear();
           objView.classList.remove('hide');
           objView.classList.add('show');
@@ -419,7 +420,7 @@
         RoomSixLabel.position.set(0, 0.5, 0);
         gltf.scene.children[37].add(RoomSixLabel);
         RoomSixDIV.style.pointerEvents = 'auto';
-        RoomSixDIV.addEventListener('click', function () {
+        RoomSixDIV.addEventListener('click', function (e) {
           OBJscene.clear();
           objView.classList.remove('hide');
           objView.classList.add('show');
