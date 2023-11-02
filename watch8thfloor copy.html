@@ -29,7 +29,7 @@
     </div>
     <div class="loadingCalcBox" >
       <span class="loadingCalcName">載入中</span>
-      <div class="loadingCalc">0</div></div>
+      <div class="loadingCalc">0 %</div></div>
 
   </div>
   <div>
@@ -38,9 +38,9 @@
   <div class="objView">
     <div class="objCanvas"></div>
     <div class="closeBtnObjView"></div>
-    <div id="objInfo-BIG">
+    <div id="objInfo-BIG ">
       <div class="objInfoPhone" hidden>課表</div>
-      <div class="objInfo">
+      <div class="objInfo ">
         <div class="Classroom-name">
           815<br>烘焙教室
         </div>
@@ -141,14 +141,16 @@
     curriculumBtn.addEventListener('click', function (e) {
       objcurriculum.style.display = 'block';
       closeBtnObjView.style.display = 'none';
-      document.getElementById("objInfoBIG").classList.add("hide");
+      objCanvas.style ='opacity:0';
+      objInfoBIG.style ='opacity:0';
 
     });
     // 監聽課表按鈕打開課表DIV-手機板
     objInfoPhone.addEventListener('click', function (e) {
       objcurriculum.style ='opacity:1';
       closeBtnObjView.style = 'display:none';
-      objInfoBIG.style = 'display:none';
+      objInfoBIG.style ='opacity:0';
+      objCanvas.style='opacity:0';
     });
     // // DIV監聽事件 監聽小畫面開關按鈕關閉 環境OBJscene清空
     closeBtnObjView.addEventListener('click', function (e) {
@@ -159,6 +161,8 @@
       objcurriculum.style = 'display:none';
       closeBtnObjView.style ='opacity:1';
       objInfoBIG.style ='opacity:1';
+      objCanvas.style='opacity:1';
+      
     });
     // 第一渲染
     const renderer = new THREE.WebGLRenderer({
@@ -460,7 +464,7 @@
       const loadingCalcName = document.querySelector('.loadingCalcName');
       var number= ( xhr.loaded / xhr.total * 100 ).toFixed(1);
       loadingCalc.textContent = number;
-      if(number == 100.0){
+      if(number == 100.0 ){
         loadingCalcName.textContent ='載入完成';
         loadingCalcName.style.color = 'lightgreen';
         loadingCalc.style.color = 'lightgreen';
@@ -470,6 +474,7 @@
                 if (timeRun <= 0) {
                 clearTimeout(timerA);
                 loading.style.display = 'none';
+                
                 }
             }, 1000);
       }
