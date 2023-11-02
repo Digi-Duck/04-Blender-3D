@@ -29,7 +29,14 @@
 		<div class="loadingCalcBox" >
 			<span class="loadingCalcName">載入中</span>
 			<div class="loadingCalc">0</div></div>
+	</div>
+	<div onclick="clickInfo()" id="clickInfo" class="newClassName">aaaa
+		<!-- <div class="col ">
+			<div class="p-3"><img src="./img/letter-w.png" alt="">
+				<div class="card-body">按下左鍵進入</div>
+			</div> -->
 		</div>
+	</div>
 	<nav class="navbar navbar-expand-lg  position-absolute top-0">
 		<div class="container-fluid ">
 			<a class="col" href="index.html"><img class="logo" src="./img/LOGO(橫白透).png" width="200" alt=""></a>
@@ -40,7 +47,7 @@
 	<div onclick="myFunction()" class="question"></div>
 	<div id="container-md"
 		class="mystyle overflow-hidden text-center position-absolute bottom-0 start-50 translate-middle-x">
-		<div class="row  gx-5">
+		<div class="row gx-5">
 			<div class="col ">
 				<div class="p-3"><img src="./img/letter-w.png" alt="">
 					<div class="card-body">前進</div>
@@ -79,7 +86,8 @@
     </script>
 	<script>
 		const questionBtn = document.querySelector('.question');
-		const operate = document.querySelector('#container-md');
+		// const operate = document.querySelector('#container-md');
+		// const clickInfo = document.querySelector('.clickInfo');
 
 
 		// questionBtn.addEventListener('click', function (e) {
@@ -88,8 +96,10 @@
 
 		function myFunction() {
 			document.getElementById("container-md").classList.toggle("newClassName");
+		};
+		function clickInfo() {
+			document.getElementById("clickInfo").classList.toggle("mystyle");
 		}
-
 
 
 
@@ -151,7 +161,6 @@
 		const vector1 = new THREE.Vector3();
 		const vector2 = new THREE.Vector3();
 		const vector3 = new THREE.Vector3();
-
 		document.addEventListener('keydown', (event) => {
 			keyStates[event.code] = true;
 		});
@@ -235,7 +244,7 @@
 			}
 			if (playerOnFloor) {
 				if (keyStates['Space']) {
-					playerVelocity.y = 2;
+					playerVelocity.y = 0;
 				}
 			}
 		}
@@ -257,6 +266,7 @@
 			planeLoader.load(
 				'./models/1031MoveView.glb',
 				function (gltf) {
+					console.log(gltf.scene.children);
 					scene.add(gltf.scene);
 				},
 				function ( xhr ) {
