@@ -172,15 +172,17 @@ a:visited {
 		}
 		@media (max-width: 580px) {
 			.banner-group {
-				top: 12%;
+				width: 300px;
+				top: 10%;
+				left: 12%;
 				.banner-title {
-					font-size: 15px;
+					font-size: 12px;
 					margin-bottom: 10px;
 				}
 				.btn-group {
 					.btn {
-						font-size: 12px;
-						padding: 8px;
+						font-size: 9px;
+						padding: 5px;
 					}
 				}
 			}

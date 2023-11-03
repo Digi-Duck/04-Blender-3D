@@ -287,8 +287,8 @@ canvas {
 .logo {
   position: absolute;
   animation: logo 0.8s infinite;
-  top: 20px;
-  left: 30px;
+  top: 0;
+  left: 15px;
   z-index: 5;
 }
 .logo img {
@@ -297,6 +297,16 @@ canvas {
   object-fit: cover;
 }
 
+@media (max-width: 1024px) {
+  .logo img {
+    width: 180px;
+  }
+}
+@media (max-width: 768px) {
+  .logo img {
+    width: 150px;
+  }
+}
 @media (max-width: 1400px) {
   .objView {
     display: flex;
