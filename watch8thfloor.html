@@ -60,7 +60,7 @@
 
   <div class="objcurriculum hide">
     <div class="closeBtnCurriculumInformation"></div>
-    <div class="curriculumInformation"><img src="./img/classroom/舞蹈教室課表.png" style="margin:auto"></div>
+    <div class="curriculumInformation"><img src="./img/classroom/舞蹈教室課表.png" ></div>
   </div>
   <div class="nav">
     <ul class="btn-group">
@@ -135,15 +135,15 @@
 
       const item = records[i]
       curriculumInformation.innerHTML =
-        `<img src="${item.img}" style="margin:auto">`
+        `<img src="${item.img}">`
     }
 
     // 監聽課表按鈕打開課表DIV-手機板
     objInfoPhone.addEventListener('click', function () {
-      // objcurriculum.style = 'opacity:1';
-      // closeBtnObjView.style = 'display:none';
-      // objInfoBIG.style = 'opacity:0';
-      // objCanvas.style = 'opacity:0';
+      objcurriculum.classList.remove('hide');
+      closeBtnObjView.classList.add('hide');
+      objInfoBIG.classList.add('hide');
+      objCanvas.classList.add('hide');
     });
     // // DIV監聽事件 監聽小畫面開關按鈕關閉 環境OBJscene清空
     closeBtnObjView.addEventListener('click', function () {
@@ -260,7 +260,7 @@
           objView.classList.remove('hide');
           InfoView(3);
           newobjInfo(4);
-          document.addEventListener('click',()=>{
+          document.addEventListener('click',(e)=>{
             if (e.target.classList.contains('curriculumBtn')) {
               objcurriculum.classList.remove('hide');
               closeBtnObjView.classList.add('hide');
@@ -282,17 +282,15 @@
         RoomOneDIV.addEventListener('click',()=>{
           OBJscene.clear();
           objView.classList.remove('hide');
-          objView.classList.add('show');
           InfoView(4);
           newobjInfo(0);
 
           document.addEventListener('click',(e)=>{
             if (e.target.classList.contains('curriculumBtn')) {
               objcurriculum.classList.remove('hide');
-              objcurriculum.classList.add('show');
-              closeBtnObjView.classList.add('opacity-0');
-              objCanvas.classList.add('opacity-0');
-              objInfo.classList.add('opacity-0');
+              closeBtnObjView.classList.add('hide');
+              objCanvas.classList.add('hide');
+              objInfo.classList.add('hide');
               changecurriculum(0);
             }
           });
@@ -309,16 +307,14 @@
         RoomTwoDIV.addEventListener('click',()=>{
           OBJscene.clear();
           objView.classList.remove('hide');
-          objView.classList.add('show');
           InfoView(0);
           newobjInfo(3);
-          document.addEventListener('click',()=>{
+          document.addEventListener('click',(e)=>{
             if (e.target.classList.contains('curriculumBtn')) {
               objcurriculum.classList.remove('hide');
-              objcurriculum.classList.add('show');
-              closeBtnObjView.classList.add('opacity-0');
-              objCanvas.classList.add('opacity-0');
-              objInfo.classList.add('opacity-0');
+              closeBtnObjView.classList.add('hide');
+              objCanvas.classList.add('hide');
+              objInfo.classList.add('hide');
               changecurriculum(3);
             }
           });
@@ -335,16 +331,14 @@
         RoomThreeDIV.addEventListener('click',()=>{
           OBJscene.clear();
           objView.classList.remove('hide');
-          objView.classList.add('show');
           InfoView(2);
           newobjInfo(5);
           document.addEventListener('click',(e)=>{
             if (e.target.classList.contains('curriculumBtn')) {
               objcurriculum.classList.remove('hide');
-              objcurriculum.classList.add('show');
-              closeBtnObjView.classList.add('opacity-0');
-              objCanvas.classList.add('opacity-0');
-              objInfo.classList.add('opacity-0');
+              closeBtnObjView.classList.add('hide');
+              objCanvas.classList.add('hide');
+              objInfo.classList.add('hide');
               changecurriculum(5);
             }
           });
@@ -360,16 +354,14 @@
         RoomFourDIV.addEventListener('click',()=>{
           OBJscene.clear();
           objView.classList.remove('hide');
-          objView.classList.add('show');
           InfoView(1);
           newobjInfo(1);
           document.addEventListener('click',(e)=>{
             if (e.target.classList.contains('curriculumBtn')) {
               objcurriculum.classList.remove('hide');
-              objcurriculum.classList.add('show');
-              closeBtnObjView.classList.add('opacity-0');
-              objCanvas.classList.add('opacity-0');
-              objInfo.classList.add('opacity-0');
+              closeBtnObjView.classList.add('hide');
+              objCanvas.classList.add('hide');
+              objInfo.classList.add('hide');
               changecurriculum(1);
             }
           });
@@ -385,17 +377,14 @@
         RoomFiveDIV.addEventListener('click',()=>{
           OBJscene.clear();
           objView.classList.remove('hide');
-          objView.classList.add('show');
           InfoView(5);
           newobjInfo(2);
           document.addEventListener('click',(e)=>{
             if (e.target.classList.contains('curriculumBtn')) {
-              console.log('curriculumBtn 被點擊了');
               objcurriculum.classList.remove('hide');
-              objcurriculum.classList.add('show');
-              closeBtnObjView.classList.add('opacity-0');
-              objCanvas.classList.add('opacity-0');
-              objInfo.classList.add('opacity-0');
+              closeBtnObjView.classList.add('hide');
+              objCanvas.classList.add('hide');
+              objInfo.classList.add('hide');
               changecurriculum(2);
             }
           });
@@ -413,15 +402,13 @@
         RoomSixDIV.addEventListener('click',()=>{
           OBJscene.clear();
           objView.classList.remove('hide');
-          objView.classList.add('show');
           InfoView(6);
           document.addEventListener('click',(e)=> {
             if (e.target.classList.contains('curriculumBtn')) {
               objcurriculum.classList.remove('hide');
-              objcurriculum.classList.add('show');
-              closeBtnObjView.classList.add('opacity-0');
-              objCanvas.classList.add('opacity-0');
-              objInfo.classList.add('opacity-0');
+              closeBtnObjView.classList.add('hide');
+              objCanvas.classList.add('hide');
+              objInfo.classList.add('hide');
               changecurriculum(6);
             }
           });

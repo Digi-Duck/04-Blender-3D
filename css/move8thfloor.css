@@ -12,7 +12,8 @@
 .logo img {
   width: 200px;
   overflow: hidden;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .leaveBtn {
