@@ -12,7 +12,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
+  <style>
+    .parallax-window{
+      min-height: 600px;
+      opacity: 0.5;
+    }
+  </style>
 </head>
 
 <body>
@@ -62,6 +67,10 @@
         <div class="swiper-button-prev"></div>
       </div>
     </section>
+    <section>
+      <div class="parallax-window" data-parallax="scroll" data-image-src="https://static.wixstatic.com/media/9b226c_2f02ef0b669a46ed819283122a810e05~mv2.jpg/v1/fill/w_1907,h_935,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/9b226c_2f02ef0b669a46ed819283122a810e05~mv2.jpg">
+      </div>
+    </section>
     <section class="main-four-card">
         <h3 class="four-card-title" data-aos="zoom-in" data-aos-duration="2000">團隊成員</h3>
       <div class="four-card">
@@ -107,7 +116,6 @@
             <i class="fa-solid fa-arrow-up"></i>
             </a>
     </footer>
-   
   </section>
   
   
@@ -133,11 +141,14 @@
       },
     });
   </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
   </script>
+
   <script>
     const btnDown = document.querySelector(".btn-down");
     const scrollThreshold = 50;
@@ -157,7 +168,6 @@
       //用於瀏覽器動畫的 JavaScript 方法
       requestAnimationFrame(scrollHandler);
     }
-
     window.addEventListener("scroll", scrollHandler);
   </script>
   
