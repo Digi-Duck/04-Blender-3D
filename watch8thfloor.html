@@ -16,28 +16,32 @@
 
 <body>
   <div class="loading">
-    <div class="cubeGrid">
-      <div class="cube cube1"></div>
-      <div class="cube cube2"></div>
-      <div class="cube cube3"></div>
-      <div class="cube cube4"></div>
-      <div class="cube cube5"></div>
-      <div class="cube cube6"></div>
-      <div class="cube cube7"></div>
-      <div class="cube cube8"></div>
-      <div class="cube cube9"></div>
-    </div>
-    <div class="loadingCalcBox">
-      <span class="loadingCalcName">載入中</span>
-      <div class="loadingBar"><div class="loadingBarColor"></div></div>
-      <div class="loadingCalc">0</div>
+    <div class="loadingbox">
+      <div class="cubeGrid">
+        <div class="cube cube1"></div>
+        <div class="cube cube2"></div>
+        <div class="cube cube3"></div>
+        <div class="cube cube4"></div>
+        <div class="cube cube5"></div>
+        <div class="cube cube6"></div>
+        <div class="cube cube7"></div>
+        <div class="cube cube8"></div>
+        <div class="cube cube9"></div>
+      </div>
+      <div class="loadingCalcBox">
+        <span class="loadingCalcName">載入中</span>
+        <div class="loadingBar">
+          <div class="loadingBarColor"></div>
+        </div>
+        <div class="loadingCalc">0</div>
+      </div>
     </div>
 
   </div>
   <div>
     <h1 class="logo"> <img src="./img/LOGO(橫白透).png" alt=""></h1>
   </div>
-    <div class="objView hide">
+  <div class="objView hide">
     <div class="objCanvas "></div>
     <div class="closeBtnObjView "></div>
     <div class="objInfo-BIG ">
@@ -60,7 +64,7 @@
 
   <div class="objcurriculum hide">
     <div class="closeBtnCurriculumInformation"></div>
-    <div class="curriculumInformation"><img src="./img/classroom/舞蹈教室課表.png" ></div>
+    <div class="curriculumInformation"><img src="./img/classroom/舞蹈教室課表.png"></div>
   </div>
   <div class="nav">
     <ul class="btn-group">
@@ -120,7 +124,7 @@
 
 
     }
-    
+
     const objView = document.querySelector('.objView');
     const closeBtnObjView = document.querySelector('.closeBtnObjView');
     const objCanvas = document.querySelector('.objCanvas');
@@ -221,7 +225,7 @@
         OBJcamera.position.set(1, 0.5, -6);
         // 第二控制
         const OBJcontrols = new OrbitControls(OBJcamera, OBJrenderer.domElement);
-        
+
 
         // 第二場景Loader
         function InfoView(InfoViewValue) {
@@ -255,12 +259,12 @@
         RoomZeroLabel.position.set(0, 0.5, 0);
         gltf.scene.children[0].add(RoomZeroLabel);
         RoomZeroDIV.style.pointerEvents = 'auto';
-        RoomZeroDIV.addEventListener('click',()=>{
+        RoomZeroDIV.addEventListener('click', () => {
           OBJscene.clear();
           objView.classList.remove('hide');
           InfoView(3);
           newobjInfo(4);
-          document.addEventListener('click',(e)=>{
+          document.addEventListener('click', (e) => {
             if (e.target.classList.contains('curriculumBtn')) {
               objcurriculum.classList.remove('hide');
               closeBtnObjView.classList.add('hide');
@@ -269,7 +273,7 @@
               changecurriculum(4);
             }
           });
-          document.addEventListener('click',(e)=>{
+          document.addEventListener('click', (e) => {
             if (e.target.classList.contains('objInfoPhone')) {
               objcurriculum.classList.remove('hide');
               closeBtnObjView.classList.add('hide');
@@ -288,13 +292,13 @@
         RoomOneLabel.position.set(0, 0.5, 0);
         gltf.scene.children[1].add(RoomOneLabel);
         RoomOneDIV.style.pointerEvents = 'auto';
-        RoomOneDIV.addEventListener('click',()=>{
+        RoomOneDIV.addEventListener('click', () => {
           OBJscene.clear();
           objView.classList.remove('hide');
           InfoView(4);
           newobjInfo(0);
 
-          document.addEventListener('click',(e)=>{
+          document.addEventListener('click', (e) => {
             if (e.target.classList.contains('curriculumBtn')) {
               objcurriculum.classList.remove('hide');
               closeBtnObjView.classList.add('hide');
@@ -304,7 +308,7 @@
             }
           });
 
-          document.addEventListener('click',(e)=>{
+          document.addEventListener('click', (e) => {
             if (e.target.classList.contains('objInfoPhone')) {
               objcurriculum.classList.remove('hide');
               closeBtnObjView.classList.add('hide');
@@ -323,12 +327,12 @@
         RoomTwoLabel.position.set(0, 0.5, 0);
         gltf.scene.children[2].add(RoomTwoLabel);
         RoomTwoDIV.style.pointerEvents = 'auto';
-        RoomTwoDIV.addEventListener('click',()=>{
+        RoomTwoDIV.addEventListener('click', () => {
           OBJscene.clear();
           objView.classList.remove('hide');
           InfoView(0);
           newobjInfo(3);
-          document.addEventListener('click',(e)=>{
+          document.addEventListener('click', (e) => {
             if (e.target.classList.contains('curriculumBtn')) {
               objcurriculum.classList.remove('hide');
               closeBtnObjView.classList.add('hide');
@@ -338,7 +342,7 @@
             }
           });
 
-          document.addEventListener('click',(e)=>{
+          document.addEventListener('click', (e) => {
             if (e.target.classList.contains('objInfoPhone')) {
               objcurriculum.classList.remove('hide');
               closeBtnObjView.classList.add('hide');
@@ -357,12 +361,12 @@
         RoomThreeLabel.position.set(0, 0.5, 0);
         gltf.scene.children[3].add(RoomThreeLabel);
         RoomThreeDIV.style.pointerEvents = 'auto';
-        RoomThreeDIV.addEventListener('click',()=>{
+        RoomThreeDIV.addEventListener('click', () => {
           OBJscene.clear();
           objView.classList.remove('hide');
           InfoView(2);
           newobjInfo(5);
-          document.addEventListener('click',(e)=>{
+          document.addEventListener('click', (e) => {
             if (e.target.classList.contains('curriculumBtn')) {
               objcurriculum.classList.remove('hide');
               closeBtnObjView.classList.add('hide');
@@ -371,7 +375,7 @@
               changecurriculum(5);
             }
           });
-          document.addEventListener('click',(e)=>{
+          document.addEventListener('click', (e) => {
             if (e.target.classList.contains('objInfoPhone')) {
               objcurriculum.classList.remove('hide');
               closeBtnObjView.classList.add('hide');
@@ -389,12 +393,12 @@
         RoomFourLabel.position.set(0, 0.5, 0);
         gltf.scene.children[4].add(RoomFourLabel);
         RoomFourDIV.style.pointerEvents = 'auto';
-        RoomFourDIV.addEventListener('click',()=>{
+        RoomFourDIV.addEventListener('click', () => {
           OBJscene.clear();
           objView.classList.remove('hide');
           InfoView(1);
           newobjInfo(1);
-          document.addEventListener('click',(e)=>{
+          document.addEventListener('click', (e) => {
             if (e.target.classList.contains('curriculumBtn')) {
               objcurriculum.classList.remove('hide');
               closeBtnObjView.classList.add('hide');
@@ -412,12 +416,12 @@
         RoomFiveLabel.position.set(0, 0.5, 0);
         gltf.scene.children[5].add(RoomFiveLabel);
         RoomFiveDIV.style.pointerEvents = 'auto';
-        RoomFiveDIV.addEventListener('click',()=>{
+        RoomFiveDIV.addEventListener('click', () => {
           OBJscene.clear();
           objView.classList.remove('hide');
           InfoView(5);
           newobjInfo(2);
-          document.addEventListener('click',(e)=>{
+          document.addEventListener('click', (e) => {
             if (e.target.classList.contains('curriculumBtn')) {
               objcurriculum.classList.remove('hide');
               closeBtnObjView.classList.add('hide');
@@ -426,7 +430,7 @@
               changecurriculum(2);
             }
           });
-          document.addEventListener('click',(e)=>{
+          document.addEventListener('click', (e) => {
             if (e.target.classList.contains('objInfoPhone')) {
               objcurriculum.classList.remove('hide');
               closeBtnObjView.classList.add('hide');
@@ -446,11 +450,11 @@
         RoomSixLabel.position.set(0, 0.5, 0);
         gltf.scene.children[37].add(RoomSixLabel);
         RoomSixDIV.style.pointerEvents = 'auto';
-        RoomSixDIV.addEventListener('click',()=>{
+        RoomSixDIV.addEventListener('click', () => {
           OBJscene.clear();
           objView.classList.remove('hide');
           InfoView(6);
-          document.addEventListener('click',(e)=> {
+          document.addEventListener('click', (e) => {
             if (e.target.classList.contains('curriculumBtn')) {
               objcurriculum.classList.remove('hide');
               closeBtnObjView.classList.add('hide');
@@ -459,7 +463,7 @@
               changecurriculum(6);
             }
           });
-          document.addEventListener('click',(e)=>{
+          document.addEventListener('click', (e) => {
             if (e.target.classList.contains('objInfoPhone')) {
               objcurriculum.classList.remove('hide');
               closeBtnObjView.classList.add('hide');
@@ -507,7 +511,7 @@
           camera.updateProjectionMatrix();
         }
       },
-      
+
       function (xhr) {
         const loading = document.querySelector('.loading');
         const loadingCalc = document.querySelector('.loadingCalc');
@@ -515,7 +519,7 @@
         const loadingBarColor = document.querySelector('.loadingBarColor');
         var number = (xhr.loaded / xhr.total * 100).toFixed(1);
         loadingCalc.textContent = number;
-        loadingBarColor.style.width=number+ '%';
+        loadingBarColor.style.width = number + '%';
         if (number == 100.0) {
           loadingCalcName.textContent = '載入完成';
           loadingCalcName.style.color = 'lightgreen';
@@ -525,7 +529,7 @@
             timeRun--;
             if (timeRun <= 0) {
               clearTimeout(timerA);
-              loading.style.display = 'none';
+              // loading.classList.add('hide');
             }
           }, 1000);
         }

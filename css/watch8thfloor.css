@@ -442,57 +442,57 @@ canvas {
   display: flex;
   background-color: #608cb1;
   z-index: 10;
-  animation: fadein 6s;
   opacity: 1;
 }
-@keyframes fadein {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+.loading .loadingbox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.loading .cubeGrid {
+.loading .loadingbox .cubeGrid {
   width: 350px;
   height: 100px;
-  margin: 200px auto 0px;
   background-image: url(../img/LOGO\(橫白透\).png);
   background-repeat: no-repeat;
   background-size: contain;
 }
-.loading .cubeGrid .cube {
+.loading .loadingbox .cubeGrid .cube {
   width: 33.3%;
   height: 33.3%;
   background-color: #608cb1;
   float: left;
   animation: cubeGridScaleDelay 1.3s infinite ease-in-out;
 }
-.loading .cubeGrid .cube1 {
+.loading .loadingbox .cubeGrid .cube1 {
   animation-delay: 0.2s;
 }
-.loading .cubeGrid .cube2 {
+.loading .loadingbox .cubeGrid .cube2 {
   animation-delay: 0.3s;
 }
-.loading .cubeGrid .cube3 {
+.loading .loadingbox .cubeGrid .cube3 {
   animation-delay: 0.4s;
 }
-.loading .cubeGrid .cube4 {
+.loading .loadingbox .cubeGrid .cube4 {
   animation-delay: 0.1s;
 }
-.loading .cubeGrid .cube5 {
+.loading .loadingbox .cubeGrid .cube5 {
   animation-delay: 0.2s;
 }
-.loading .cubeGrid .cube6 {
+.loading .loadingbox .cubeGrid .cube6 {
   animation-delay: 0.3s;
 }
-.loading .cubeGrid .cube7 {
+.loading .loadingbox .cubeGrid .cube7 {
   animation-delay: 0s;
 }
-.loading .cubeGrid .cube8 {
+.loading .loadingbox .cubeGrid .cube8 {
   animation-delay: 0.1s;
 }
-.loading .cubeGrid .cube9 {
+.loading .loadingbox .cubeGrid .cube9 {
   animation-delay: 0.2s;
 }
 @keyframes cubeGridScaleDelay {
@@ -503,36 +503,42 @@ canvas {
     transform: scale3D(0, 0, 1);
   }
 }
-.loading .loadingCalcBox {
+.loading .loadingbox .loadingCalcBox {
   font-size: 48px;
   color: #ffffff;
   text-align: center;
   line-height: 100px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
-.loading .loadingCalcBox .loadingBar {
+.loading .loadingbox .loadingCalcBox .loadingBar {
   width: 306px;
   height: 36px;
   border: 3px solid rgb(73, 67, 67);
   border-radius: 5px;
   margin: auto;
 }
-.loading .loadingCalcBox .loadingBar .loadingBarColor {
+.loading .loadingbox .loadingCalcBox .loadingBar .loadingBarColor {
   width: 0px;
   height: 30px;
   background-color: rgb(255, 86, 86);
   border-radius: 2px;
 }
+
 @media (max-width: 1080px) {
-  .loading .cubeGrid {
-    width: 250px;
-    height: 120px;
+  .loading .loadingbox .cubeGrid {
+    width: 200px;
+    height: 100px;
+  }
+  .loading .loadingbox .loadingCalcBox {
+    font-size: 32px;
+  }
+}
+@media (max-width: 376px) {
+  .cubeGrid {
+    width: 50px;
+    height: 50px;
     margin: 200px auto 0px;
   }
-  .loading .loadingCalcBox {
-    font-size: 32px;
+  .loadingCalcBox {
+    font-size: 20px;
   }
 }/*# sourceMappingURL=watch8thfloor.css.map */
