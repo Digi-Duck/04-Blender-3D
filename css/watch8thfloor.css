@@ -174,6 +174,19 @@ a:visited {
   background-color: rgba(255, 255, 255, 0);
 }
 
+.objcurriculum {
+  display: flex;
+  text-align: center;
+  width: 85%;
+  background-color: #ffffff;
+  padding: 3%;
+  z-index: 9;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .curriculum {
   width: 15%;
   margin: 20px;
@@ -236,35 +249,26 @@ a:visited {
   color: #575757;
 }
 
-.objcurriculum {
-  text-align: center;
-  width: 85%;
-  background-color: #ffffff;
-  position: absolute;
-  top: 0;
-  margin: 105px 120px 105px 120px;
-  padding: 3%;
-  z-index: 9;
-}
-
 canvas {
   margin: auto;
   background-color: rgba(55, 103, 80, 0);
   position: relative;
 }
 
-.curriculumInformation img {
+.curriculumInformation {
   text-align: center;
+}
+.curriculumInformation img {
   width: 60%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0);
+  margin: auto;
   z-index: 10;
 }
 
 .closeBtnCurriculumInformation {
   width: 40px;
   height: 40px;
-  /* margin: auto; */
   background-image: url(../img/close.png);
   color: white;
   cursor: pointer;
@@ -316,7 +320,6 @@ canvas {
   .objcurriculum {
     display: flex;
     justify-content: center;
-    margin: 100px 90px 100px 90px;
   }
   .curriculumInformation {
     width: 85%;
@@ -350,7 +353,6 @@ canvas {
     width: 85%;
     display: flex;
     margin: auto;
-    margin: 150px 80px 150px 80px;
     justify-content: center;
   }
   .objcurriculum .curriculumInformation {
@@ -358,10 +360,6 @@ canvas {
   }
   .objcurriculum .curriculumInformation img {
     width: 85%;
-  }
-  .objcurriculum .closeBtnCurriculumInformation {
-    padding: 2%;
-    right: 50px;
   }
   .objcurriculum .col-1,
   .objcurriculum .col-3 {
@@ -495,6 +493,10 @@ canvas {
   color: #ffffff;
   text-align: center;
   line-height: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .loading .loadingCalcBox .loadingBar {
   width: 306px;
