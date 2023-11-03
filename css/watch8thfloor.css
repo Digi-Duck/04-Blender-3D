@@ -439,6 +439,7 @@ canvas {
   width: 100%;
   height: 100%;
   position: absolute;
+  display: flex;
   background-color: #608cb1;
   z-index: 10;
   animation: fadein 6s;
@@ -453,8 +454,8 @@ canvas {
   }
 }
 .loading .cubeGrid {
-  width: 390px;
-  height: 120px;
+  width: 350px;
+  height: 100px;
   margin: 200px auto 0px;
   background-image: url(../img/LOGO\(橫白透\).png);
   background-repeat: no-repeat;
@@ -524,4 +525,14 @@ canvas {
   height: 30px;
   background-color: rgb(255, 86, 86);
   border-radius: 2px;
+}
+@media (max-width: 1080px) {
+  .loading .cubeGrid {
+    width: 250px;
+    height: 120px;
+    margin: 200px auto 0px;
+  }
+  .loading .loadingCalcBox {
+    font-size: 32px;
+  }
 }/*# sourceMappingURL=watch8thfloor.css.map */
