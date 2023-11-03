@@ -36,8 +36,8 @@
   <div>
     <h1 class="logo"> <img src="./img/LOGO(橫白透).png" alt=""></h1>
   </div>
-    <div class="objView hide">
-    <div class="objCanvas "></div>
+  <div class="objView hide">
+    <div class="objCanvas"></div>
     <div class="closeBtnObjView "></div>
     <div class="objInfo-BIG ">
       <div class="objInfoPhone" hidden>課表</div>
@@ -59,7 +59,7 @@
 
   <div class="objcurriculum hide">
     <div class="closeBtnCurriculumInformation"></div>
-    <div class="curriculumInformation"><img src="./img/classroom/舞蹈教室課表.png" style="margin:auto"></div>
+    <div class="curriculumInformation"><img src="./img/classroom/舞蹈教室課表.png" ></div>
   </div>
   <div class="nav">
     <ul class="btn-group">
@@ -119,7 +119,7 @@
 
 
     }
-    
+
     const objView = document.querySelector('.objView');
     const closeBtnObjView = document.querySelector('.closeBtnObjView');
     const objCanvas = document.querySelector('.objCanvas');
@@ -141,10 +141,10 @@
 
     // 監聽課表按鈕打開課表DIV-手機板
     objInfoPhone.addEventListener('click', function () {
-      // objcurriculum.style = 'opacity:1';
-      // closeBtnObjView.style = 'display:none';
-      // objInfoBIG.style = 'opacity:0';
-      // objCanvas.style = 'opacity:0';
+      objcurriculum.classList.remove('hide');
+      closeBtnObjView.classList.add('hide');
+      objCanvas.classList.add('hide');
+      objInfo.classList.add('hide');
     });
     // // DIV監聽事件 監聽小畫面開關按鈕關閉 環境OBJscene清空
     closeBtnObjView.addEventListener('click', function () {
@@ -156,6 +156,8 @@
       closeBtnObjView.classList.remove('hide');
       objCanvas.classList.remove('hide');
       objInfo.classList.remove('hide');
+      objInfoPhone.classList.remove('hide');
+      
     });
     // 第一渲染
     const renderer = new THREE.WebGLRenderer({
@@ -222,7 +224,7 @@
         OBJcamera.position.set(1, 0.5, -6);
         // 第二控制
         const OBJcontrols = new OrbitControls(OBJcamera, OBJrenderer.domElement);
-        
+
 
         // 第二場景Loader
         function InfoView(InfoViewValue) {
@@ -258,8 +260,8 @@
           console.log('RoomZeroDIV 被點擊了');
           OBJscene.clear();
           objView.classList.remove('hide');
-          
-          
+
+
           InfoView(3);
           newobjInfo(4);
           document.addEventListener('click', function (e) {
