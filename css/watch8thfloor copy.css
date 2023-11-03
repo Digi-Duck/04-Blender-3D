@@ -494,6 +494,10 @@ canvas {
   color: #ffffff;
   text-align: center;
   line-height: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .loading .loadingCalcBox .loadingBar {
   width: 306px;
