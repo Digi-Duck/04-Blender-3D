@@ -328,6 +328,7 @@ canvas {
 	top: 0;
 	left: 15px;
 	z-index: 5;
+
 	img {
 		width: 200px;
 		overflow: hidden;
@@ -336,15 +337,16 @@ canvas {
 }
 
 @media (max-width:1024px) {
-	.logo{
-		img{
+	.logo {
+		img {
 			width: 180px;
 		}
 	}
 }
+
 @media (max-width:768px) {
-	.logo{
-		img{
+	.logo {
+		img {
 			width: 150px;
 		}
 	}
@@ -463,8 +465,6 @@ canvas {
 	.objView {
 		display: flex;
 		margin: auto;
-
-
 	}
 
 	.objCanvas {
@@ -476,9 +476,8 @@ canvas {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-
-
 	}
+
 	.objcurriculum {
 		transform: translate(-50%, -80%);
 	}
