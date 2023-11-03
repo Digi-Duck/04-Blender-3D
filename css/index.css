@@ -117,21 +117,23 @@ a:visited {
     left: calc(50% - 315px);
   }
   .container .banner .banner-group .banner-title {
-    font-size: 32px;
+    font-size: 35px;
   }
   .container .banner .banner-group .btn-group .btn {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
-@media (max-width: 1280px) {
+@media (max-width: 1380px) {
   .container .banner .banner-group {
     top: 30%;
   }
 }
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .container .banner .banner-group {
     top: 25%;
   }
+}
+@media (max-width: 1024px) {
   .container .banner .banner-group .banner-title {
     font-size: 28px;
   }

@@ -115,25 +115,31 @@ a:visited {
 				top: 40%;
 				left: calc(50% - 315px);
 				.banner-title {
-					font-size: 32px;
+					font-size: 35px;
 				}
 				.btn-group {
 					.btn {
-						font-size: 18px;
+						font-size: 20px;
 					}
 				}
 			}
 		}
 
-		@media (max-width: 1280px) {
+		@media (max-width: 1380px) {
 			.banner-group {
 				top: 30%;
 			}
 		}
 
-		@media (max-width: 1024px) {
+
+		@media (max-width: 1200px) {
 			.banner-group {
 				top: 25%;
+			}
+		}
+
+		@media (max-width: 1024px) {
+			.banner-group {
 				.banner-title {
 					font-size: 28px;
 				}
