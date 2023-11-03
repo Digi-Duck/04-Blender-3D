@@ -290,8 +290,7 @@ canvas {
 .logo img {
   width: 200px;
   overflow: hidden;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 @media (max-width: 1400px) {
@@ -509,4 +508,4 @@ canvas {
   height: 30px;
   background-color: rgb(255, 86, 86);
   border-radius: 2px;
-}/*# sourceMappingURL=watch8thfloor copy.css.map */
+}/*# sourceMappingURL=watch8thfloor.css.map */

@@ -5,452 +5,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="./css/watch8thfloor.css">
   <title>Overview of the 8th floor</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
 
-    body,
-    html {
-      font-family: Arial, Helvetica, sans-serif;
-      /* width: 100%; */
-      margin:auto;
-      padding: 0;
-    }
-
-    li {
-      list-style: none;
-    }
-
-
-    a {
-      text-decoration: none;
-      color: #000;
-    }
-
-    a:visited {
-      color: inherit;
-    }
-
-    .label {
-      padding: 5px;
-      font-size: 12px;
-      background-color: #608cb178;
-      border: 2px solid #F9DC5C;
-      color: rgb(255, 255, 255);
-      border-radius: 5px;
-      cursor: pointer;
-
-    }
-
-
-    .objView {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      background-color: #ffffff;
-      z-index: 9;
-      position: absolute;
-      top: 0;
-      align-items: center;
-      justify-content: space-between;
-      flex-direction: column;
-      padding: 3%;
-    }
-
-
-
-    .closeBtnObjView {
-      width: 40px;
-      height: 40px;
-      background-image: url(./img/close.png);
-      color: white;
-      cursor: pointer;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
-      position: absolute;
-      right: 0%;
-      top: 0%;
-      margin: 30px;
-    }
-
-    .closeBtnObjView:hover {
-      background-image: url(./img/cross.png);
-    }
-
-
-    .objInfo-BIG {
-      width: 100%;
-      height: 50%;
-      display: flex;
-      position: relative;
-      bottom: 0;
-      background-color: #608cb100;
-      justify-content: center;
-
-
-    }
-
-    .objInfo {
-      width: 80%;
-      height: 200px;
-      background-color: #ADD8E6;
-      color: black;
-      font-size: 24;
-      bottom: 55px;
-      display: flex;
-      align-items: stretch;
-      border-radius: 20px;
-      box-shadow: 3px 3px 5px #575757;
-      margin: auto;
-    }
-
-    .nav {
-      width: 100%;
-      height: 15%;
-      display: flex;
-      justify-content: center;
-      background-color: #add8e65b;
-      position: absolute;
-      z-index: 6;
-      bottom: 0;
-      position: fixed;
-
-    }
-
-    .btn-group {
-      display: flex;
-      justify-content: center;
-      margin: auto;
-
-
-    }
-
-    .btn {
-      border-radius: 30px;
-      text-align: center;
-      font-size: 20px;
-      padding: 15px 20px 15px 20px;
-      margin-right: 30px;
-      box-shadow: 1px 1px 5px #575757;
-      opacity: 0.9;
-      cursor: pointer;
-      background-color: #fff;
-    }
-
-
-    .btn:hover,
-    .btn:focus {
-      background-color: #f9dc5c;
-      box-shadow: 5px 5px 10px #b4b4b4;
-      transition: 1s;
-      transform: translateY(-1px);
-      font-size: 20px;
-    }
-
-    .Classroom-name {
-      width: 15%;
-      margin: 20px;
-      padding: 30px 30px;
-      border-radius: 10px;
-      text-align: center;
-      font-size: 16px;
-      background-color: #608CB1;
-      display: flex;
-      font-weight: bold;
-      color: #ffffff;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .Classroom-introduce {
-      width: 70%;
-      font-size: 20px;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      background-color: rgba(255, 255, 255, 0);
-
-    }
-
-    .curriculum {
-      width: 15%;
-      margin: 20px;
-      padding: 30px 30px;
-      border-radius: 10px;
-      text-align: center;
-      font-size: 24px;
-      background-color: #608CB1;
-      display: flex;
-      justify-content: center;
-
-    }
-
-    .curriculumBtn {
-      width: 100px;
-      margin: auto;
-      font-size: 20px;
-      padding: 20px;
-      background-color: #F9DC5C;
-      border-radius: 10px;
-      border-style: none;
-      cursor: pointer;
-      color: #575757;
-      font-weight: bold;
-
-    }
-
-    .curriculumBtn:hover {
-      box-shadow: 0 0 10px #fff;
-    }
-
-    .objCanvas {
-      width: 50%;
-      height: 50%;
-      margin: auto;
-      position: relative;
-      display: block;
-    }
-
-    .col-3 {
-      width: 100%;
-      height: 30%;
-      margin-bottom: 20px;
-      background-color: #608CB1;
-      border-radius: 10px;
-      padding: 5px;
-      text-align: center;
-      color: #ffffff;
-      font-weight: bold;
-
-    }
-
-    .col-4 {
-      width: 100%;
-      height: 70%;
-      font-size: 15px;
-      margin: auto;
-      padding: 15px;
-      background-color: #ffffff;
-      border-radius: 10px;
-      text-align: justify;
-      letter-spacing: 1px;
-      color: #575757;
-
-
-
-    }
-
-    .objcurriculum {
-      text-align: center;
-      width: 90vw;
-      margin: auto;
-      background-color: #ffffff;
-      position: relative;
-      padding: 10%;
-      display: flex;
-      z-index: 9;
-
-    }
-
-    @media (max-width: 1280px) {
-
-      .col-1,
-      .col-3 {
-        font-size: 16px;
-      }
-
-      .col-4 {
-        font-size: 14px;
-
-      }
-
-      .curriculumBtn {
-        width: 80px;
-        font-size: 16px;
-      }
-
-    }
-
-    @media (max-width: 1080px) {
-
-      .objCanvas {
-        height: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-      }
-
-      .objInfo-BIG {
-        width: 100%;
-        height: 40%;
-        /* position: relative;
-        bottom: -5; */
-
-      }
-
-      .objcurriculum {
-        display: flex;
-        margin: auto;
-        position: absolute;
-        padding: 10%;
-        /* left: -50%; */
-        /* top: 0; */
-
-      }
-
-
-      .col-1,
-      .col-3 {
-        font-size: 14px;
-      }
-
-      .col-4 {
-        font-size: 12px;
-
-      }
-
-      .curriculumBtn {
-        width: 80px;
-        font-size: 14px;
-      }
-
-    }
-
-    @media (max-width: 930px) {
-      .objCanvas {
-        height: 60%;
-      }
-
-      .objInfo-BIG {
-        height: 20%;
-        align-items: center;
-        justify-content: center;
-        bottom: 0;
-        position: fixed;
-
-      }
-
-      .objInfo {
-        display: none;
-      }
-
-      .objInfoPhone {
-        position: fixed;
-        text-align: center;
-        width: 100px;
-        height: 50px;
-        line-height: 50px;
-        border-radius: 20px;
-        background-color: #F9DC5C;
-        display: block;
-        cursor: pointer;
-
-      }
-
-    }
-
-
-
-    canvas {
-      margin: auto;
-      background-color: #37675000;
-      position: relative;
-
-
-    }
-
-
-
-    .curriculumInformation img {
-      text-align:center;
-      width: 60%;
-      height: 100%;
-      background-color: #ffffff00;
-      z-index: 10;
-
-    }
-
-    .closeBtnCurriculumInformation {
-      width: 40px;
-      height: 40px;
-      /* margin: auto; */
-      background-image: url(./img/close.png);
-      color: white;
-      cursor: pointer;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-
-    .closeBtnCurriculumInformation:hover {
-      background-image: url(./img/cross.png);
-    }
-
-    .logo {
-      position: absolute;
-      animation: logo 0.8s infinite;
-      top: 20px;
-      left: 30px;
-      z-index: 5;
-
-    }
-
-    img {
-      width: 200px;
-      overflow: hidden;
-      object-fit: cover;
-    }
-
-    @keyframes logo {
-      0% {
-        transform: translateY(10px);
-      }
-
-      20% {
-        transform: translateY(5px);
-      }
-
-      40% {
-        transform: translateY(0px);
-      }
-
-      60% {
-        transform: translateY(-5px);
-      }
-
-      80% {
-        transform: translateY(-10px);
-      }
-
-      100% {
-        transform: translateY(0px);
-      }
-    }
   </style>
   <title>Document</title>
 
 </head>
 
 <body>
+  <div class="loading">
+    <div class="cubeGrid">
+      <div class="cube cube1"></div>
+      <div class="cube cube2"></div>
+      <div class="cube cube3"></div>
+      <div class="cube cube4"></div>
+      <div class="cube cube5"></div>
+      <div class="cube cube6"></div>
+      <div class="cube cube7"></div>
+      <div class="cube cube8"></div>
+      <div class="cube cube9"></div>
+    </div>
+    <div class="loadingCalcBox">
+      <span class="loadingCalcName">載入中</span>
+      <div class="loadingBar"><div class="loadingBarColor"></div></div>
+      <div class="loadingCalc">0</div>
+    </div>
+
+  </div>
   <div>
     <h1 class="logo"> <img src="./img/LOGO(橫白透).png" alt=""></h1>
   </div>
-  <div class="objView">
-    <div class="objCanvas"></div>
-    <div class="closeBtnObjView"></div>
-    <div class="objInfo-BIG">
+    <div class="objView hide">
+    <div class="objCanvas "></div>
+    <div class="closeBtnObjView "></div>
+    <div class="objInfo-BIG ">
       <div class="objInfoPhone" hidden>課表</div>
-      <div class="objInfo">
+      <div class="objInfo ">
         <div class="Classroom-name">
           815<br>烘焙教室
         </div>
@@ -465,9 +57,10 @@
       </div>
     </div>
   </div>
-  <div class="objcurriculum">
+
+  <div class="objcurriculum hide">
     <div class="closeBtnCurriculumInformation"></div>
-    <div class="curriculumInformation"><img src="./img/classroom/舞蹈教室課表.png" style="margin:auto" ></div>
+    <div class="curriculumInformation"><img src="./img/classroom/舞蹈教室課表.png" style="margin:auto"></div>
   </div>
   <div class="nav">
     <ul class="btn-group">
@@ -527,7 +120,7 @@
 
 
     }
-
+    
     const objView = document.querySelector('.objView');
     const closeBtnObjView = document.querySelector('.closeBtnObjView');
     const objCanvas = document.querySelector('.objCanvas');
@@ -543,32 +136,25 @@
       const item = records[i]
       curriculumInformation.innerHTML =
         `<img src="${item.img}" style="margin:auto">`
-
-
     }
 
-    // 監聽課表按鈕打開課表DIV
-    curriculumBtn.addEventListener('click', function (e) {
-      objcurriculum.style.display = 'block';
-      closeBtnObjView.style.display = 'none';
-      objInfoBIG.style.display = 'none';
-
-    });
     // 監聽課表按鈕打開課表DIV-手機板
-    objInfoPhone.addEventListener('click', function (e) {
-      objcurriculum.style = 'display:block';
-      closeBtnObjView.style = 'display:none';
-      objInfoBIG.style = 'display:none';
+    objInfoPhone.addEventListener('click', function () {
+      // objcurriculum.style = 'opacity:1';
+      // closeBtnObjView.style = 'display:none';
+      // objInfoBIG.style = 'opacity:0';
+      // objCanvas.style = 'opacity:0';
     });
     // // DIV監聽事件 監聽小畫面開關按鈕關閉 環境OBJscene清空
-    closeBtnObjView.addEventListener('click', function (e) {
-      objView.style = 'display:none';
+    closeBtnObjView.addEventListener('click', function () {
+      objView.classList.add('hide');
     });
     // 監聽課表DIV裡關閉按鈕關閉
-    closeBtnCurriculumInformation.addEventListener('click', function (e) {
-      objcurriculum.style = 'display:none';
-      closeBtnObjView.style = 'display:block';
-      objInfoBIG.style = 'display:block';
+    closeBtnCurriculumInformation.addEventListener('click', function () {
+      objcurriculum.classList.add('hide');
+      closeBtnObjView.classList.remove('hide');
+      objCanvas.classList.remove('hide');
+      objInfo.classList.remove('hide');
     });
     // 第一渲染
     const renderer = new THREE.WebGLRenderer({
@@ -587,7 +173,7 @@
     document.body.appendChild(labelRenderer.domElement);
     // 場景
     const scene = new THREE.Scene();
-    const color = new THREE.Color(0x76c8fb);
+    const color = new THREE.Color("rgb(230, 230, 230)");
     scene.background = color;
     // 半球光
     const hemispherelight = new THREE.HemisphereLight(0x404040, 0x404040, 5);
@@ -601,6 +187,7 @@
     // 相機
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100000);
     camera.position.set(0, 6, 4);
+
     // 控制
     const controls = new OrbitControls(camera, renderer.domElement);
     // 第一場景Loader
@@ -619,7 +206,9 @@
           precision: " highp",
           preserveDrawingBuffer: true,
         });
-        OBJrenderer.setSize(objCanvas.clientWidth, objCanvas.clientHeight);
+        var w = objCanvas.clientWidth;
+        var h = objCanvas.clientHeight;
+        OBJrenderer.setSize(w, h);
         objCanvas.appendChild(OBJrenderer.domElement);
         // 第二場景
         const OBJscene = new THREE.Scene();
@@ -632,8 +221,7 @@
         OBJcamera.position.set(1, 0.5, -6);
         // 第二控制
         const OBJcontrols = new OrbitControls(OBJcamera, OBJrenderer.domElement);
-        objView.style = 'display:none';
-        objcurriculum.style = 'display:none';
+        
 
         // 第二場景Loader
         function InfoView(InfoViewValue) {
@@ -647,16 +235,18 @@
             function (gltf) {
               OBJscene.add(gltf.scene.children[InfoViewValue]);
               OBJscene.add(gltf.scene.children[6]);
-              console.log('第二場警', gltf.scene.children);
             }
           );
         }
+
         function animate2() {
           requestAnimationFrame(animate2);
           OBJscene.rotation.y += 0.002;
           OBJrenderer.render(OBJscene, OBJcamera);
         }
         animate2();
+
+
         // 810教室標籤
         const RoomZeroDIV = document.createElement('div');
         RoomZeroDIV.className = 'label';
@@ -665,24 +255,20 @@
         RoomZeroLabel.position.set(0, 0.5, 0);
         gltf.scene.children[0].add(RoomZeroLabel);
         RoomZeroDIV.style.pointerEvents = 'auto';
-        RoomZeroDIV.addEventListener('click', function (e) {
-          console.log('RoomZeroDIV 被點擊了');
+        RoomZeroDIV.addEventListener('click',()=>{
           OBJscene.clear();
-          objView.style = 'display:block';
+          objView.classList.remove('hide');
           InfoView(3);
           newobjInfo(4);
-          document.addEventListener('click', function (e) {
+          document.addEventListener('click',()=>{
             if (e.target.classList.contains('curriculumBtn')) {
-              console.log('curriculumBtn 被點擊了');
-              objcurriculum.style.display = 'block';
-              closeBtnObjView.style.display = 'none';
-              objInfoBIG.style.display = 'none';
+              objcurriculum.classList.remove('hide');
+              closeBtnObjView.classList.add('hide');
+              objCanvas.classList.add('hide');
+              objInfo.classList.add('hide');
               changecurriculum(4);
-
             }
           });
-
-
         });
 
         // 815舞蹈教室標籤
@@ -693,22 +279,25 @@
         RoomOneLabel.position.set(0, 0.5, 0);
         gltf.scene.children[1].add(RoomOneLabel);
         RoomOneDIV.style.pointerEvents = 'auto';
-        RoomOneDIV.addEventListener('click', function (e) {
+        RoomOneDIV.addEventListener('click',()=>{
           OBJscene.clear();
-          objView.style = 'display:block';
+          objView.classList.remove('hide');
+          objView.classList.add('show');
           InfoView(4);
           newobjInfo(0);
 
-          document.addEventListener('click', function (e) {
+          document.addEventListener('click',(e)=>{
             if (e.target.classList.contains('curriculumBtn')) {
-              console.log('curriculumBtn 被點擊了');
-              objcurriculum.style.display = 'block';
-              closeBtnObjView.style.display = 'none';
-              objInfoBIG.style.display = 'none';
+              objcurriculum.classList.remove('hide');
+              objcurriculum.classList.add('show');
+              closeBtnObjView.classList.add('opacity-0');
+              objCanvas.classList.add('opacity-0');
+              objInfo.classList.add('opacity-0');
               changecurriculum(0);
             }
           });
         });
+
         // 813烘焙教室標籤
         const RoomTwoDIV = document.createElement('div');
         RoomTwoDIV.className = 'label';
@@ -717,21 +306,24 @@
         RoomTwoLabel.position.set(0, 0.5, 0);
         gltf.scene.children[2].add(RoomTwoLabel);
         RoomTwoDIV.style.pointerEvents = 'auto';
-        RoomTwoDIV.addEventListener('click', function (e) {
+        RoomTwoDIV.addEventListener('click',()=>{
           OBJscene.clear();
-          objView.style = 'display:block';
+          objView.classList.remove('hide');
+          objView.classList.add('show');
           InfoView(0);
           newobjInfo(3);
-          document.addEventListener('click', function (e) {
+          document.addEventListener('click',()=>{
             if (e.target.classList.contains('curriculumBtn')) {
-              console.log('curriculumBtn 被點擊了');
-              objcurriculum.style.display = 'block';
-              closeBtnObjView.style.display = 'none';
-              objInfoBIG.style.display = 'none';
+              objcurriculum.classList.remove('hide');
+              objcurriculum.classList.add('show');
+              closeBtnObjView.classList.add('opacity-0');
+              objCanvas.classList.add('opacity-0');
+              objInfo.classList.add('opacity-0');
               changecurriculum(3);
             }
           });
         });
+
         // 814飛輪教室標籤
         const RoomThreeDIV = document.createElement('div');
         RoomThreeDIV.className = 'label';
@@ -740,17 +332,19 @@
         RoomThreeLabel.position.set(0, 0.5, 0);
         gltf.scene.children[3].add(RoomThreeLabel);
         RoomThreeDIV.style.pointerEvents = 'auto';
-        RoomThreeDIV.addEventListener('click', function (e) {
+        RoomThreeDIV.addEventListener('click',()=>{
           OBJscene.clear();
-          objView.style = 'display:block';
+          objView.classList.remove('hide');
+          objView.classList.add('show');
           InfoView(2);
           newobjInfo(5);
-          document.addEventListener('click', function (e) {
+          document.addEventListener('click',(e)=>{
             if (e.target.classList.contains('curriculumBtn')) {
-              console.log('curriculumBtn 被點擊了');
-              objcurriculum.style.display = 'block';
-              closeBtnObjView.style.display = 'none';
-              objInfoBIG.style.display = 'none';
+              objcurriculum.classList.remove('hide');
+              objcurriculum.classList.add('show');
+              closeBtnObjView.classList.add('opacity-0');
+              objCanvas.classList.add('opacity-0');
+              objInfo.classList.add('opacity-0');
               changecurriculum(5);
             }
           });
@@ -763,17 +357,19 @@
         RoomFourLabel.position.set(0, 0.5, 0);
         gltf.scene.children[4].add(RoomFourLabel);
         RoomFourDIV.style.pointerEvents = 'auto';
-        RoomFourDIV.addEventListener('click', function (e) {
+        RoomFourDIV.addEventListener('click',()=>{
           OBJscene.clear();
-          objView.style = 'display:block';
+          objView.classList.remove('hide');
+          objView.classList.add('show');
           InfoView(1);
           newobjInfo(1);
-          document.addEventListener('click', function (e) {
+          document.addEventListener('click',(e)=>{
             if (e.target.classList.contains('curriculumBtn')) {
-              console.log('curriculumBtn 被點擊了');
-              objcurriculum.style.display = 'block';
-              closeBtnObjView.style.display = 'none';
-              objInfoBIG.style.display = 'none';
+              objcurriculum.classList.remove('hide');
+              objcurriculum.classList.add('show');
+              closeBtnObjView.classList.add('opacity-0');
+              objCanvas.classList.add('opacity-0');
+              objInfo.classList.add('opacity-0');
               changecurriculum(1);
             }
           });
@@ -786,17 +382,20 @@
         RoomFiveLabel.position.set(0, 0.5, 0);
         gltf.scene.children[5].add(RoomFiveLabel);
         RoomFiveDIV.style.pointerEvents = 'auto';
-        RoomFiveDIV.addEventListener('click', function (e) {
+        RoomFiveDIV.addEventListener('click',()=>{
           OBJscene.clear();
-          objView.style = 'display:block';
+          objView.classList.remove('hide');
+          objView.classList.add('show');
           InfoView(5);
           newobjInfo(2);
-          document.addEventListener('click', function (e) {
+          document.addEventListener('click',(e)=>{
             if (e.target.classList.contains('curriculumBtn')) {
               console.log('curriculumBtn 被點擊了');
-              objcurriculum.style.display = 'block';
-              closeBtnObjView.style.display = 'none';
-              objInfoBIG.style.display = 'none';
+              objcurriculum.classList.remove('hide');
+              objcurriculum.classList.add('show');
+              closeBtnObjView.classList.add('opacity-0');
+              objCanvas.classList.add('opacity-0');
+              objInfo.classList.add('opacity-0');
               changecurriculum(2);
             }
           });
@@ -811,20 +410,23 @@
         RoomSixLabel.position.set(0, 0.5, 0);
         gltf.scene.children[37].add(RoomSixLabel);
         RoomSixDIV.style.pointerEvents = 'auto';
-        RoomSixDIV.addEventListener('click', function (e) {
+        RoomSixDIV.addEventListener('click',()=>{
           OBJscene.clear();
-          objView.style = 'display:block';
+          objView.classList.remove('hide');
+          objView.classList.add('show');
           InfoView(6);
-          document.addEventListener('click', function (e) {
+          document.addEventListener('click',(e)=> {
             if (e.target.classList.contains('curriculumBtn')) {
-              console.log('curriculumBtn 被點擊了');
-              objcurriculum.style.display = 'block';
-              closeBtnObjView.style.display = 'none';
-              objInfoBIG.style.display = 'none';
+              objcurriculum.classList.remove('hide');
+              objcurriculum.classList.add('show');
+              closeBtnObjView.classList.add('opacity-0');
+              objCanvas.classList.add('opacity-0');
+              objInfo.classList.add('opacity-0');
               changecurriculum(6);
             }
           });
         });
+
         // 滑鼠監聽
         window.addEventListener('mousemove', mouseMove);
         window.addEventListener('resize', resetSetting);
@@ -858,12 +460,34 @@
         function resetSetting() {
           renderer.setSize(window.innerWidth, window.innerHeight);
           labelRenderer.setSize(window.innerWidth, window.innerHeight);
-          OBJrenderer.setSize(objCanvas.clientWidth, objCanvas.clientHeight);
           camera.aspect = window.innerWidth / window.innerHeight;
           camera.updateProjectionMatrix();
         }
       },
+      function (xhr) {
+        const loading = document.querySelector('.loading');
+        const loadingCalc = document.querySelector('.loadingCalc');
+        const loadingCalcName = document.querySelector('.loadingCalcName');
+        const loadingBarColor = document.querySelector('.loadingBarColor');
+        var number = (xhr.loaded / xhr.total * 100).toFixed(1);
+        loadingCalc.textContent = number;
+        loadingBarColor.style.width=number+ '%';
+        if (number == 100.0) {
+          loadingCalcName.textContent = '載入完成';
+          loadingCalcName.style.color = 'lightgreen';
+          loadingCalc.style.color = 'lightgreen';
+          let timeRun = 2;
+          let timerA = setInterval(function () {
+            timeRun--;
+            if (timeRun <= 0) {
+              clearTimeout(timerA);
+              loading.style.display = 'none';
+            }
+          }, 1000);
+        }
+      },
     );
+
     function animate() {
       requestAnimationFrame(animate);
       scene.rotation.y += 0.002;
@@ -872,9 +496,7 @@
     }
 
     animate();
-
   </script>
-
 
 </body>
 
