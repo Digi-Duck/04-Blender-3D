@@ -140,10 +140,10 @@
 
     // 監聽課表按鈕打開課表DIV-手機板
     objInfoPhone.addEventListener('click', function () {
-      objcurriculum.classList.remove('hide');
-      closeBtnObjView.classList.add('hide');
-      objInfoBIG.classList.add('hide');
-      objCanvas.classList.add('hide');
+      // objcurriculum.classList.remove('hide');
+      // closeBtnObjView.classList.add('hide');
+      // objInfoBIG.classList.add('hide');
+      // objCanvas.classList.add('hide');
     });
     // // DIV監聽事件 監聽小畫面開關按鈕關閉 環境OBJscene清空
     closeBtnObjView.addEventListener('click', function () {
@@ -269,6 +269,15 @@
               changecurriculum(4);
             }
           });
+          document.addEventListener('click',(e)=>{
+            if (e.target.classList.contains('objInfoPhone')) {
+              objcurriculum.classList.remove('hide');
+              closeBtnObjView.classList.add('hide');
+              objCanvas.classList.add('hide');
+              objInfo.classList.add('hide');
+              changecurriculum(4);
+            }
+          });
         });
 
         // 815舞蹈教室標籤
@@ -287,6 +296,16 @@
 
           document.addEventListener('click',(e)=>{
             if (e.target.classList.contains('curriculumBtn')) {
+              objcurriculum.classList.remove('hide');
+              closeBtnObjView.classList.add('hide');
+              objCanvas.classList.add('hide');
+              objInfo.classList.add('hide');
+              changecurriculum(0);
+            }
+          });
+
+          document.addEventListener('click',(e)=>{
+            if (e.target.classList.contains('objInfoPhone')) {
               objcurriculum.classList.remove('hide');
               closeBtnObjView.classList.add('hide');
               objCanvas.classList.add('hide');
@@ -318,6 +337,16 @@
               changecurriculum(3);
             }
           });
+
+          document.addEventListener('click',(e)=>{
+            if (e.target.classList.contains('objInfoPhone')) {
+              objcurriculum.classList.remove('hide');
+              closeBtnObjView.classList.add('hide');
+              objCanvas.classList.add('hide');
+              objInfo.classList.add('hide');
+              changecurriculum(3);
+            }
+          });
         });
 
         // 814飛輪教室標籤
@@ -335,6 +364,15 @@
           newobjInfo(5);
           document.addEventListener('click',(e)=>{
             if (e.target.classList.contains('curriculumBtn')) {
+              objcurriculum.classList.remove('hide');
+              closeBtnObjView.classList.add('hide');
+              objCanvas.classList.add('hide');
+              objInfo.classList.add('hide');
+              changecurriculum(5);
+            }
+          });
+          document.addEventListener('click',(e)=>{
+            if (e.target.classList.contains('objInfoPhone')) {
               objcurriculum.classList.remove('hide');
               closeBtnObjView.classList.add('hide');
               objCanvas.classList.add('hide');
@@ -388,6 +426,15 @@
               changecurriculum(2);
             }
           });
+          document.addEventListener('click',(e)=>{
+            if (e.target.classList.contains('objInfoPhone')) {
+              objcurriculum.classList.remove('hide');
+              closeBtnObjView.classList.add('hide');
+              objCanvas.classList.add('hide');
+              objInfo.classList.add('hide');
+              changecurriculum(2);
+            }
+          });
 
         });
 
@@ -405,6 +452,15 @@
           InfoView(6);
           document.addEventListener('click',(e)=> {
             if (e.target.classList.contains('curriculumBtn')) {
+              objcurriculum.classList.remove('hide');
+              closeBtnObjView.classList.add('hide');
+              objCanvas.classList.add('hide');
+              objInfo.classList.add('hide');
+              changecurriculum(6);
+            }
+          });
+          document.addEventListener('click',(e)=>{
+            if (e.target.classList.contains('objInfoPhone')) {
               objcurriculum.classList.remove('hide');
               closeBtnObjView.classList.add('hide');
               objCanvas.classList.add('hide');

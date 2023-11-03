@@ -294,7 +294,8 @@ canvas {
 .logo img {
   width: 200px;
   overflow: hidden;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @media (max-width: 1024px) {
@@ -389,13 +390,16 @@ canvas {
     margin: auto;
   }
   .objCanvas {
-    width: 60%;
+    width: 70%;
   }
   .objInfo-BIG {
     height: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .objcurriculum {
+    transform: translate(-50%, -80%);
   }
   .objInfo {
     display: none;
