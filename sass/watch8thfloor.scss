@@ -536,19 +536,20 @@ canvas {
 	display: flex;
 	background-color: #608cb1;
 	z-index: 10;
-	// animation: fadein 6s;
+	animation: fadein 6s;
 	opacity: 1;
 
 
-	// @keyframes fadein {
-	// 	0% {
-	// 		opacity: 1;
-	// 	}
+	@keyframes fadein {
+		0% {
+			opacity: 1;
+		}
 
-	// 	100% {
-	// 		opacity: 0;
-	// 	}
-	// }
+		100% {
+			opacity: 0;
+		}
+	}
+
 	.loadingbox {
 		width: 100%;
 		display: flex;
@@ -565,6 +566,7 @@ canvas {
 			background-image: url(../img/LOGO\(橫白透\).png);
 			background-repeat: no-repeat;
 			background-size: contain;
+			margin: 0;
 		}
 
 		.cubeGrid .cube {
@@ -643,7 +645,7 @@ canvas {
 				.loadingBarColor {
 					width: 0px;
 					height: 30px;
-					background-color: rgb(255, 86, 86);
+					background-color: rgb(255, 100, 100);
 					border-radius: 2px;
 
 				}
@@ -657,12 +659,11 @@ canvas {
 
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1025px) {
 	.loading {
 		.loadingbox {
 			.cubeGrid {
-				width: 200px;
-				height: 100px;
+				width: 250px;
 
 			}
 
@@ -676,17 +677,24 @@ canvas {
 }
 
 @media (max-width: 376px) {
-	.cubeGrid {
-		width: 50px;
-		height: 50px;
-		margin: 200px auto 0px;
 
+	.loading {
+		.loadingbox {
+			.cubeGrid {
+				width: 200px;
+
+
+			}
+
+			.loadingCalcBox {
+				font-size: 24px;
+
+				.loadingBar {
+					width: 250px;
+
+				}
+
+			}
+		}
 	}
-
-	.loadingCalcBox {
-		font-size: 20px;
-
-
-	}
-
 }

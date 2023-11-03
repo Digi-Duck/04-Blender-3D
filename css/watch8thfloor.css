@@ -442,7 +442,16 @@ canvas {
   display: flex;
   background-color: #608cb1;
   z-index: 10;
+  animation: fadein 6s;
   opacity: 1;
+}
+@keyframes fadein {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 .loading .loadingbox {
   width: 100%;
@@ -460,6 +469,7 @@ canvas {
   background-image: url(../img/LOGO\(橫白透\).png);
   background-repeat: no-repeat;
   background-size: contain;
+  margin: 0;
 }
 .loading .loadingbox .cubeGrid .cube {
   width: 33.3%;
@@ -519,26 +529,26 @@ canvas {
 .loading .loadingbox .loadingCalcBox .loadingBar .loadingBarColor {
   width: 0px;
   height: 30px;
-  background-color: rgb(255, 86, 86);
+  background-color: rgb(255, 100, 100);
   border-radius: 2px;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1025px) {
   .loading .loadingbox .cubeGrid {
-    width: 200px;
-    height: 100px;
+    width: 250px;
   }
   .loading .loadingbox .loadingCalcBox {
     font-size: 32px;
   }
 }
 @media (max-width: 376px) {
-  .cubeGrid {
-    width: 50px;
-    height: 50px;
-    margin: 200px auto 0px;
+  .loading .loadingbox .cubeGrid {
+    width: 200px;
   }
-  .loadingCalcBox {
-    font-size: 20px;
+  .loading .loadingbox .loadingCalcBox {
+    font-size: 24px;
+  }
+  .loading .loadingbox .loadingCalcBox .loadingBar {
+    width: 250px;
   }
 }/*# sourceMappingURL=watch8thfloor.css.map */
