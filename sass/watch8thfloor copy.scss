@@ -547,51 +547,51 @@ canvas {
 		background-size: contain;
 	}
 
-	.sk-cube-grid .sk-cube {
+	.cubeGrid .cube {
 		width: 33.3%;
 		height: 33.3%;
 		background-color: #608cb1;
 		float: left;
-		animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+		animation: cubeGridScaleDelay 1.3s infinite ease-in-out;
 	}
 
-	.sk-cube-grid .sk-cube1 {
+	.cubeGrid .cube1 {
 		animation-delay: 0.2s;
 	}
 
-	.sk-cube-grid .sk-cube2 {
+	.cubeGrid .cube2 {
 		animation-delay: 0.3s;
 	}
 
-	.sk-cube-grid .sk-cube3 {
+	.cubeGrid .cube3 {
 		animation-delay: 0.4s;
 	}
 
-	.sk-cube-grid .sk-cube4 {
+	.cubeGrid .cube4 {
 		animation-delay: 0.1s;
 	}
 
-	.sk-cube-grid .sk-cube5 {
+	.cubeGrid .cube5 {
 		animation-delay: 0.2s;
 	}
 
-	.sk-cube-grid .sk-cube6 {
+	.cubeGrid .cube6 {
 		animation-delay: 0.3s;
 	}
 
-	.sk-cube-grid .sk-cube7 {
+	.cubeGrid .cube7 {
 		animation-delay: 0s;
 	}
 
-	.sk-cube-grid .sk-cube8 {
+	.cubeGrid .cube8 {
 		animation-delay: 0.1s;
 	}
 
-	.sk-cube-grid .sk-cube9 {
+	.cubeGrid .cube9 {
 		animation-delay: 0.2s;
 	}
 
-	@keyframes sk-cubeGridScaleDelay {
+	@keyframes cubeGridScaleDelay {
 
 		0%,
 		70%,
@@ -609,6 +609,20 @@ canvas {
 		color: #ffffff;
 		text-align: center;
 		line-height: 100px;
+		.loadingBar{
+            width: 306px;
+            height: 36px;
+            border: 3px solid rgb(73, 67, 67);
+            border-radius: 5px;
+            margin: auto;
+            .loadingBarColor{
+            width: 0px;
+            height: 30px;
+            background-color: rgb(255, 86, 86);
+            border-radius: 2px;
+
+            }
+        }
 
 
 	}

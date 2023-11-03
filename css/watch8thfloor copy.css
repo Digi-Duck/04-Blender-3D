@@ -439,7 +439,7 @@ canvas {
     opacity: 0;
   }
 }
-.loading .sk-cube-grid {
+.loading .cubeGrid {
   width: 390px;
   height: 120px;
   margin: 200px auto 0px;
@@ -447,41 +447,41 @@ canvas {
   background-repeat: no-repeat;
   background-size: contain;
 }
-.loading .sk-cube-grid .sk-cube {
+.loading .cubeGrid .cube {
   width: 33.3%;
   height: 33.3%;
   background-color: #608cb1;
   float: left;
-  animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+  animation: cubeGridScaleDelay 1.3s infinite ease-in-out;
 }
-.loading .sk-cube-grid .sk-cube1 {
+.loading .cubeGrid .cube1 {
   animation-delay: 0.2s;
 }
-.loading .sk-cube-grid .sk-cube2 {
+.loading .cubeGrid .cube2 {
   animation-delay: 0.3s;
 }
-.loading .sk-cube-grid .sk-cube3 {
+.loading .cubeGrid .cube3 {
   animation-delay: 0.4s;
 }
-.loading .sk-cube-grid .sk-cube4 {
+.loading .cubeGrid .cube4 {
   animation-delay: 0.1s;
 }
-.loading .sk-cube-grid .sk-cube5 {
+.loading .cubeGrid .cube5 {
   animation-delay: 0.2s;
 }
-.loading .sk-cube-grid .sk-cube6 {
+.loading .cubeGrid .cube6 {
   animation-delay: 0.3s;
 }
-.loading .sk-cube-grid .sk-cube7 {
+.loading .cubeGrid .cube7 {
   animation-delay: 0s;
 }
-.loading .sk-cube-grid .sk-cube8 {
+.loading .cubeGrid .cube8 {
   animation-delay: 0.1s;
 }
-.loading .sk-cube-grid .sk-cube9 {
+.loading .cubeGrid .cube9 {
   animation-delay: 0.2s;
 }
-@keyframes sk-cubeGridScaleDelay {
+@keyframes cubeGridScaleDelay {
   0%, 70%, 100% {
     transform: scale3D(1, 1, 1);
   }
@@ -494,4 +494,17 @@ canvas {
   color: #ffffff;
   text-align: center;
   line-height: 100px;
+}
+.loading .loadingCalcBox .loadingBar {
+  width: 306px;
+  height: 36px;
+  border: 3px solid rgb(73, 67, 67);
+  border-radius: 5px;
+  margin: auto;
+}
+.loading .loadingCalcBox .loadingBar .loadingBarColor {
+  width: 0px;
+  height: 30px;
+  background-color: rgb(255, 86, 86);
+  border-radius: 2px;
 }/*# sourceMappingURL=watch8thfloor copy.css.map */

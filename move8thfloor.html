@@ -15,28 +15,23 @@
 
 <body>
 	<div class="loading">
-		<div class="sk-cube-grid">
-			<div class="sk-cube sk-cube1"></div>
-			<div class="sk-cube sk-cube2"></div>
-			<div class="sk-cube sk-cube3"></div>
-			<div class="sk-cube sk-cube4"></div>
-			<div class="sk-cube sk-cube5"></div>
-			<div class="sk-cube sk-cube6"></div>
-			<div class="sk-cube sk-cube7"></div>
-			<div class="sk-cube sk-cube8"></div>
-			<div class="sk-cube sk-cube9"></div>
-		</div>
+		<div class="cubeGrid">
+			<div class="cube cube1"></div>
+			<div class="cube cube2"></div>
+			<div class="cube cube3"></div>
+			<div class="cube cube4"></div>
+			<div class="cube cube5"></div>
+			<div class="cube cube6"></div>
+			<div class="cube cube7"></div>
+			<div class="cube cube8"></div>
+			<div class="cube cube9"></div>
+		  </div>
 		<div class="loadingCalcBox" >
 			<span class="loadingCalcName">載入中</span>
+			<div class="loadingBar"><div class="loadingBarColor"></div></div>
 			<div class="loadingCalc">0</div></div>
 	</div>
-	<div onclick="clickInfo()" id="clickInfo" >
-		<div class="col ">
-			<div class="p-3"><img src="./img/letter-w.png" alt="">
-				<div class="card-body">按下左鍵進入</div>
-			</div>
-		</div>
-	</div>
+	
 	<nav class="navbar navbar-expand-lg  position-absolute top-0">
 		<div class="container-fluid ">
 			<a class="col" href="index.html"><img class="logo" src="./img/LOGO(橫白透).png" width="200" alt=""></a>
@@ -44,9 +39,10 @@
 	</nav>
 	<a class="leaveBtn" href="watch8thfloor copy.html"><img src="./img/logout.png" alt=""></a>
 	<div id="container" class="bg-light"></div>
+	<div id="startBtn">點擊進入</div>
 	<div onclick="myFunction()" class="question"></div>
 	<div id="container-md"
-		class="hide overflow-hidden text-center position-absolute bottom-0 start-50 translate-middle-x">
+		class="overflow-hidden text-center position-absolute bottom-0 start-50 translate-middle-x">
 		<div class="row gx-5">
 			<div class="col ">
 				<div class="p-3"><img src="./img/letter-w.png" alt="">
@@ -87,7 +83,7 @@
 	<script>
 		const questionBtn = document.querySelector('.question');
 		// const operate = document.querySelector('#container-md');
-		// const clickInfo = document.querySelector('.clickInfo');
+		const startBtn = document.querySelector('#startBtn');
 
 
 		// questionBtn.addEventListener('click', function (e) {
@@ -95,12 +91,9 @@
 		// });
 
 		function myFunction() {
-			document.getElementById("container-md").classList.toggle("show");
+			document.getElementById("container-md").classList.toggle('hide');
+			// document.getElementById("startBtn").classList.remove('hide');
 		};
-		function clickInfo() {
-			console.log('電擊');
-
-		}
 
 
 
@@ -112,44 +105,29 @@
 		import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 		import { Octree } from 'three/addons/math/Octree.js';
 		import { Capsule } from 'three/addons/math/Capsule.js';
-
-
+		
 		const clock = new THREE.Clock();
-
 		const scene = new THREE.Scene();
 		scene.background = new THREE.Color(0x88ccee);
-		scene.fog = new THREE.Fog(0x88ccee, 0, 50);
-
 		const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);
 		camera.rotation.order = 'YXZ';
-
-		const fillLight1 = new THREE.HemisphereLight(0x8dc1de, 0x00668d, 1.5);
-		fillLight1.position.set(2, 1, 1);
-		scene.add(fillLight1);
-
+		const sphereLight = new THREE.HemisphereLight(0x8dc1de, 0x00668d, 1.5);
+		sphereLight.position.set(2, 1, 1);
+		scene.add(sphereLight);
 		const directionalLight = new THREE.DirectionalLight(0xffffff, 2.5);
 		directionalLight.position.set(- 5, 25, - 1);
-		directionalLight.castShadow = true;
-		directionalLight.shadow.camera.near = 0.01;
-		directionalLight.shadow.camera.far = 500;
-		directionalLight.shadow.camera.right = 30;
-		directionalLight.shadow.camera.left = - 30;
-		directionalLight.shadow.camera.top = 30;
-		directionalLight.shadow.camera.bottom = - 30;
-		directionalLight.shadow.mapSize.width = 1024;
-		directionalLight.shadow.mapSize.height = 1024;
-		directionalLight.shadow.radius = 4;
-		directionalLight.shadow.bias = - 0.00006;
 		scene.add(directionalLight);
 		const container = document.getElementById('container');
-		const renderer = new THREE.WebGLRenderer({ antialias: true });
+		const renderer = new THREE.WebGLRenderer({ 
+			antialias: true,
+			precision: " highp",
+		});
 		renderer.setPixelRatio(window.devicePixelRatio);
 		renderer.setSize(window.innerWidth, window.innerHeight);
 		renderer.shadowMap.enabled = true;
 		renderer.shadowMap.type = THREE.VSMShadowMap;
 		renderer.toneMapping = THREE.ACESFilmicToneMapping;
 		container.appendChild(renderer.domElement);
-
 		const GRAVITY = 30;
 		const STEPS_PER_FRAME = 5;
 		const worldOctree = new Octree();
@@ -159,43 +137,35 @@
 		let playerOnFloor = false;
 		let mouseTime = 0;
 		const keyStates = {};
-		const vector1 = new THREE.Vector3();
-		const vector2 = new THREE.Vector3();
-		const vector3 = new THREE.Vector3();
-		document.addEventListener('keydown', (event) => {
-			console.log(event.code);
-			keyStates[event.code] = true;
-		});
-		document.addEventListener('keyup', (event) => {
-			keyStates[event.code] = false;
-		});
-
-		container.addEventListener('mousedown', () => {
-			document.getElementById("clickInfo").classList.add("hide");
+		startBtn.addEventListener('mousedown', () => {
+			document.getElementById("startBtn").classList.add('hide');
+			document.getElementById("container-md").classList.add('hide');
 			document.body.requestPointerLock();
 			mouseTime = performance.now();
-		});
-
+			});
 		document.body.addEventListener('mousemove', (event) => {
 			if (document.pointerLockElement === document.body) {
 				camera.rotation.y -= event.movementX / 500;
 				camera.rotation.x -= event.movementY / 500;
+				document.addEventListener('keydown', (event) => {
+				keyStates[event.code] = true;
+				});
+				document.addEventListener('keyup', (event) => {
+				keyStates[event.code] = false;
+				});
+			}else{
+				document.getElementById("startBtn").classList.remove('hide');
+				document.addEventListener('keydown', (event) => {
+				keyStates[event.code] = false;
+				});
 			}
 		});
-		document.addEventListener('keydown', (event) => {
-			var aa ='KeyW';
-			if (event.code = aa) {
-				console.log('aa');
-			}
-		});
-
 		window.addEventListener('resize', onWindowResize);
 		function onWindowResize() {
 			camera.aspect = window.innerWidth / window.innerHeight;
 			camera.updateProjectionMatrix();
 			renderer.setSize(window.innerWidth, window.innerHeight);
 		}
-
 		function playerCollisions() {
 			const result = worldOctree.capsuleIntersect(playerCollider);
 			playerOnFloor = false;
@@ -251,11 +221,6 @@
 			if (keyStates['KeyD']) {
 				playerVelocity.add(getSideVector().multiplyScalar(speedDelta));
 			}
-			if (playerOnFloor) {
-				if (keyStates['Space']) {
-					playerVelocity.y = 0;
-				}
-			}
 		}
 
 		const loader = new GLTFLoader();
@@ -282,8 +247,10 @@
 				const loading = document.querySelector('.loading');
 				const loadingCalc = document.querySelector('.loadingCalc');
 				const loadingCalcName = document.querySelector('.loadingCalcName');
+				const loadingBarColor = document.querySelector('.loadingBarColor');
 				var number= ( xhr.loaded / xhr.total * 100 ).toFixed(1);
 				loadingCalc.textContent = number;
+				loadingBarColor.style.width=number+ '%';
 				if(number == 100.0){
 					loadingCalcName.textContent ='載入完成';
 					loadingCalcName.style.color = 'lightgreen';
