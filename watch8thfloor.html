@@ -33,7 +33,7 @@
         <div class="loadingBar">
           <div class="loadingBarColor"></div>
         </div>
-        <div class="loadingCalc">0</div>
+        <div class="loadingCalc">0 %</div>
       </div>
     </div>
 
@@ -519,8 +519,8 @@
         const loadingCalc = document.querySelector('.loadingCalc');
         const loadingCalcName = document.querySelector('.loadingCalcName');
         const loadingBarColor = document.querySelector('.loadingBarColor');
-        var number = (xhr.loaded / xhr.total * 100).toFixed(1);
-        loadingCalc.textContent = number;
+        var number = (xhr.loaded / xhr.total * 100).toFixed(0);
+        loadingCalc.textContent = number + '%';
         loadingBarColor.style.width = number + '%';
         if (number == 100.0) {
           loadingCalcName.textContent = '載入完成';
