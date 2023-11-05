@@ -9,7 +9,8 @@
   margin: auto;
   width: 60%;
   height: 50%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   padding: 5%;
   border-radius: 120px;
 }
@@ -29,16 +30,17 @@
   width: 40px;
   height: 40px;
   background-color: #bca8a8;
-  box-shadow: 2px 2px 5px #000;
   border-radius: 60%;
 }
 
 .swiper .swiper-button-next:hover {
   transform: translateX(20px);
+  background-color: #608cb1;
 }
 
 .swiper .swiper-button-prev:hover {
   transform: translateX(-20px);
+  background-color: #608cb1;
 }
 
 @media (max-width: 1024px) {
@@ -71,7 +73,7 @@
 .swiper .swiper-button-prev:after {
   font-size: 24px;
   overflow: hidden;
-  color: #000;
+  color: #ffffff;
 }
 
 @media (max-width: 1024px) {
