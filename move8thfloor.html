@@ -14,34 +14,38 @@
 
 <body>
 	<div class="loading">
-		<div class="cubeGrid">
-			<div class="cube cube1"></div>
-			<div class="cube cube2"></div>
-			<div class="cube cube3"></div>
-			<div class="cube cube4"></div>
-			<div class="cube cube5"></div>
-			<div class="cube cube6"></div>
-			<div class="cube cube7"></div>
-			<div class="cube cube8"></div>
-			<div class="cube cube9"></div>
-		  </div>
-		<div class="loadingCalcBox" >
-			<span class="loadingCalcName">載入中</span>
-			<div class="loadingBar"><div class="loadingBarColor"></div></div>
-			<div class="loadingCalc">0</div></div>
+		<div class="loadingbox">
+			<div class="cubeGrid">
+				<div class="cube cube1"></div>
+				<div class="cube cube2"></div>
+				<div class="cube cube3"></div>
+				<div class="cube cube4"></div>
+				<div class="cube cube5"></div>
+				<div class="cube cube6"></div>
+				<div class="cube cube7"></div>
+				<div class="cube cube8"></div>
+				<div class="cube cube9"></div>
+			</div>
+			<div class="loadingCalcBox">
+				<span class="loadingCalcName">載入中</span>
+				<div class="loadingBar">
+					<div class="loadingBarColor"></div>
+				</div>
+				<div class="loadingCalc">0 %</div>
+			</div>
+		</div>
 	</div>
-	
+
 	<nav class="navbar navbar-expand-lg  position-absolute top-0">
 		<div class="container-fluid ">
-			<a class="col" href="index.html"><img class="logo" src="./img/LOGO(橫白透).png" width="200" alt=""></a>
+			<a class="col" href="index.html"><img class="logo" src="./img/LOGO(橫白透).png" alt=""></a>
 		</div>
 	</nav>
 	<a class="leaveBtn" href="watch8thfloor.html"><img src="./img/logout.png" alt=""></a>
 	<div id="container" class="bg-light"></div>
-	<div id="startBtn">點擊進入</div>
+	<div id="startBtn" class="mx-auto">點擊進入</div>
 	<div class="question"></div>
-	<div id="container-md"
-		class="overflow-hidden text-center position-absolute bottom-0 start-50 translate-middle-x">
+	<div id="container-md" class="overflow-hidden text-center position-absolute bottom-0 start-50 translate-middle-x">
 		<div class="row gx-5">
 			<div class="col ">
 				<div class="p-3"><img src="./img/letter-w.png" alt="">
@@ -85,9 +89,9 @@
 
 		function hidden() {
 			document.getElementById("container-md").classList.toggle('hide');
-		
+
 		};
-		questionBtn.addEventListener("click",hidden)
+		questionBtn.addEventListener("click", hidden)
 
 
 
@@ -99,7 +103,7 @@
 		import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 		import { Octree } from 'three/addons/math/Octree.js';
 		import { Capsule } from 'three/addons/math/Capsule.js';
-		
+
 		const clock = new THREE.Clock();
 		const scene = new THREE.Scene();
 		scene.background = new THREE.Color(0x88ccee);
@@ -112,7 +116,7 @@
 		directionalLight.position.set(- 5, 25, - 1);
 		scene.add(directionalLight);
 		const container = document.getElementById('container');
-		const renderer = new THREE.WebGLRenderer({ 
+		const renderer = new THREE.WebGLRenderer({
 			antialias: true,
 			precision: " highp",
 		});
@@ -136,21 +140,21 @@
 			document.getElementById("container-md").classList.add('hide');
 			document.body.requestPointerLock();
 			mouseTime = performance.now();
-			});
+		});
 		document.body.addEventListener('mousemove', (event) => {
 			if (document.pointerLockElement === document.body) {
 				camera.rotation.y -= event.movementX / 500;
 				camera.rotation.x -= event.movementY / 500;
 				document.addEventListener('keydown', (event) => {
-				keyStates[event.code] = true;
+					keyStates[event.code] = true;
 				});
 				document.addEventListener('keyup', (event) => {
-				keyStates[event.code] = false;
+					keyStates[event.code] = false;
 				});
-			}else{
+			} else {
 				document.getElementById("startBtn").classList.remove('hide');
 				document.addEventListener('keydown', (event) => {
-				keyStates[event.code] = false;
+					keyStates[event.code] = false;
 				});
 			}
 		});
@@ -237,30 +241,30 @@
 					console.log(gltf.scene.children);
 					scene.add(gltf.scene);
 				},
-				function ( xhr ) {
-				const loading = document.querySelector('.loading');
-				const loadingCalc = document.querySelector('.loadingCalc');
-				const loadingCalcName = document.querySelector('.loadingCalcName');
-				const loadingBarColor = document.querySelector('.loadingBarColor');
-				var number= ( xhr.loaded / xhr.total * 100 ).toFixed(1);
-				loadingCalc.textContent = number;
-				loadingBarColor.style.width=number+ '%';
-				if(number == 100.0){
-					loadingCalcName.textContent ='載入完成';
-					loadingCalcName.style.color = 'lightgreen';
-					loadingCalc.style.color = 'lightgreen';
-					let timeRun = 2;
-					let timerA = setInterval(function () {
-							timeRun-- ;
+				function (xhr) {
+					const loading = document.querySelector('.loading');
+					const loadingCalc = document.querySelector('.loadingCalc');
+					const loadingCalcName = document.querySelector('.loadingCalcName');
+					const loadingBarColor = document.querySelector('.loadingBarColor');
+					var number = (xhr.loaded / xhr.total * 100).toFixed(0);
+					loadingCalc.textContent = number + '%';
+					loadingBarColor.style.width = number + '%';
+					if (number == 100.0) {
+						loadingCalcName.textContent = '載入完成';
+						loadingCalcName.style.color = 'lightgreen';
+						loadingCalc.style.color = 'lightgreen';
+						let timeRun = 2;
+						let timerA = setInterval(function () {
+							timeRun--;
 							if (timeRun <= 0) {
-							clearTimeout(timerA);
-							loading.style.display = 'none';
+								clearTimeout(timerA);
+								loading.classList.add('hide');
 							}
 						}, 1000);
-				}
+					}
 				},
-				
-				)
+
+			)
 
 			animate();
 
