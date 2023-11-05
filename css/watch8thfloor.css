@@ -439,7 +439,9 @@ canvas {
   width: 100%;
   height: 100%;
   position: absolute;
-  display: flex;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: #608cb1;
   z-index: 10;
   animation: fadein 6s;
@@ -518,6 +520,7 @@ canvas {
   color: #ffffff;
   text-align: center;
   line-height: 100px;
+  font-weight: bold;
 }
 .loading .loadingbox .loadingCalcBox .loadingBar {
   width: 306px;
@@ -536,6 +539,11 @@ canvas {
 @media (max-width: 1025px) {
   .loading .loadingbox .cubeGrid {
     width: 250px;
+    height: 100px;
+  }
+  .loading .loadingbox .cubeGrid .cube {
+    width: 30%;
+    height: 30%;
   }
   .loading .loadingbox .loadingCalcBox {
     font-size: 32px;
@@ -544,6 +552,7 @@ canvas {
 @media (max-width: 376px) {
   .loading .loadingbox .cubeGrid {
     width: 200px;
+    height: 80px;
   }
   .loading .loadingbox .loadingCalcBox {
     font-size: 24px;

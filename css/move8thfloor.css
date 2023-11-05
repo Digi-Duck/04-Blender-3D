@@ -3,19 +3,30 @@
   visibility: hidden;
 }
 
-.logo {
-  animation: logo 0.8s infinite;
-  position: absolute;
-  top: 30px;
-  left: 30px;
-}
-.logo img {
-  width: 200px;
+.col img {
   overflow: hidden;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
+.logo {
+  width: 200px !important;
+  animation: logo 0.8s infinite;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+@media (max-width: 1024px) {
+  .logo {
+    width: 180px !important;
+  }
+}
+@media (max-width: 768px) {
+  .logo {
+    width: 150px !important;
+  }
+}
 .leaveBtn {
   position: absolute;
   top: 30px;
@@ -26,10 +37,23 @@
   height: 50px;
 }
 
+@media (max-width: 1024px) {
+  .leaveBtn img {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .leaveBtn img {
+    width: 30px;
+    height: 30px;
+  }
+}
 #startBtn {
   position: absolute;
   top: 50%;
-  left: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: #000;
   border-radius: 30px;
   font-size: 44px;
@@ -99,15 +123,18 @@
     transform: translateY(0px);
   }
 }
-.loading {
+.loadingbox {
   width: 100%;
   height: 100%;
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: #608cb1;
   z-index: 20;
   animation: fadein 3s;
 }
-.loading .cubeGrid {
+.loadingbox .cubeGrid {
   width: 390px;
   height: 120px;
   margin: 200px auto 0px;
@@ -115,38 +142,38 @@
   background-repeat: no-repeat;
   background-size: contain;
 }
-.loading .cubeGrid .cube {
+.loadingbox .cubeGrid .cube {
   width: 33.3%;
   height: 33.3%;
   background-color: #608cb1;
   float: left;
   animation: cubeGridScaleDelay 1.3s infinite ease-in-out;
 }
-.loading .cubeGrid .cube1 {
+.loadingbox .cubeGrid .cube1 {
   animation-delay: 0.2s;
 }
-.loading .cubeGrid .cube2 {
+.loadingbox .cubeGrid .cube2 {
   animation-delay: 0.3s;
 }
-.loading .cubeGrid .cube3 {
+.loadingbox .cubeGrid .cube3 {
   animation-delay: 0.4s;
 }
-.loading .cubeGrid .cube4 {
+.loadingbox .cubeGrid .cube4 {
   animation-delay: 0.1s;
 }
-.loading .cubeGrid .cube5 {
+.loadingbox .cubeGrid .cube5 {
   animation-delay: 0.2s;
 }
-.loading .cubeGrid .cube6 {
+.loadingbox .cubeGrid .cube6 {
   animation-delay: 0.3s;
 }
-.loading .cubeGrid .cube7 {
+.loadingbox .cubeGrid .cube7 {
   animation-delay: 0s;
 }
-.loading .cubeGrid .cube8 {
+.loadingbox .cubeGrid .cube8 {
   animation-delay: 0.1s;
 }
-.loading .cubeGrid .cube9 {
+.loadingbox .cubeGrid .cube9 {
   animation-delay: 0.2s;
 }
 @keyframes cubeGridScaleDelay {
@@ -157,22 +184,49 @@
     transform: scale3D(0, 0, 1);
   }
 }
-.loading .loadingCalcBox {
+.loadingbox .loadingCalcBox {
   font-size: 48px;
   color: #ffffff;
   text-align: center;
   line-height: 100px;
+  font-weight: bold;
 }
-.loading .loadingCalcBox .loadingBar {
+.loadingbox .loadingCalcBox .loadingBar {
   width: 306px;
   height: 36px;
   border: 3px solid rgb(73, 67, 67);
   border-radius: 5px;
   margin: auto;
 }
-.loading .loadingCalcBox .loadingBar .loadingBarColor {
+.loadingbox .loadingCalcBox .loadingBar .loadingBarColor {
   width: 0px;
   height: 30px;
   background-color: rgb(255, 86, 86);
   border-radius: 2px;
+}
+
+@media (max-width: 1025px) {
+  .loading .loadingbox .cubeGrid {
+    width: 250px;
+    height: 100px;
+  }
+  .loading .loadingbox .cubeGrid .cube {
+    width: 30%;
+    height: 30%;
+  }
+  .loading .loadingbox .loadingCalcBox {
+    font-size: 32px;
+  }
+}
+@media (max-width: 376px) {
+  .loading .loadingbox .cubeGrid {
+    width: 200px;
+    height: 80px;
+  }
+  .loading .loadingbox .loadingCalcBox {
+    font-size: 24px;
+  }
+  .loading .loadingbox .loadingCalcBox .loadingBar {
+    width: 250px;
+  }
 }/*# sourceMappingURL=move8thfloor.css.map */
