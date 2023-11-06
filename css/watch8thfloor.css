@@ -444,16 +444,7 @@ canvas {
   transform: translate(-50%, -50%);
   background-color: #608cb1;
   z-index: 10;
-  animation: fadein 6s;
   opacity: 1;
-}
-@keyframes fadein {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
 }
 .loading .loadingbox {
   width: 100%;
