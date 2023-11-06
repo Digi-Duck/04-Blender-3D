@@ -10,7 +10,7 @@
 }
 
 .logo {
-  width: 200px !important;
+  width: 200px;
   animation: logo 0.8s infinite;
   position: absolute;
   top: 30px;
@@ -19,12 +19,12 @@
 
 @media (max-width: 1024px) {
   .logo {
-    width: 180px !important;
+    width: 180px;
   }
 }
 @media (max-width: 768px) {
   .logo {
-    width: 150px !important;
+    width: 150px;
   }
 }
 .leaveBtn {
@@ -50,6 +50,7 @@
   }
 }
 #startBtn {
+  width: 400px;
   position: absolute;
   top: 50%;
   left: 50%;
