@@ -70,7 +70,7 @@ a:visited {
 .closeBtnObjView {
   width: 40px;
   height: 40px;
-  background-image: url(../img/close.png);
+  background-image: url(../img/classroom/close.png);
   color: white;
   cursor: pointer;
   background-repeat: no-repeat;
@@ -83,7 +83,7 @@ a:visited {
 }
 
 .closeBtnObjView:hover {
-  background-image: url(../img/cross.png);
+  background-image: url(../img/classroom/cross.png);
 }
 
 .objInfo-BIG {
@@ -294,8 +294,7 @@ canvas {
 .logo img {
   width: 200px;
   overflow: hidden;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 @media (max-width: 1024px) {
