@@ -526,7 +526,7 @@ canvas {
 .loading .loadingbox .loadingCalcBox .loadingBar .loadingBarColor {
   width: 0px;
   height: 30px;
-  background-color: rgb(255, 100, 100);
+  background-color: #F9DC5C;
   border-radius: 2px;
 }
 
