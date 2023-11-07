@@ -187,8 +187,9 @@
     dracoLoader.setDecoderPath('/examples/jsm/libs/draco/');
     planeLoader.setDRACOLoader(dracoLoader);
     planeLoader.load(
-      './models/1031PlaneCubehover.glb',
+      './models/1107PlaneCubehover.glb',
       function (gltf) {
+        console.log(gltf.scene.children);
         scene.add(gltf.scene);
 
         // 第二渲染
@@ -243,8 +244,8 @@
         RoomZeroDIV.className = 'label';
         RoomZeroDIV.textContent = '810教室';
         const RoomZeroLabel = new CSS2DObject(RoomZeroDIV);
-        RoomZeroLabel.position.set(0, 0.5, 0);
-        gltf.scene.children[0].add(RoomZeroLabel);
+        RoomZeroLabel.position.set(0, 1.5, 0);
+        gltf.scene.children[9].add(RoomZeroLabel);
         RoomZeroDIV.style.pointerEvents = 'auto';
         RoomZeroDIV.addEventListener('click', () => {
           OBJscene.clear();
@@ -276,8 +277,8 @@
         RoomOneDIV.className = 'label';
         RoomOneDIV.textContent = '815舞蹈教室';
         const RoomOneLabel = new CSS2DObject(RoomOneDIV);
-        RoomOneLabel.position.set(0, 0.5, 0);
-        gltf.scene.children[1].add(RoomOneLabel);
+        RoomOneLabel.position.set(0, 1.5, 0);
+        gltf.scene.children[7].add(RoomOneLabel);
         RoomOneDIV.style.pointerEvents = 'auto';
         RoomOneDIV.addEventListener('click', () => {
           OBJscene.clear();
@@ -311,8 +312,8 @@
         RoomTwoDIV.className = 'label';
         RoomTwoDIV.textContent = '813烘焙教室';
         const RoomTwoLabel = new CSS2DObject(RoomTwoDIV);
-        RoomTwoLabel.position.set(0, 0.5, 0);
-        gltf.scene.children[2].add(RoomTwoLabel);
+        RoomTwoLabel.position.set(0, 1.5, 0);
+        gltf.scene.children[5].add(RoomTwoLabel);
         RoomTwoDIV.style.pointerEvents = 'auto';
         RoomTwoDIV.addEventListener('click', () => {
           OBJscene.clear();
@@ -345,7 +346,7 @@
         RoomThreeDIV.className = 'label';
         RoomThreeDIV.textContent = '814飛輪教室';
         const RoomThreeLabel = new CSS2DObject(RoomThreeDIV);
-        RoomThreeLabel.position.set(0, 0.5, 0);
+        RoomThreeLabel.position.set(0, 1.5, 0);
         gltf.scene.children[3].add(RoomThreeLabel);
         RoomThreeDIV.style.pointerEvents = 'auto';
         RoomThreeDIV.addEventListener('click', () => {
@@ -378,8 +379,8 @@
         RoomFourDIV.className = 'label';
         RoomFourDIV.textContent = '811手作教室';
         const RoomFourLabel = new CSS2DObject(RoomFourDIV);
-        RoomFourLabel.position.set(0, 0.5, 0);
-        gltf.scene.children[4].add(RoomFourLabel);
+        RoomFourLabel.position.set(0, 1.5, 0);
+        gltf.scene.children[1].add(RoomFourLabel);
         RoomFourDIV.style.pointerEvents = 'auto';
         RoomFourDIV.addEventListener('click', () => {
           OBJscene.clear();
@@ -402,8 +403,8 @@
         RoomFiveDIV.className = 'label';
         RoomFiveDIV.textContent = '812手作教室';
         const RoomFiveLabel = new CSS2DObject(RoomFiveDIV);
-        RoomFiveLabel.position.set(0, 0.5, 0);
-        gltf.scene.children[5].add(RoomFiveLabel);
+        RoomFiveLabel.position.set(0, 1.5, 0);
+        gltf.scene.children[2].add(RoomFiveLabel);
         RoomFiveDIV.style.pointerEvents = 'auto';
         RoomFiveDIV.addEventListener('click', () => {
           OBJscene.clear();
@@ -436,8 +437,8 @@
         RoomSixDIV.className = 'label';
         RoomSixDIV.textContent = '818物聯網教室';
         const RoomSixLabel = new CSS2DObject(RoomSixDIV);
-        RoomSixLabel.position.set(0, 0.5, 0);
-        gltf.scene.children[37].add(RoomSixLabel);
+        RoomSixLabel.position.set(0, 1.5, 0);
+        gltf.scene.children[52].add(RoomSixLabel);
         RoomSixDIV.style.pointerEvents = 'auto';
         RoomSixDIV.addEventListener('click', () => {
           OBJscene.clear();
@@ -485,13 +486,13 @@
               gltf.scene.children[cubeValve].visible = true
             }
           }
-          cubeHover(0, 34);
-          cubeHover(1, 18);
-          cubeHover(2, 17);
-          cubeHover(3, 33);
-          cubeHover(4, 32);
-          cubeHover(5, 16);
-          cubeHover(37, 19);
+          cubeHover(1, 47);
+          cubeHover(2, 46);
+          cubeHover(3, 45);
+          cubeHover(5, 49);
+          cubeHover(7, 50);
+          cubeHover(9, 48);
+          cubeHover(52, 51);
         }
         // resetSetting用於RWD
         function resetSetting() {
