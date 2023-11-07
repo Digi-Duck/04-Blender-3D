@@ -189,7 +189,6 @@
     planeLoader.load(
       './models/1107PlaneCubehover.glb',
       function (gltf) {
-        console.log(gltf.scene.children);
         scene.add(gltf.scene);
 
         // 第二渲染
@@ -210,7 +209,8 @@
         hemispherelight.position.set(0, 30, 0);
         // 第二相機
         const OBJcamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
-        OBJcamera.position.set(1, 0.5, -6);
+        // OBJcamera.position.set(1, 0.5, -6);
+        OBJcamera.position.set(0.5, 0.05, 0);
         // 第二控制
         const OBJcontrols = new OrbitControls(OBJcamera, OBJrenderer.domElement);
 
@@ -223,14 +223,12 @@
           OBJDracoLoader.setDecoderPath('/examples/jsm/libs/draco/');
           OBJLoader.setDRACOLoader(OBJDracoLoader);
           OBJLoader.load(
-            './models/1031PlaneClassRoom.glb',
+            './models/1107PlaneClassRoom.glb',
             function (gltf) {
               OBJscene.add(gltf.scene.children[InfoViewValue]);
-              OBJscene.add(gltf.scene.children[6]);
             }
           );
         }
-
         function animate2() {
           requestAnimationFrame(animate2);
           OBJscene.rotation.y += 0.002;
@@ -318,7 +316,7 @@
         RoomTwoDIV.addEventListener('click', () => {
           OBJscene.clear();
           objView.classList.remove('hide');
-          InfoView(0);
+          InfoView(5);
           newobjInfo(3);
           document.addEventListener('click', (e) => {
             if (e.target.classList.contains('curriculumBtn')) {
@@ -352,7 +350,7 @@
         RoomThreeDIV.addEventListener('click', () => {
           OBJscene.clear();
           objView.classList.remove('hide');
-          InfoView(2);
+          InfoView(1);
           newobjInfo(5);
           document.addEventListener('click', (e) => {
             if (e.target.classList.contains('curriculumBtn')) {
@@ -385,7 +383,7 @@
         RoomFourDIV.addEventListener('click', () => {
           OBJscene.clear();
           objView.classList.remove('hide');
-          InfoView(1);
+          InfoView(6);
           newobjInfo(1);
           document.addEventListener('click', (e) => {
             if (e.target.classList.contains('curriculumBtn')) {
@@ -409,7 +407,7 @@
         RoomFiveDIV.addEventListener('click', () => {
           OBJscene.clear();
           objView.classList.remove('hide');
-          InfoView(5);
+          InfoView(2);
           newobjInfo(2);
           document.addEventListener('click', (e) => {
             if (e.target.classList.contains('curriculumBtn')) {
@@ -443,7 +441,7 @@
         RoomSixDIV.addEventListener('click', () => {
           OBJscene.clear();
           objView.classList.remove('hide');
-          InfoView(6);
+          InfoView(0);
           newobjInfo(6);
           document.addEventListener('click', (e) => {
             if (e.target.classList.contains('curriculumBtn')) {
