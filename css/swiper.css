@@ -9,8 +9,7 @@
   margin: auto;
   width: 60%;
   height: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   padding: 5%;
   border-radius: 120px;
 }

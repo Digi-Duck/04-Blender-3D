@@ -5,8 +5,7 @@
 
 .col img {
   overflow: hidden;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .logo {

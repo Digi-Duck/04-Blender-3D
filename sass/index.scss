@@ -233,7 +233,8 @@ a:visited {
 		.main-paragraph {
 			width: 55%;
 			padding: 10px;
-			text-align:left;
+			text-align: justify;
+			margin-left: 50px;
 			.main-title {
 				width: 100%;
 				letter-spacing: 10px;
@@ -287,6 +288,7 @@ a:visited {
 			}
 			.main-paragraph {
 				width: 100%;
+				margin-left: 0;
 				.main-title {
 					width: 100%;
 					text-align: center;
@@ -334,7 +336,7 @@ a:visited {
 	@media (max-width: 663px) {
 		.main {
 			.main-picture {
-				width: 400px;
+				width: 350px;
 				margin-bottom: 10px;
 			}
 			.main-paragraph {
@@ -607,22 +609,27 @@ a:visited {
 	}
 
 	.parallax-window {
-		min-height: 400px;
+		background-image: url(../img/index/parallax.png);
+		background-attachment: fixed;
+		background-repeat: no-repeat;
+		background-size: auto;
+		min-height: 500px;
 	}
-	@media (max-width: 1440px) {
+	@media (max-width: 968px) {
+		.parallax-window {
+			min-height: 400px;
+			background-position: center;
+		}
+	}
+	@media (max-width: 768px) {
 		.parallax-window {
 			min-height: 300px;
 		}
 	}
-	@media (max-width: 968px) {
+	@media (max-width: 540px) {
 		.parallax-window {
 			min-height: 200px;
-		}
-	}
-	@media (max-width: 760px) {
-		.parallax-window {
-			min-height: 150px;
-			background-position: center;
+			background-position: -440px;
 		}
 	}
 	.intro {
