@@ -40,7 +40,7 @@
 	<nav class="navbar navbar-expand-lg  position-absolute top-0">
 		<div class="container-fluid ">
 			<a class="col" href="index.html"><img class="logo" src="./img/LOGO(橫白透).png" alt=""></a>
-			<span class="esc-btn" >按ESC顯示滑鼠游標</span>
+			<span id="escBtn" class="esc-btn" >按ESC顯示滑鼠游標</span>
 		</div>
 	</nav>
 	<a class="leaveBtn" href="watch8thfloor.html"><img src="./img/move8thfloor/logout.png" alt=""></a>
@@ -91,6 +91,7 @@
 	<script>
 		const questionBtn = document.querySelector('.question');
 		const startBtn = document.querySelector('#startBtn');
+		const escBtn = document.querySelector('.escBtn');
 		function hidden() {
 			document.getElementById("container-md").classList.toggle('hide');
 
@@ -130,7 +131,7 @@
 		const GRAVITY = 30;
 		const STEPS_PER_FRAME = 5;
 		const worldOctree = new Octree();
-		const playerCollider = new Capsule(new THREE.Vector3(0, 0.35, 0), new THREE.Vector3(0, 2.2, 0), 0.35);
+		const playerCollider = new Capsule(new THREE.Vector3(0, 0.35, 0), new THREE.Vector3(0, 2.2, 0), 0.45);
 		const playerVelocity = new THREE.Vector3();
 		const playerDirection = new THREE.Vector3();
 		let playerOnFloor = false;
@@ -139,6 +140,14 @@
 
 
 		startBtn.addEventListener('mousedown', () => {
+			let timeRun = 3;
+			let timerA = setInterval(function () {
+				timeRun--;
+				if (timeRun <= 0) {
+					clearTimeout(timerA);
+					document.getElementById("escBtn").classList.add('hide');
+				}
+			}, 1000);
 			document.getElementById("startBtn").classList.add('hide');
 			document.getElementById("container-md").classList.add('hide');
 			document.body.requestPointerLock();
@@ -226,7 +235,7 @@
 		}
 
 		const loader = new GLTFLoader();
-		loader.load('./models/1103MoveCollision.glb', (gltf) => {
+		loader.load('./models/1107MoveCollision.glb', (gltf) => {
 			scene.add(gltf.scene);
 			worldOctree.fromGraphNode(gltf.scene);
 			gltf.scene.traverse(child => {
@@ -240,10 +249,85 @@
 			});
 			const planeLoader = new GLTFLoader();
 			planeLoader.load(
-				'./models/1103MoveView.glb',
+				'./models/1107MoveView.glb',
 				function (gltf) {
 					console.log(gltf.scene.children);
 					scene.add(gltf.scene);
+					// 815跳舞影片
+					const Dancingvideo = document.createElement('video');
+					Dancingvideo.src = './video/舞蹈教室.mp4';
+					Dancingvideo.crossOrigin = 'anonymous';
+					Dancingvideo.loop = true;
+					Dancingvideo.muted = true;
+					Dancingvideo.play();
+					const DancingvideoTexture = new THREE.VideoTexture(Dancingvideo);
+					DancingvideoTexture.colorSpace = THREE.SRGBColorSpace;
+					const Dancingmaterial = new THREE.MeshBasicMaterial( { map: DancingvideoTexture } );
+					const Dancinggeometry = new THREE.BoxGeometry( 0.25, 0.005, 0.14 );
+					const Dancingmesh = new THREE.Mesh( Dancinggeometry, Dancingmaterial );
+					Dancingmesh.position.set(0,0,0);
+					Dancingmesh.rotation.set(0,0,0);
+					gltf.scene.children[13].add(Dancingmesh);
+					// 813烘焙影片
+					const Bakingvideo = document.createElement('video');
+					Bakingvideo.src = './video/烘焙教室.mp4';
+					Bakingvideo.crossOrigin = 'anonymous';
+					Bakingvideo.loop = true;
+					Bakingvideo.muted = true;
+					Bakingvideo.play();
+					const BakingvideoTexture = new THREE.VideoTexture(Bakingvideo);
+					BakingvideoTexture.colorSpace = THREE.SRGBColorSpace;
+					const Bakingmaterial = new THREE.MeshBasicMaterial( { map: BakingvideoTexture } );
+					const Bakinggeometry = new THREE.BoxGeometry( 0.25, 0.005, 0.14 );
+					const Bakingmesh = new THREE.Mesh( Bakinggeometry, Bakingmaterial );
+					Bakingmesh.position.set(0,0,0);
+					Bakingmesh.rotation.set(0,0,0);
+					gltf.scene.children[12].add(Bakingmesh);
+					// 811手作影片
+					const DIYvideo = document.createElement('video');
+					DIYvideo.src = './video/手工教室.mp4';
+					DIYvideo.crossOrigin = 'anonymous';
+					DIYvideo.loop = true;
+					DIYvideo.muted = true;
+					DIYvideo.play();
+					const DIYvideoTexture = new THREE.VideoTexture(DIYvideo);
+					DIYvideoTexture.colorSpace = THREE.SRGBColorSpace;
+					const DIYmaterial = new THREE.MeshBasicMaterial( { map: DIYvideoTexture } );
+					const DIYgeometry = new THREE.BoxGeometry( 0.25, 0.005, 0.14 );
+					const DIYmesh = new THREE.Mesh( DIYgeometry, DIYmaterial );
+					DIYmesh.position.set(0,0,0);
+					DIYmesh.rotation.set(0,0,0);
+					gltf.scene.children[10].add(DIYmesh);
+					// 814飛輪影片
+					const Bikevideo = document.createElement('video');
+					Bikevideo.src = './video/飛輪教室.mp4';
+					Bikevideo.crossOrigin = 'anonymous';
+					Bikevideo.loop = true;
+					Bikevideo.muted = true;
+					Bikevideo.play();
+					const BikevideoTexture = new THREE.VideoTexture(Bikevideo);
+					BikevideoTexture.colorSpace = THREE.SRGBColorSpace;
+					const Bikematerial = new THREE.MeshBasicMaterial( { map: BikevideoTexture } );
+					const Bikegeometry = new THREE.BoxGeometry( 0.33, 0.005, 0.18 );
+					const Bikemesh = new THREE.Mesh( Bikegeometry, Bikematerial );
+					Bikemesh.position.set(0,0,0);
+					Bikemesh.rotation.set(0,0,3.14);
+					gltf.scene.children[11].add(Bikemesh);
+					// 走廊電視
+					var video = document.createElement('video');
+					video.src = './video/2023-11-06-perfect.mp4';
+					video.crossOrigin = 'anonymous';
+					video.loop = true;
+					video.muted = true;
+					video.play();
+					const videoTexture = new THREE.VideoTexture(video);
+					videoTexture.colorSpace = THREE.SRGBColorSpace;
+					const material = new THREE.MeshBasicMaterial( { map: videoTexture } );
+					const geometry = new THREE.BoxGeometry(0.43,0.005,0.23);
+					const mesh = new THREE.Mesh( geometry, material );
+					mesh.position.set(0,0,-0.09);
+					mesh.rotation.set(0,0,-1.57);
+					gltf.scene.children[7].add(mesh);
 				},
 				function (xhr) {
 					const loading = document.querySelector('.loading');

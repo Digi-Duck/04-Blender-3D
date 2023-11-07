@@ -189,6 +189,7 @@
     planeLoader.load(
       './models/1107PlaneCubehover.glb',
       function (gltf) {
+        console.log(gltf.scene.children);
         scene.add(gltf.scene);
 
         // 第二渲染
@@ -311,7 +312,7 @@
         RoomTwoDIV.textContent = '813烘焙教室';
         const RoomTwoLabel = new CSS2DObject(RoomTwoDIV);
         RoomTwoLabel.position.set(0, 1.5, 0);
-        gltf.scene.children[5].add(RoomTwoLabel);
+        gltf.scene.children[6].add(RoomTwoLabel);
         RoomTwoDIV.style.pointerEvents = 'auto';
         RoomTwoDIV.addEventListener('click', () => {
           OBJscene.clear();
@@ -487,7 +488,7 @@
           cubeHover(1, 47);
           cubeHover(2, 46);
           cubeHover(3, 45);
-          cubeHover(5, 49);
+          cubeHover(6, 49);
           cubeHover(7, 50);
           cubeHover(9, 48);
           cubeHover(52, 51);
