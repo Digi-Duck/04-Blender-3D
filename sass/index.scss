@@ -615,20 +615,20 @@ a:visited {
 	@media (max-width: 968px) {
 		.parallax-window {
 			min-height: 400px;
+			background-image: url(../img/index/Phone-02.png);
+			background-size: cover;
 			background-position: center;
 		}
 	}
 	@media (max-width: 768px) {
 		.parallax-window {
-			
 			min-height: 300px;
 		}
 	}
 	@media (max-width: 540px) {
 		.parallax-window {
 			min-height: 200px;
-			background-image: url(../img/index/Phone-02.png);
-			background-size: cover;
+			
 		}
 	}
 	.intro {

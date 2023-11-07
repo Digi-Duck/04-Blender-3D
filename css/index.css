@@ -553,6 +553,8 @@ a:visited {
 @media (max-width: 968px) {
   .container .parallax-window {
     min-height: 400px;
+    background-image: url(../img/index/Phone-02.png);
+    background-size: cover;
     background-position: center;
   }
 }
@@ -564,8 +566,6 @@ a:visited {
 @media (max-width: 540px) {
   .container .parallax-window {
     min-height: 200px;
-    background-image: url(../img/index/Phone-02.png);
-    background-size: cover;
   }
 }
 .container .intro {
