@@ -233,13 +233,14 @@ a:visited {
 		.main-paragraph {
 			width: 55%;
 			padding: 10px;
-			text-align: center;
+			text-align:left;
 			.main-title {
 				width: 100%;
 				letter-spacing: 10px;
 				font-size: 30px;
 				color: #fff;
 				padding: 5px;
+				font-weight: bold;
 			}
 			.main-article {
 				span {
