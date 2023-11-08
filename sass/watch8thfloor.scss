@@ -480,10 +480,7 @@ canvas {
 		align-items: center;
 		justify-content: center;
 	}
-	.closeBtnCurriculumInformation {
-		top: -65%;
-	}
-
+	
 	.objcurriculum {
 		transform: translate(-50%, -80%);
 	}
@@ -504,6 +501,11 @@ canvas {
 
 	}
 
+}
+@media (max-width: 426px) {
+	.closeBtnCurriculumInformation {
+		top: -65%;
+	}
 }
 
 

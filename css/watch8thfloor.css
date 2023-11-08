@@ -399,9 +399,6 @@ canvas {
     align-items: center;
     justify-content: center;
   }
-  .closeBtnCurriculumInformation {
-    top: -65%;
-  }
   .objcurriculum {
     transform: translate(-50%, -80%);
   }
@@ -417,6 +414,11 @@ canvas {
     background-color: #F9DC5C;
     display: block;
     cursor: pointer;
+  }
+}
+@media (max-width: 426px) {
+  .closeBtnCurriculumInformation {
+    top: -65%;
   }
 }
 @keyframes logo {
