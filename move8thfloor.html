@@ -131,7 +131,7 @@
 		const GRAVITY = 30;
 		const STEPS_PER_FRAME = 5;
 		const worldOctree = new Octree();
-		const playerCollider = new Capsule(new THREE.Vector3(0, 0.35, 0), new THREE.Vector3(0, 2.2, 0), 0.45);
+		const playerCollider = new Capsule(new THREE.Vector3(0, 0.35, 0), new THREE.Vector3(0, 2.2, 0), 0.55);
 		const playerVelocity = new THREE.Vector3();
 		const playerDirection = new THREE.Vector3();
 		let playerOnFloor = false;
@@ -361,8 +361,8 @@
 		function teleportPlayerIfOob() {
 			if (camera.position.y <= - 25) {
 				playerCollider.start.set(0, 0.35, 0);
-				playerCollider.end.set(0, 1, 0);
-				playerCollider.radius = 0.35;
+				playerCollider.end.set(0, 2.2, 0);
+				playerCollider.radius = 0.55;
 				camera.position.copy(playerCollider.end);
 				camera.rotation.set(0, 0, 0);
 			}
