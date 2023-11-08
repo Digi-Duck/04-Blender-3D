@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   box-sizing: border-box;
 }
@@ -465,7 +464,7 @@ canvas {
 .loading .loadingbox .cubeGrid {
   width: 350px;
   height: 100px;
-  background-image: url(../img/LOGO\(橫白透\).png);
+  background-image: url(../img/LOGO.png);
   background-repeat: no-repeat;
   background-size: contain;
   margin: 0;
@@ -529,7 +528,7 @@ canvas {
 .loading .loadingbox .loadingCalcBox .loadingBar .loadingBarColor {
   width: 0px;
   height: 30px;
-  background-color: rgb(255, 100, 100);
+  background-color: #F9DC5C;
   border-radius: 2px;
 }
 
