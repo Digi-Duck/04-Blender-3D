@@ -417,7 +417,7 @@ canvas {
 }
 @media (max-width: 426px) {
   .closeBtnCurriculumInformation {
-    top: -65%;
+    top: -55%;
   }
 }
 @keyframes logo {
